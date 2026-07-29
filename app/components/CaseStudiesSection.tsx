@@ -12,6 +12,7 @@ import stocklink from '@/public/images/stocklink.png';
 import facilitadordocente from '@/public/images/facilitadordocente.png';
 import nynBoda from '@/public/images/nyn-boda.png';
 import bymBoda from '@/public/images/bym-boda.png';
+import rolexReimagined from '@/public/images/rolex-reimagined.png';
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -24,6 +25,12 @@ type CaseStudy = {
   href: string;
   image: StaticImageData;
   alt: string;
+  /**
+   * `client` is commissioned work. `concept` is speculative work that was never
+   * commissioned by the brand it depicts, and must stay visually distinct so it
+   * is never read as a client engagement.
+   */
+  variant?: 'client' | 'concept';
 };
 
 /** Ordered by development period, most recent first. */
@@ -51,6 +58,13 @@ const CASE_STUDIES: CaseStudy[] = [
     href: 'https://www.ahlersycastro.com/',
     image: stocklink,
     alt: 'Stocklink',
+  },
+  {
+    slug: 'rolex',
+    href: 'https://rolex-reimagined.vercel.app/',
+    image: rolexReimagined,
+    alt: 'Rolex Reimagined',
+    variant: 'concept',
   },
 ];
 
@@ -275,7 +289,10 @@ const CaseStudiesSection = forwardRef<HTMLElement>((props, ref) => {
 
         {/* Cases Container */}
         <div className="relative">
-          {CASE_STUDIES.map((caseStudy) => (
+          {CASE_STUDIES.map((caseStudy) => {
+            const isConcept = caseStudy.variant === 'concept';
+
+            return (
             <div key={caseStudy.slug} className="mb-32">
               <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
                 <Link href={caseStudy.href} target="_blank">
@@ -306,10 +323,20 @@ const CaseStudiesSection = forwardRef<HTMLElement>((props, ref) => {
                       {/* Content Side */}
                       <div className="case-content order-2 space-y-8 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="space-y-4">
-                          <div className="flex items-center gap-6">
-                            <div className="w-20 h-1 bg-gradient-to-r from-[#0B40FF] to-white rounded-full"></div>
-                            <span className="text-white/70 uppercase tracking-widest text-sm font-semibold">
-                              {t('caseLabel')}
+                          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                            <div
+                              className={`w-20 h-1 rounded-full ${isConcept
+                                ? 'bg-gradient-to-r from-amber-400 to-white'
+                                : 'bg-gradient-to-r from-[#0B40FF] to-white'
+                                }`}
+                            ></div>
+                            <span
+                              className={`uppercase tracking-widest text-sm font-semibold ${isConcept
+                                ? 'text-amber-300/90 border border-amber-300/30 rounded-full px-4 py-1'
+                                : 'text-white/70'
+                                }`}
+                            >
+                              {isConcept ? t('conceptLabel') : t('caseLabel')}
                             </span>
                             <span className="text-white/40 uppercase tracking-widest text-sm font-medium">
                               {t(`cases.${caseStudy.slug}.period`)}
@@ -325,6 +352,12 @@ const CaseStudiesSection = forwardRef<HTMLElement>((props, ref) => {
                           <p className="text-xl text-white/80 leading-relaxed max-w-4xl">
                             {t(`cases.${caseStudy.slug}.description`)}
                           </p>
+
+                          {isConcept && (
+                            <p className="text-sm text-white/45 leading-relaxed max-w-4xl border-l-2 border-amber-300/30 pl-4">
+                              {t(`cases.${caseStudy.slug}.disclaimer`)}
+                            </p>
+                          )}
                         </div>
 
                         {/* Challenge & Impact */}
@@ -373,7 +406,8 @@ const CaseStudiesSection = forwardRef<HTMLElement>((props, ref) => {
                 </Link>
               </div>
             </div>
-          ))}
+            );
+          })}
 
         </div>
       </div>

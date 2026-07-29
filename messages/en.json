@@ -126,11 +126,27 @@
           "Efficiency",
           "Automation"
         ]
+      },
+      "rolex": {
+        "title": "Rolex Reimagined · Concept redesign",
+        "description": "A speculative redesign of a watchmaking maison's web experience, built as a technical exploration in animation, video, and page transitions.",
+        "disclaimer": "Concept project, not commissioned by Rolex. Bit-A has no commercial relationship with the brand; all trademarks and names belong to their respective owners.",
+        "challenge": "The challenge",
+        "challengeDescription": "Hold the level of detail and visual pacing a luxury brand demands, without giving up mobile smoothness or load speed.",
+        "impact": "What we explored",
+        "impactDescription": "• Page transitions with the View Transitions API\n• Text and gallery animation with GSAP and SplitText\n• Hero video served in two cuts depending on device\n• Custom animated navigation and mobile menu",
+        "period": "June 2025",
+        "tags": [
+          "Luxury",
+          "Animation",
+          "Concept"
+        ]
       }
     },
     "cta": "Request free diagnosis",
     "visitWebsite": "Visit website",
-    "caseLabel": "Case study"
+    "caseLabel": "Case study",
+    "conceptLabel": "Concept project"
   },
   "LeadMagnet": {
     "title": "Mail mini-course:",
