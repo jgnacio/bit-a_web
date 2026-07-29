@@ -71,33 +71,66 @@
     "subtitle": "Results that speak for themselves",
     "viewMore": "View more cases",
     "cases": {
+      "facilitadordocente": {
+        "title": "Facilitador Docente · AI-powered EdTech",
+        "description": "A SaaS platform that reads Uruguay's official ANEP curriculum, knows each student, and plans alongside the teacher. Full product: landing, app, and AI engine.",
+        "challenge": "The challenge",
+        "challengeDescription": "Over 60% of teachers spend more than 5 hours a week planning by hand, with no tools aligned to the EBI curriculum framework and no support for multi-grade classrooms.",
+        "impact": "Impact",
+        "impactDescription": "• EBI lesson plans aligned to competencies and achievement criteria\n• Curricular adaptations and multi-grade support\n• AI assistant trained on official ANEP documents\n• Subscriptions via Mercado Pago Uruguay",
+        "period": "2026 — Ongoing",
+        "tags": [
+          "Education",
+          "Artificial Intelligence",
+          "SaaS"
+        ]
+      },
+      "nyn": {
+        "title": "Ignacio & Nicol · Wedding invitation",
+        "description": "Digital invitation for the October 24, 2026 wedding, with RSVP, a collaborative photo gallery, and a gift registry.",
+        "challenge": "The challenge",
+        "challengeDescription": "Replace the paper invitation with a digital experience guests could use straight from their phones, with nothing to install and no account to create.",
+        "impact": "Impact",
+        "impactDescription": "• Online RSVP\n• Gallery with photos uploaded by guests themselves\n• Gift registry with guided contributions\n• Countdown and save the date",
+        "period": "July 2026",
+        "tags": [
+          "Digital invitation",
+          "RSVP",
+          "Collaborative gallery"
+        ]
+      },
+      "bym": {
+        "title": "Barbi & Mauro · Wedding invitation",
+        "description": "Digital invitation for the September 12, 2026 wedding, built as a static site so it loads instantly on any connection.",
+        "challenge": "The challenge",
+        "challengeDescription": "Deliver an editorial-grade piece, with photography and music, that still opened instantly on guests' phones over limited connections.",
+        "impact": "Impact",
+        "impactDescription": "• Blazing-fast static site built with Astro\n• RSVP and gift registry\n• Masonry gallery and ambient music\n• Venues with one-tap access to maps",
+        "period": "June 2026",
+        "tags": [
+          "Digital invitation",
+          "Astro",
+          "Performance"
+        ]
+      },
       "stocklink": {
         "title": "Stocklink · Retail & Distribution",
         "description": "We transformed traditional distribution operations into intelligent systems that eliminate errors and maximize profitability.",
         "challenge": "The challenge",
         "challengeDescription": "Distributors depended on spreadsheets and phone calls, causing stock shortages and lost sales.",
         "impact": "Impact",
-        "impactDescription": "• 70% less inventory errors\n• Predictive restocking system\n• Self-managed sales"
-      },
-      "herreria": {
-        "title": "Herrería FC · Premium Metalworks",
-        "description": "We elevated the digital presence of premium artisans, creating web experiences that reflect the exceptional quality of their craftsmanship.",
-        "challenge": "The challenge",
-        "challengeDescription": "They relied only on instagram; without a professional website they couldn't convince high-value clients.",
-        "impact": "Impact",
-        "impactDescription": "• Premium image from first click\n• Constant flow of online inquiries\n• Higher value quotes"
-      },
-      "urusportsummit": {
-        "title": "UrusportSummit 2026 · Event Website",
-        "description": "We developed the complete digital presence for premium sports events, from strategic conception to flawless technical execution.",
-        "challenge": "The challenge",
-        "challengeDescription": "Create a complete website from scratch for a premium sports event, with strategic planning, target audience definition and advanced optimizations.",
-        "impact": "Impact",
-        "impactDescription": "• Complete website built from scratch\n• Premium SEO and performance optimization\n• Excellent web accessibility\n• Exceptional user experience"
+        "impactDescription": "• 70% less inventory errors\n• Predictive restocking system\n• Self-managed sales",
+        "period": "2025",
+        "tags": [
+          "Distribution",
+          "Efficiency",
+          "Automation"
+        ]
       }
     },
     "cta": "Request free diagnosis",
-    "visitWebsite": "Visit website"
+    "visitWebsite": "Visit website",
+    "caseLabel": "Case study"
   },
   "LeadMagnet": {
     "title": "Mail mini-course:",

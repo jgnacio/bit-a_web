@@ -71,33 +71,66 @@
     "subtitle": "Resultados que hablan por sí solos",
     "viewMore": "Ver más casos",
     "cases": {
+      "facilitadordocente": {
+        "title": "Facilitador Docente · EdTech con IA",
+        "description": "Plataforma SaaS que lee el currículo oficial de ANEP, conoce a los alumnos y planifica junto al docente. Producto completo: landing, aplicación y motor de IA.",
+        "challenge": "El reto",
+        "challengeDescription": "Más del 60% de los docentes dedica más de 5 horas semanales a planificar a mano, sin herramientas alineadas al marco curricular EBI ni soporte para aulas multigrado.",
+        "impact": "Impacto",
+        "impactDescription": "• Planificaciones EBI alineadas a competencias y criterios de logro\n• Adaptaciones curriculares y soporte multigrado\n• Asistente IA entrenado con documentos oficiales de ANEP\n• Suscripciones con Mercado Pago Uruguay",
+        "period": "2026 — En curso",
+        "tags": [
+          "Educación",
+          "Inteligencia Artificial",
+          "SaaS"
+        ]
+      },
+      "nyn": {
+        "title": "Ignacio & Nicol · Invitación de boda",
+        "description": "Invitación digital para el casamiento del 24 de octubre de 2026, con confirmación de asistencia, galería colaborativa y lista de regalos.",
+        "challenge": "El reto",
+        "challengeDescription": "Reemplazar la invitación en papel por una experiencia digital que los invitados pudieran usar desde el celular, sin instalar nada ni crear una cuenta.",
+        "impact": "Impacto",
+        "impactDescription": "• Confirmación de asistencia online\n• Galería con fotos subidas por los propios invitados\n• Lista de regalos con aporte guiado\n• Cuenta regresiva y save the date",
+        "period": "Julio 2026",
+        "tags": [
+          "Invitación digital",
+          "RSVP",
+          "Galería colaborativa"
+        ]
+      },
+      "bym": {
+        "title": "Barbi & Mauro · Invitación de boda",
+        "description": "Invitación digital para el casamiento del 12 de septiembre de 2026, construida como sitio estático para cargar al instante desde cualquier conexión.",
+        "challenge": "El reto",
+        "challengeDescription": "Lograr una pieza de estética editorial, con fotografía y música, que igual abriera al instante en el celular de invitados con conexión limitada.",
+        "impact": "Impacto",
+        "impactDescription": "• Sitio estático ultrarrápido en Astro\n• Confirmación de asistencia y lista de regalos\n• Galería masonry y música ambiente\n• Ubicaciones con acceso directo a mapas",
+        "period": "Junio 2026",
+        "tags": [
+          "Invitación digital",
+          "Astro",
+          "Performance"
+        ]
+      },
       "stocklink": {
         "title": "Stocklink · Retail & Distribución",
         "description": "Transformamos operaciones de distribución tradicionales en sistemas inteligentes que eliminan errores y maximizan rentabilidad.",
         "challenge": "El reto",
         "challengeDescription": "Las distribuidoras dependían de hojas de cálculo y llamadas telefónicas, provocando quiebres de stock y ventas perdidas.",
         "impact": "Impacto",
-        "impactDescription": "• 70% menos errores de inventario\n• Sistema de reposición predictiva\n• Venta autoadministrada"
-      },
-      "herreria": {
-        "title": "Herrería FC · Metalworks premium",
-        "description": "Elevamos la presencia digital de artesanos premium, creando experiencias web que reflejan la calidad excepcional de su trabajo.",
-        "challenge": "El reto",
-        "challengeDescription": "Dependían solo de instagram; sin sitio web profesional no lograban convencer a clientes de alto valor.",
-        "impact": "Impacto",
-        "impactDescription": "• Mágen premium desde el primer clic\n• Flujo constante de consultas online\n• Cotizaciones de mayor valor"
-      },
-      "urusportsummit": {
-        "title": "UrusportSummit 2026 · Event Website",
-        "description": "Desarrollamos la presencia digital completa para eventos deportivos premium, desde la concepción estratégica hasta la ejecución técnica impecable.",
-        "challenge": "El reto",
-        "challengeDescription": "Crear una página web desde cero para un evento deportivo premium, con planificación estratégica, definición de público objetivo y optimizaciones avanzadas.",
-        "impact": "Impacto",
-        "impactDescription": "• Página web completa desde cero\n• Optimización SEO y performance premium\n• Excelente accesibilidad web\n• Experiencia de usuario excepcional"
+        "impactDescription": "• 70% menos errores de inventario\n• Sistema de reposición predictiva\n• Venta autoadministrada",
+        "period": "2025",
+        "tags": [
+          "Distribución",
+          "Eficiencia",
+          "Automatización"
+        ]
       }
     },
     "cta": "Solicita diagnóstico gratis",
-    "visitWebsite": "Visitar sitio web"
+    "visitWebsite": "Visitar sitio web",
+    "caseLabel": "Caso de estudio"
   },
   "LeadMagnet": {
     "title": "Mini-curso por correo:",

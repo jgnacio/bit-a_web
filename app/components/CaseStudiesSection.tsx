@@ -5,16 +5,54 @@ import { useTranslations } from 'next-intl';
 import AnimatedTitle from './AnimatedTitle';
 import CTAButton from './CTAButton';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import stocklink from '@/public/images/stocklink.png';
-import urusportsummit from '@/public/images/urusportsummit2026.png';
+import facilitadordocente from '@/public/images/facilitadordocente.png';
+import nynBoda from '@/public/images/nyn-boda.png';
+import bymBoda from '@/public/images/bym-boda.png';
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+type CaseStudy = {
+  /** i18n key under `CaseStudies.cases` — title, description, challenge, impact, tags, period */
+  slug: string;
+  href: string;
+  image: StaticImageData;
+  alt: string;
+};
+
+/** Ordered by development period, most recent first. */
+const CASE_STUDIES: CaseStudy[] = [
+  {
+    slug: 'facilitadordocente',
+    href: 'https://www.facilitadordocente.com',
+    image: facilitadordocente,
+    alt: 'Facilitador Docente',
+  },
+  {
+    slug: 'nyn',
+    href: 'https://nyn-boda.vercel.app',
+    image: nynBoda,
+    alt: 'Ignacio & Nicol',
+  },
+  {
+    slug: 'bym',
+    href: 'https://boda-myb.vercel.app',
+    image: bymBoda,
+    alt: 'Barbi & Mauro',
+  },
+  {
+    slug: 'stocklink',
+    href: 'https://www.ahlersycastro.com/',
+    image: stocklink,
+    alt: 'Stocklink',
+  },
+];
 
 const CaseStudiesSection = forwardRef<HTMLElement>((props, ref) => {
   const t = useTranslations('CaseStudies');
@@ -237,199 +275,106 @@ const CaseStudiesSection = forwardRef<HTMLElement>((props, ref) => {
 
         {/* Cases Container */}
         <div className="relative">
-          {/* Case 1 - Stocklink */}
-          <div className="mb-32">
-            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-              <Link href="https://www.ahlersycastro.com/" target="_blank">
-                <div
-                  ref={addToRefs}
-                  className="group relative cursor-pointer transform-gpu"
-                >
-                  {/* Background gradient */}
-                  <div className="absolute -inset-12 bg-gradient-to-r from-[#0B40FF]/10 via-transparent to-[#0B40FF]/5 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+          {CASE_STUDIES.map((caseStudy) => (
+            <div key={caseStudy.slug} className="mb-32">
+              <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Link href={caseStudy.href} target="_blank">
+                  <div
+                    ref={addToRefs}
+                    className="group relative cursor-pointer transform-gpu"
+                  >
+                    {/* Background gradient */}
+                    <div className="absolute -inset-12 bg-gradient-to-r from-[#0B40FF]/10 via-transparent to-[#0B40FF]/5 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
-                  <div className="relative flex flex-col gap-16 items-center min-h-[85vh] py-20">
-                    {/* Content Side */}
-                    <div className="case-content order-2 space-y-8 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-6">
-                          <div className="w-20 h-1 bg-gradient-to-r from-[#0B40FF] to-white rounded-full"></div>
-                          <span className="text-white/70 uppercase tracking-widest text-sm font-semibold">
-                            Caso de estudio
-                          </span>
+                    <div className="relative flex flex-col gap-16 items-center min-h-[85vh] py-20">
+                      {/* Image Side */}
+                      <div className="case-image order-1 relative w-full max-w-6xl">
+                        <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl transform-gpu border border-white/10">
+                          {/* Subtle overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
+
+                          <Image
+                            src={caseStudy.image}
+                            alt={caseStudy.alt}
+                            fill
+                            className="object-cover transform-gpu"
+                            sizes="(max-width: 768px) 100vw, 55vw"
+                          />
                         </div>
-
-                        <h3 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                          <span className="text-gradient bg-gradient-to-r from-[#0B40FF] via-white to-[#0B40FF] bg-clip-text text-transparent">
-                            {t('cases.stocklink.title')}
-                          </span>
-                        </h3>
-
-                        <p className="text-xl text-white/80 leading-relaxed max-w-4xl">
-                          {t('cases.stocklink.description')}
-                        </p>
                       </div>
 
-                      {/* Challenge & Impact */}
-                      <div className="grid md:grid-cols-2 gap-12 pt-6">
+                      {/* Content Side */}
+                      <div className="case-content order-2 space-y-8 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="space-y-4">
-                          <h4 className="text-lg font-semibold text-white flex items-center gap-2">
-                            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                            {t('cases.stocklink.challenge')}
-                          </h4>
-                          <p className="text-white/70 leading-relaxed">
-                            {t('cases.stocklink.challengeDescription')}
+                          <div className="flex items-center gap-6">
+                            <div className="w-20 h-1 bg-gradient-to-r from-[#0B40FF] to-white rounded-full"></div>
+                            <span className="text-white/70 uppercase tracking-widest text-sm font-semibold">
+                              {t('caseLabel')}
+                            </span>
+                            <span className="text-white/40 uppercase tracking-widest text-sm font-medium">
+                              {t(`cases.${caseStudy.slug}.period`)}
+                            </span>
+                          </div>
+
+                          <h3 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                            <span className="text-gradient bg-gradient-to-r from-[#0B40FF] via-white to-[#0B40FF] bg-clip-text text-transparent">
+                              {t(`cases.${caseStudy.slug}.title`)}
+                            </span>
+                          </h3>
+
+                          <p className="text-xl text-white/80 leading-relaxed max-w-4xl">
+                            {t(`cases.${caseStudy.slug}.description`)}
                           </p>
                         </div>
 
-                        <div className="space-y-4">
-                          <h4 className="text-lg font-semibold text-white flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                            {t('cases.stocklink.impact')}
-                          </h4>
-                          <p className="text-white/70 leading-relaxed">
-                            {t('cases.stocklink.impactDescription')}
-                          </p>
-                        </div>
-                      </div>
+                        {/* Challenge & Impact */}
+                        <div className="grid md:grid-cols-2 gap-12 pt-6">
+                          <div className="space-y-4">
+                            <h4 className="text-lg font-semibold text-white flex items-center gap-2">
+                              <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                              {t(`cases.${caseStudy.slug}.challenge`)}
+                            </h4>
+                            <p className="text-white/70 leading-relaxed whitespace-pre-line">
+                              {t(`cases.${caseStudy.slug}.challengeDescription`)}
+                            </p>
+                          </div>
 
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-4 pt-2">
-                        <span className="px-8 py-4 bg-gradient-to-r from-[#0B40FF]/15 to-[#0B40FF]/5 backdrop-blur-sm rounded-full text-white border border-white/30 font-medium hover:bg-[#0B40FF]/20 hover:border-[#0B40FF]/50 transition-all duration-500 hover:scale-105">
-                          Distribución
-                        </span>
-                        <span className="px-8 py-4 bg-gradient-to-r from-[#0B40FF]/10 to-transparent backdrop-blur-sm rounded-full text-white border border-white/20 font-medium hover:bg-[#0B40FF]/15 hover:border-[#0B40FF]/40 transition-all duration-500 hover:scale-105">
-                          Eficiencia
-                        </span>
-                        <span className="px-8 py-4 bg-gradient-to-r from-transparent to-[#0B40FF]/10 backdrop-blur-sm rounded-full text-white border border-white/20 font-medium hover:bg-[#0B40FF]/15 hover:border-[#0B40FF]/40 transition-all duration-500 hover:scale-105">
-                          Automatización
-                        </span>
-                      </div>
-
-                      <div className="pt-8">
-                        <CTAButton variant="glass" size="large" className="group-hover:scale-105 transition-transform duration-500 hover:shadow-2xl hover:shadow-[#0B40FF]/20">
-                          {t('visitWebsite')}
-                        </CTAButton>
-                      </div>
-                    </div>
-
-                    {/* Image Side */}
-                    <div className="case-image order-1 relative w-full max-w-6xl">
-                      <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl transform-gpu border border-white/10">
-                        {/* Subtle overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
-
-                        <Image
-                          src={stocklink}
-                          alt="Stocklink"
-                          fill
-                          className="object-cover transform-gpu"
-                          sizes="(max-width: 768px) 100vw, 55vw"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-
-          {/* Case 2 - UrusportSummit */}
-          <div className="mb-32">
-            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-              <Link href="https://urusportsummit.com/" target="_blank">
-                <div
-                  ref={addToRefs}
-                  className="group relative cursor-pointer transform-gpu"
-                >
-                  {/* Background gradient */}
-                  <div className="absolute -inset-12 bg-gradient-to-r from-[#0B40FF]/8 via-transparent to-black/5 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-
-                  <div className="relative flex flex-col gap-16 items-center min-h-[85vh] py-20">
-                    {/* Image Side - Left for this case */}
-                    <div className="case-image relative order-1 w-full max-w-6xl">
-                      <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl transform-gpu border border-white/10">
-                        {/* Subtle overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
-
-                        <Image
-                          src={urusportsummit}
-                          alt="UrusportSummit"
-                          fill
-                          className="object-cover transform-gpu"
-                          sizes="(max-width: 768px) 100vw, 55vw"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Content Side */}
-                    <div className="case-content order-2 space-y-8 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-6">
-                          <div className="w-20 h-1 bg-gradient-to-r from-[#0B40FF] to-white rounded-full"></div>
-                          <span className="text-white/70 uppercase tracking-widest text-sm font-semibold">
-                            Caso de estudio
-                          </span>
+                          <div className="space-y-4">
+                            <h4 className="text-lg font-semibold text-white flex items-center gap-2">
+                              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                              {t(`cases.${caseStudy.slug}.impact`)}
+                            </h4>
+                            <p className="text-white/70 leading-relaxed whitespace-pre-line">
+                              {t(`cases.${caseStudy.slug}.impactDescription`)}
+                            </p>
+                          </div>
                         </div>
 
-                        <h3 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                          <span className="text-gradient bg-gradient-to-r from-white via-[#0B40FF] to-white bg-clip-text text-transparent">
-                            {t('cases.urusportsummit.title')}
-                          </span>
-                        </h3>
-
-                        <p className="text-xl text-white/80 leading-relaxed max-w-4xl">
-                          {t('cases.urusportsummit.description')}
-                        </p>
-                      </div>
-
-                      {/* Challenge & Impact */}
-                      <div className="grid md:grid-cols-2 gap-12 pt-6">
-                        <div className="space-y-4">
-                          <h4 className="text-lg font-semibold text-white flex items-center gap-2">
-                            <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                            {t('cases.urusportsummit.challenge')}
-                          </h4>
-                          <p className="text-white/70 leading-relaxed">
-                            {t('cases.urusportsummit.challengeDescription')}
-                          </p>
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-4 pt-2">
+                          {t.raw(`cases.${caseStudy.slug}.tags`).map((tag: string) => (
+                            <span
+                              key={tag}
+                              className="px-8 py-4 bg-gradient-to-r from-[#0B40FF]/15 to-[#0B40FF]/5 backdrop-blur-sm rounded-full text-white border border-white/30 font-medium hover:bg-[#0B40FF]/20 hover:border-[#0B40FF]/50 transition-all duration-500 hover:scale-105"
+                            >
+                              {tag}
+                            </span>
+                          ))}
                         </div>
 
-                        <div className="space-y-4">
-                          <h4 className="text-lg font-semibold text-white flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                            {t('cases.urusportsummit.impact')}
-                          </h4>
-                          <p className="text-white/70 leading-relaxed">
-                            {t('cases.urusportsummit.impactDescription')}
-                          </p>
+                        <div className="pt-8">
+                          <CTAButton variant="glass" size="large" className="group-hover:scale-105 transition-transform duration-500 hover:shadow-2xl hover:shadow-[#0B40FF]/20">
+                            {t('visitWebsite')}
+                          </CTAButton>
                         </div>
-                      </div>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-4 pt-2">
-                        <span className="px-8 py-4 bg-gradient-to-r from-[#0B40FF]/20 to-[#0B40FF]/10 backdrop-blur-sm rounded-full text-white border border-[#0B40FF]/30 font-medium hover:bg-[#0B40FF]/30 hover:border-[#0B40FF]/60 transition-all duration-500 hover:scale-105">
-                          Eventos
-                        </span>
-                        <span className="px-8 py-4 bg-gradient-to-r from-[#0B40FF]/15 to-transparent backdrop-blur-sm rounded-full text-white border border-white/30 font-medium hover:bg-[#0B40FF]/20 hover:border-[#0B40FF]/50 transition-all duration-500 hover:scale-105">
-                          Performance
-                        </span>
-                        <span className="px-8 py-4 bg-gradient-to-r from-transparent to-[#0B40FF]/15 backdrop-blur-sm rounded-full text-white border border-white/30 font-medium hover:bg-[#0B40FF]/20 hover:border-[#0B40FF]/50 transition-all duration-500 hover:scale-105">
-                          Accesibilidad
-                        </span>
-                      </div>
-
-                      <div className="pt-8">
-                        <CTAButton variant="glass" size="large" className="group-hover:scale-105 transition-transform duration-500 hover:shadow-2xl hover:shadow-[#0B40FF]/20">
-                          {t('visitWebsite')}
-                        </CTAButton>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
-          </div>
+          ))}
+
         </div>
       </div>
     </section>
