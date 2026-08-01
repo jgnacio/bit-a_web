@@ -191,20 +191,22 @@ export default function RestaurantWebPage() {
         {/* Problems Section */}
         <GridItem start={2} end={12} className="relative">
           <section ref={problemsRef} className="py-20 px-6">
-            {/* Columna fija a la izquierda, lista a la derecha. La imagen deja
-                de ser adorno arriba de todo y pasa a sostener la columna
-                mientras se lee la lista. */}
+            {/* Dos columnas: título e imagen a la izquierda, lista a la derecha.
+                El título queda arriba para alinear con el primer ítem, y la
+                imagen se centra en el alto que sobra. */}
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1fr] gap-12 lg:gap-20">
-              <div className="lg:sticky lg:top-28 lg:self-start">
+              <div className="flex flex-col">
                 <h2 className="fade-in text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
                   {t('problems.title')}
                 </h2>
-                <RevealImage
-                  src="/images/restaurant/carta-papel.webp"
-                  alt=""
-                  ratio="4 / 3"
-                  className="fade-in"
-                />
+                <div className="lg:flex-1 lg:flex lg:items-center">
+                  <RevealImage
+                    src="/images/restaurant/carta-papel.webp"
+                    alt=""
+                    ratio="4 / 3"
+                    className="fade-in w-full"
+                  />
+                </div>
               </div>
 
               {/* Filetes en vez de tarjetas: la separación la hace una línea de

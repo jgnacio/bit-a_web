@@ -20,6 +20,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  // Sin esto, Next emite og:image con ruta relativa y ningún cliente
+  // (WhatsApp, Slack, Twitter) puede resolverla. Tiene que ser absoluta.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://bit-a.com"),
   title: "Bit-A | Boutique Digital de Branding y Tecnología de Alto Impacto",
   description: "Transformamos marcas audaces en leyendas digitales. Sitios de lujo que mueven corazones y métricas.",
   keywords: "branding digital, desarrollo web premium, e-commerce de lujo, automatización IA, Next.js, boutique digital",

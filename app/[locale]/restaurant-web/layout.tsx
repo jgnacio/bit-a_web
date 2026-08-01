@@ -8,19 +8,26 @@ export const metadata: Metadata = {
     title: "Webs para Restaurantes | Bit-A",
     description: "Tu restaurante ya funciona. Tu carta no tendría que ser una foto.",
     type: "website",
+    siteName: "Bit-A",
+    locale: "es_UY",
+    url: "/es/restaurant-web",
+    // JPG a propósito: el renderizador de vistas previas de WhatsApp no
+    // muestra WebP de forma confiable, aunque el navegador sí lo soporte.
     images: [
       {
-        url: "/images/restaurant-web-og.jpg",
+        url: "/images/restaurant/og-restaurant.jpg",
         width: 1200,
         height: 630,
-        alt: "Webs para Restaurantes - Bit-A"
+        type: "image/jpeg",
+        alt: "Webs para restaurantes — Bit-A"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Webs para Restaurantes | Bit-A",
-    description: "Tu restaurante ya funciona. Tu carta no tendría que ser una foto."
+    description: "Tu restaurante ya funciona. Tu carta no tendría que ser una foto.",
+    images: ["/images/restaurant/og-restaurant.jpg"]
   }
 };
 
