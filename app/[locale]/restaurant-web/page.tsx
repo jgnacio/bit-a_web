@@ -305,7 +305,7 @@ export default function RestaurantWebPage() {
 
         {/* Offer Section */}
         <GridItem span={12} className="relative">
-          <section ref={offerRef} className="py-20 px-6 bg-gradient-to-br from-white/5 to-transparent">
+          <section ref={offerRef} className="py-24 px-6 section-blend">
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <RevealImage
                 src="/images/restaurant/parrilla.webp"
@@ -386,7 +386,7 @@ export default function RestaurantWebPage() {
 
         {/* Pricing Section */}
         <GridItem span={12} className="relative">
-          <section ref={pricingRef} className="py-20 px-6 bg-gradient-to-br from-white/5 to-transparent">
+          <section ref={pricingRef} className="py-24 px-6 section-blend">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="fade-in text-3xl md:text-5xl font-bold text-white mb-8">
                 {t('pricing.title')}

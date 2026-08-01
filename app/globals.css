@@ -319,6 +319,32 @@
       0 0 30px rgba(248, 250, 252, 0.05);
   }
 
+  /* Aclara el centro de una sección sin dibujar sus límites.
+     Un `bg-gradient-to-br from-white/5` arranca con tono pleno en el borde
+     superior, y ese corte se ve. Acá el tono nace y muere en transparente,
+     así que la sección se funde con las vecinas en vez de recortarse. */
+  .section-blend {
+    position: relative;
+  }
+
+  .section-blend::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(255, 255, 255, 0.035) 32%,
+        rgba(255, 255, 255, 0.035) 68%,
+        transparent 100%);
+  }
+
+  .section-blend>* {
+    position: relative;
+    z-index: 1;
+  }
+
   /* Un anillo único que se expande hacia afuera al pasar el cursor.
      Se resuelve con un pseudo-elemento para que Button siga sin estado
      ni librería de animación: el hover reinicia la animación solo. */
