@@ -318,6 +318,48 @@
       0 0 20px rgba(248, 250, 252, 0.15),
       0 0 30px rgba(248, 250, 252, 0.05);
   }
+
+  /* Un anillo único que se expande hacia afuera al pasar el cursor.
+     Se resuelve con un pseudo-elemento para que Button siga sin estado
+     ni librería de animación: el hover reinicia la animación solo. */
+  .ring-pulse {
+    position: relative;
+  }
+
+  .ring-pulse::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .ring-pulse:hover::after,
+  .ring-pulse:focus-visible::after {
+    animation: ring-pulse-out 500ms ease-out;
+  }
+
+  @keyframes ring-pulse-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(1.15);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .ring-pulse:hover::after,
+    .ring-pulse:focus-visible::after {
+      animation: none;
+    }
+  }
 }
 
 @layer utilities {

@@ -4,7 +4,7 @@ import Button from './Button';
 interface CTAButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'glass';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'glass' | 'ring';
   size?: 'small' | 'medium' | 'large';
   className?: string;
   disabled?: boolean;
@@ -33,7 +33,8 @@ export default function CTAButton({
     secondary: 'secondary',
     outline: 'outline',
     ghost: 'ghost',
-    glass: 'glass'
+    glass: 'glass',
+    ring: 'ring'
   } as const;
   
   return (

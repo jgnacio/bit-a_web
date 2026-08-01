@@ -447,6 +447,255 @@
       "cta": "Book your discovery call now"
     }
   },
+  "RestaurantWeb": {
+    "hero": {
+      "title": "Your restaurant already works. Your menu shouldn't be a photo.",
+      "description": "In summer, the person deciding where to eat is on the road looking at their phone and has never heard of you. They find you on Google, check the menu and book. Or they drive past.",
+      "cta": "Let's talk for 20 minutes"
+    },
+    "problems": {
+      "title": "Sound familiar?",
+      "items": [
+        {
+          "title": "The menu is a photo",
+          "description": "A price changes and the image has to be remade. Until someone does, it's wrong."
+        },
+        {
+          "title": "The phone rings mid-service",
+          "description": "Some bookings make it to the notebook. Others get lost."
+        },
+        {
+          "title": "Someone else built your Google listing",
+          "description": "Photos you didn't pick, details you don't control."
+        },
+        {
+          "title": "Everything lives on Instagram",
+          "description": "People who aren't on it never see you. And last month's post is gone."
+        },
+        {
+          "title": "Groups get sorted out one by one",
+          "description": "The same information, repeated fifteen times over WhatsApp."
+        }
+      ]
+    },
+    "imagine": {
+      "title": "Now imagine you could...",
+      "items": [
+        {
+          "title": "Change a price in two minutes",
+          "description": "From your phone, without calling anyone."
+        },
+        {
+          "title": "Bookings arrive already structured",
+          "description": "Name, day, time and party size. Straight to your WhatsApp."
+        },
+        {
+          "title": "Google shows what you chose",
+          "description": "Your photos, your menu, your phone number."
+        },
+        {
+          "title": "The daily special travels as a link",
+          "description": "It doesn't sink down the feed."
+        },
+        {
+          "title": "Groups explain themselves",
+          "description": "One page with everything, and people write to you already informed."
+        }
+      ]
+    },
+    "offer": {
+      "title": "A site built for your restaurant, not a template",
+      "description": "At Bit-A we work with a handful of clients at a time, and every site is built around what that business actually needs. We sit down with you, look at how bookings come in today and how the menu gets handled, and build around that. No modules you'll never use.",
+      "cta": "Show me what it would look like"
+    },
+    "whatsIncluded": {
+      "title": "What's included?",
+      "items": {
+        "digitalMenu": {
+          "title": "A menu you update yourself",
+          "description": "Change prices, add dishes or mark something as sold out from your phone. No dependencies, no remaking images."
+        },
+        "whatsappBookings": {
+          "title": "Bookings straight to your WhatsApp",
+          "description": "The customer fills in day, time and party size, and the message arrives ready to read. Fewer calls mid-service."
+        },
+        "mobileFirst": {
+          "title": "Built for the phone",
+          "description": "Almost everyone will look at it on mobile, often on a weak signal by the road. So it's designed phone-first."
+        },
+        "localSeo": {
+          "title": "So Google finds you",
+          "description": "The site is connected to your Google Maps listing, so you show up when someone searches for a place to eat nearby."
+        },
+        "photos": {
+          "title": "Your photos, properly presented",
+          "description": "We sort and optimise the material you already have. If needed, we arrange a photo session of the venue and the dishes."
+        },
+        "training": {
+          "title": "We teach you to use it",
+          "description": "One session with you or whoever handles the menu, until they can do it alone. And you keep our WhatsApp in case you get stuck."
+        }
+      },
+      "cta": "Show me what it would look like"
+    },
+    "about": {
+      "title": "Who we are",
+      "description": "Bit-A is a small web development studio in Uruguay. We take on few projects at a time because each one is custom and hands-on: you always talk to the same person, the one who then writes the code. We're not an agency with account managers in between."
+    },
+    "pricing": {
+      "title": "How we work",
+      "description": "Fixed price agreed before we start. You know from day one what it costs and what it covers, with nothing appearing later.",
+      "items": [
+        "Fixed price agreed in writing before we begin. If the scope doesn't change, the price doesn't change.",
+        "Paid in two parts: half to start, half once the site is live and running.",
+        "Investment range for a restaurant: [FILL IN RANGE]. The proposal with the exact figure reaches you in writing after our first conversation.",
+        "Domain and hosting for the first year are included.",
+        "After the first year, maintenance is optional. If you don't want it, the site is still yours."
+      ],
+      "cta": "Send me a proposal"
+    },
+    "faqs": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How long does it take?",
+          "answer": "Two to four weeks from the moment we have the photos and the menu. If you need something running for the summer season, it's worth starting before October: in December, mid-season, nobody has time to look at a new site."
+        },
+        {
+          "question": "I already have Instagram and it works well. Why would I want a website?",
+          "answer": "Instagram works for people who already know and follow you. The site works for people who don't know you yet and are searching on Google. Two different audiences. It doesn't replace Instagram, it complements it, and it gives the menu and the bookings a permanent home."
+        },
+        {
+          "question": "I know nothing about computers. Will I still be able to manage it?",
+          "answer": "Yes. Changing a price means logging in, tapping the number and saving. It's simpler than posting a story. And we teach you in person until you can do it alone."
+        },
+        {
+          "question": "Do I have to pay every month?",
+          "answer": "Not the first year: domain and hosting are included. After that it's a small annual fee to keep the site online, and maintenance is optional."
+        },
+        {
+          "question": "My menu changes often because of inflation. Does that complicate things?",
+          "answer": "The opposite, it's the main reason to do this. Today, changing a price means remaking an image. With the site it's two minutes from your phone, as often as you need, at no extra cost."
+        },
+        {
+          "question": "Is the site registered in my name?",
+          "answer": "Yes. The domain is registered in your name and the site is yours. If one day you want to move it elsewhere, we hand it over with no fuss."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Let's talk, no strings attached",
+      "description": "Twenty minutes to look together at where you stand on Google today, how bookings reach you and what could be better. If no work comes out of it, you still keep the diagnosis.",
+      "cta": "Book a call"
+    },
+    "menuDemo": {
+      "label": "Sample",
+      "title": "This is what a menu you control looks like",
+      "description": "This isn't a photo. It's real text: readable on any screen, findable by Google, and a price takes two minutes to change.",
+      "hint": "Tap the menu to turn the page",
+      "updateButton": "Change a price",
+      "updatedNote": "Done. That fast, from your phone.",
+      "restaurant": "Sample restaurant",
+      "pages": [
+        {
+          "kicker": "Page 1 of 2",
+          "sections": [
+            {
+              "title": "To start",
+              "items": [
+                {
+                  "name": "Grilled provoleta",
+                  "price": "480"
+                },
+                {
+                  "name": "Criollo sausage",
+                  "price": "390"
+                },
+                {
+                  "name": "Beef empanadas (3)",
+                  "price": "420"
+                },
+                {
+                  "name": "Charcuterie board",
+                  "price": "890"
+                }
+              ]
+            },
+            {
+              "title": "From the grill",
+              "items": [
+                {
+                  "name": "Short ribs",
+                  "price": "980"
+                },
+                {
+                  "name": "Entrecôte",
+                  "price": "1,150"
+                },
+                {
+                  "name": "Skillet chicken",
+                  "price": "760"
+                },
+                {
+                  "name": "Mixed grill for two",
+                  "price": "1,980"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kicker": "Page 2 of 2",
+          "sections": [
+            {
+              "title": "Pasta and pizza",
+              "items": [
+                {
+                  "name": "Vegetable ravioli",
+                  "price": "690"
+                },
+                {
+                  "name": "Gnocchi with stew",
+                  "price": "710"
+                },
+                {
+                  "name": "Mozzarella pizza",
+                  "price": "620"
+                },
+                {
+                  "name": "Fugazzeta pizza",
+                  "price": "740"
+                }
+              ]
+            },
+            {
+              "title": "Desserts",
+              "items": [
+                {
+                  "name": "Flan with dulce de leche",
+                  "price": "320"
+                },
+                {
+                  "name": "Chajá",
+                  "price": "380"
+                },
+                {
+                  "name": "Artisan ice cream",
+                  "price": "290"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updatedPrices": {
+        "0-0-3": "950",
+        "0-1-0": "1,090",
+        "1-0-2": "680",
+        "1-1-1": "420"
+      }
+    }
+  },
   "LegalPages": {
     "privacyPolicy": {
       "title": "Privacy Policy",

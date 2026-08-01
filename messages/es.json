@@ -447,6 +447,255 @@
       "cta": "Agendá tu llamada de descubrimiento"
     }
   },
+  "RestaurantWeb": {
+    "hero": {
+      "title": "Tu restaurante ya funciona. Tu carta no tendría que ser una foto.",
+      "description": "En verano, el que decide dónde comer está en la ruta mirando el celular y no te conoce. Te encuentra en Google, mira la carta y reserva. O sigue de largo.",
+      "cta": "Charlemos 20 minutos"
+    },
+    "problems": {
+      "title": "¿Te suena familiar?",
+      "items": [
+        {
+          "title": "La carta es una foto",
+          "description": "Cambia un precio y hay que rehacer la imagen. Hasta que alguien la rehaga, está mal."
+        },
+        {
+          "title": "El teléfono suena en pleno servicio",
+          "description": "Algunas reservas se anotan en la libreta. Otras se pierden."
+        },
+        {
+          "title": "Tu ficha de Google la armó otro",
+          "description": "Fotos que no elegiste, datos que no controlás."
+        },
+        {
+          "title": "Todo vive en Instagram",
+          "description": "El que no lo tiene no te ve. Y lo de hace un mes ya no lo encuentra nadie."
+        },
+        {
+          "title": "Los grupos se coordinan de a uno",
+          "description": "La misma información, repetida quince veces por WhatsApp."
+        }
+      ]
+    },
+    "imagine": {
+      "title": "Ahora imaginate que pudieras...",
+      "items": [
+        {
+          "title": "Cambiás un precio en dos minutos",
+          "description": "Desde el celular, sin llamar a nadie."
+        },
+        {
+          "title": "Las reservas te llegan ordenadas",
+          "description": "Nombre, día, hora y cuántos son. Directo a tu WhatsApp."
+        },
+        {
+          "title": "Google muestra lo que elegiste vos",
+          "description": "Tus fotos, tu carta, tu teléfono."
+        },
+        {
+          "title": "El menú del día se comparte con un link",
+          "description": "No se pierde abajo en el feed."
+        },
+        {
+          "title": "Los grupos se explican solos",
+          "description": "Una página con todo, y te escriben ya sabiendo."
+        }
+      ]
+    },
+    "offer": {
+      "title": "Un sitio hecho para tu restaurante, no una plantilla",
+      "description": "En Bit-A trabajamos con pocos clientes a la vez y cada sitio se arma sobre lo que ese negocio realmente necesita. Nos sentamos con vos, miramos cómo entran hoy las reservas y cómo se maneja la carta, y construimos alrededor de eso. Nada de módulos que no vas a usar.",
+      "cta": "Quiero ver cómo sería"
+    },
+    "whatsIncluded": {
+      "title": "¿Qué incluye?",
+      "items": {
+        "digitalMenu": {
+          "title": "Carta digital que actualizás vos",
+          "description": "Cambiás precios, agregás platos o marcás algo como agotado desde el celular. Sin depender de nadie y sin rehacer ninguna imagen."
+        },
+        "whatsappBookings": {
+          "title": "Reservas directas a tu WhatsApp",
+          "description": "El cliente completa día, hora y cantidad de personas, y te llega el mensaje armado. Menos llamadas en medio del servicio."
+        },
+        "mobileFirst": {
+          "title": "Pensado para el celular",
+          "description": "Casi todos te van a mirar desde el teléfono, muchas veces con señal mala en la ruta. Por eso se diseña para el celular primero."
+        },
+        "localSeo": {
+          "title": "Que Google te encuentre",
+          "description": "Sitio conectado con tu ficha de Google Maps, para que aparezcas cuando alguien busca dónde comer cerca tuyo."
+        },
+        "photos": {
+          "title": "Tus fotos, bien puestas",
+          "description": "Ordenamos y optimizamos el material que ya tenés. Si hace falta, coordinamos una sesión de fotos del lugar y los platos."
+        },
+        "training": {
+          "title": "Te enseñamos a usarlo",
+          "description": "Una sesión con vos o con quien maneje la carta, hasta que lo pueda hacer solo. Y quedás con nuestro WhatsApp por si trancás."
+        }
+      },
+      "cta": "Quiero ver cómo sería"
+    },
+    "about": {
+      "title": "Quiénes somos",
+      "description": "Bit-A es un estudio chico de desarrollo web en Uruguay. Trabajamos de a pocos proyectos por vez porque cada uno se hace a medida y de cerca: hablás siempre con la misma persona, la que después escribe el código. No somos una agencia con cuentas y ejecutivos de por medio."
+    },
+    "pricing": {
+      "title": "Cómo trabajamos",
+      "description": "Precio cerrado antes de empezar. Sabés desde el primer día cuánto sale y qué incluye, sin cosas que aparecen después.",
+      "items": [
+        "Precio fijo acordado por escrito antes de arrancar. Si el alcance no cambia, el precio no cambia.",
+        "Se paga en dos partes: la mitad al empezar y la mitad cuando el sitio está publicado y funcionando.",
+        "Rango de inversión para un restaurante: [COMPLETAR RANGO]. La propuesta con el número exacto te llega por escrito después de la primera charla.",
+        "El dominio y el hosting del primer año van incluidos.",
+        "Después del primer año, el mantenimiento es opcional. Si no lo querés, el sitio sigue siendo tuyo igual."
+      ],
+      "cta": "Pedime una propuesta"
+    },
+    "faqs": {
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "question": "¿Cuánto tarda?",
+          "answer": "Entre dos y cuatro semanas desde que tenemos las fotos y la carta. Si necesitás llegar con algo andando para el verano, conviene arrancar antes de octubre: en diciembre, en plena temporada, nadie tiene tiempo de mirar un sitio nuevo."
+        },
+        {
+          "question": "Ya tengo Instagram y me funciona bien. ¿Para qué quiero una web?",
+          "answer": "Instagram sirve para el que ya te conoce y te sigue. El sitio sirve para el que todavía no te conoce y te está buscando en Google. Son dos públicos distintos. No reemplaza al Instagram: lo complementa, y le da un lugar fijo a la carta y a las reservas."
+        },
+        {
+          "question": "No entiendo nada de computación. ¿Igual lo voy a poder manejar?",
+          "answer": "Sí. Cambiar un precio es entrar, tocar el número y guardar. Es más simple que subir una historia. Y te enseñamos en persona hasta que lo hagas solo."
+        },
+        {
+          "question": "¿Tengo que pagar todos los meses?",
+          "answer": "El primer año no: dominio y hosting van incluidos. Después es una cuota anual chica para mantener el sitio online, y el mantenimiento es opcional."
+        },
+        {
+          "question": "La carta me cambia seguido por la inflación. ¿Eso complica algo?",
+          "answer": "Al contrario, es justamente el motivo principal para hacerlo. Hoy cambiar un precio significa rehacer una imagen. Con el sitio son dos minutos desde el celular, las veces que haga falta, sin costo extra."
+        },
+        {
+          "question": "¿El sitio queda a mi nombre?",
+          "answer": "Sí. El dominio se registra a tu nombre y el sitio es tuyo. Si algún día querés llevártelo a otro lado, te lo entregamos sin vueltas."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Charlemos sin compromiso",
+      "description": "Veinte minutos para mirar juntos cómo estás hoy en Google, cómo te entran las reservas y qué se puede mejorar. Si de ahí no sale un trabajo, te queda igual el diagnóstico.",
+      "cta": "Agendar una charla"
+    },
+    "menuDemo": {
+      "label": "Ejemplo",
+      "title": "Así se ve una carta que actualizás vos",
+      "description": "Esto no es una foto. Es texto de verdad: se lee en cualquier pantalla, Google lo encuentra y un precio se cambia en dos minutos.",
+      "hint": "Tocá la carta para pasar de hoja",
+      "updateButton": "Cambiá un precio",
+      "updatedNote": "Listo. Así de rápido, desde el celular.",
+      "restaurant": "Restaurante de ejemplo",
+      "pages": [
+        {
+          "kicker": "Hoja 1 de 2",
+          "sections": [
+            {
+              "title": "Para empezar",
+              "items": [
+                {
+                  "name": "Provoleta a la parrilla",
+                  "price": "480"
+                },
+                {
+                  "name": "Chorizo criollo",
+                  "price": "390"
+                },
+                {
+                  "name": "Empanadas de carne (3)",
+                  "price": "420"
+                },
+                {
+                  "name": "Tabla de fiambres",
+                  "price": "890"
+                }
+              ]
+            },
+            {
+              "title": "De la parrilla",
+              "items": [
+                {
+                  "name": "Asado de tira",
+                  "price": "980"
+                },
+                {
+                  "name": "Entrecot",
+                  "price": "1.150"
+                },
+                {
+                  "name": "Pollo al disco",
+                  "price": "760"
+                },
+                {
+                  "name": "Parrillada para dos",
+                  "price": "1.980"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kicker": "Hoja 2 de 2",
+          "sections": [
+            {
+              "title": "Pastas y pizzas",
+              "items": [
+                {
+                  "name": "Ravioles de verdura",
+                  "price": "690"
+                },
+                {
+                  "name": "Ñoquis con estofado",
+                  "price": "710"
+                },
+                {
+                  "name": "Pizza muzzarella",
+                  "price": "620"
+                },
+                {
+                  "name": "Pizza fugazzeta",
+                  "price": "740"
+                }
+              ]
+            },
+            {
+              "title": "Postres",
+              "items": [
+                {
+                  "name": "Flan con dulce de leche",
+                  "price": "320"
+                },
+                {
+                  "name": "Chajá",
+                  "price": "380"
+                },
+                {
+                  "name": "Helado artesanal",
+                  "price": "290"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updatedPrices": {
+        "0-0-3": "950",
+        "0-1-0": "1.090",
+        "1-0-2": "680",
+        "1-1-1": "420"
+      }
+    }
+  },
   "LegalPages": {
     "privacyPolicy": {
       "title": "Política de Privacidad",
