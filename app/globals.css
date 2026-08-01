@@ -345,6 +345,21 @@
     z-index: 1;
   }
 
+  /* En mobile las secciones son mucho más altas, así que un degradado por
+     porcentajes reparte el tono sobre miles de píxeles y deja de percibirse.
+     Acá la transición ocurre en una distancia fija: el tono llega a valor
+     pleno en 90px y se mantiene, con lo cual se ve, y los 90px alcanzan para
+     que el límite entre secciones siga sin leerse como una línea. */
+  @media (max-width: 767px) {
+    .section-blend::before {
+      background: linear-gradient(to bottom,
+          transparent 0,
+          rgba(255, 255, 255, 0.05) 90px,
+          rgba(255, 255, 255, 0.05) calc(100% - 90px),
+          transparent 100%);
+    }
+  }
+
   /* Un anillo único que se expande hacia afuera al pasar el cursor.
      Se resuelve con un pseudo-elemento para que Button siga sin estado
      ni librería de animación: el hover reinicia la animación solo. */
