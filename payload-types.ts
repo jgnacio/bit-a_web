@@ -150,6 +150,9 @@ export interface User {
 export interface Media {
   id: string;
   alt: string;
+  cloudinaryPublicId?: string | null;
+  cloudinaryResourceType?: string | null;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -332,6 +335,9 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  cloudinaryPublicId?: T;
+  cloudinaryResourceType?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

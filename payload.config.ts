@@ -12,41 +12,30 @@ import { Posts } from './collections/Posts'
 import { TableOfContents } from './blocks/TableOfContent/config'
 import { ContentWithMedia } from './blocks/ContentWithMedia/config'
 import { seoPlugin } from '@payloadcms/plugin-seo'
-import { s3Storage } from '@payloadcms/storage-s3'
+import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage'
+import { cloudinaryAdapter } from './adapters/cloudinary/cloudinaryAdapter'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-// Cloudflare R2 vía su API compatible con S3. El adapter dedicado
-// (@payloadcms/storage-r2) sirve solo dentro de Cloudflare Workers, y esto
-// corre en Vercel.
+// Cloudinary aloja la media de Payload. El adapter propio vive en
+// adapters/cloudinary y deriva el public_id del prefijo y el filename, porque el
+// plugin arma la URL antes de que la subida ocurra.
 //
-// Queda inactivo mientras no existan las variables: sin R2 configurado Payload
-// vuelve al disco local, que funciona en desarrollo. En Vercel el filesystem es
-// efímero, así que ahí las variables son obligatorias.
-const r2Storage = s3Storage({
-    enabled: Boolean(process.env.R2_BUCKET),
+// disableLocalStorage es obligatorio: en Vercel el filesystem es efímero y todo
+// lo que se escriba a disco desaparece en el siguiente deploy.
+const mediaStorage = cloudStoragePlugin({
+    enabled: true,
     collections: {
         media: {
-            // Los archivos se sirven desde el dominio público de R2, no a
-            // través de Payload: evita que cada imagen pase por una función.
+            adapter: cloudinaryAdapter,
+            disableLocalStorage: true,
+            // El campo `url` guarda la URL de Cloudinary directa. Sin esto cada
+            // imagen pasaría por /api/media/... y por lo tanto por una función
+            // serverless en cada request.
             disablePayloadAccessControl: true,
-            generateFileURL: ({ filename, prefix }) => {
-                const key = prefix ? `${prefix}/${filename}` : filename
-                return `${process.env.R2_PUBLIC_URL}/${key}`
-            },
+            prefix: process.env.CLOUDINARY_FOLDER || 'Bit-A/projects/bit-a-web',
         },
-    },
-    bucket: process.env.R2_BUCKET || '',
-    config: {
-        credentials: {
-            accessKeyId: process.env.R2_ACCESS_KEY_ID || '',
-            secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || '',
-        },
-        // R2 no acepta regiones de AWS y necesita direccionamiento por path.
-        region: 'auto',
-        endpoint: process.env.R2_ENDPOINT,
-        forcePathStyle: true,
     },
 })
 
@@ -81,7 +70,7 @@ export default buildConfig({
             generateTitle: ({ doc }: any) => `Bit-A | ${doc.title}`,
             generateDescription: ({ doc }: any) => doc.excerpt,
         }),
-        r2Storage,
+        mediaStorage,
     ],
     localization: {
         locales: ['es', 'en'],
