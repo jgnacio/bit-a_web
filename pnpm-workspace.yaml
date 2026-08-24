@@ -1,0 +1,13 @@
+# pnpm bloquea los scripts de instalación por defecto. Estos paquetes compilan
+# binarios nativos y no funcionan sin ellos: sharp procesa las imágenes de
+# Payload, y el resto son los motores de Tailwind, SWC y esbuild.
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  '@tailwindcss/oxide': true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+  # Solo SDKs de JavaScript: no necesitan compilar nada.
+  '@google/genai': false
+  protobufjs: false
