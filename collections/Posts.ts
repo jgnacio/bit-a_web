@@ -7,7 +7,17 @@ export const Posts: CollectionConfig = {
         defaultColumns: ['title', 'category', 'publishedAt'],
     },
     access: {
-        read: () => true,
+        // Los borradores solo son visibles para usuarios autenticados.
+        // El público ve únicamente lo publicado, también vía API REST y GraphQL.
+        read: ({ req: { user } }) => {
+            if (user) return true
+
+            return {
+                _status: {
+                    equals: 'published',
+                },
+            }
+        },
     },
     versions: {
         drafts: true,

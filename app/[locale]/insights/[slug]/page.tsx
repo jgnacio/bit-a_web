@@ -6,7 +6,6 @@ import { Metadata } from 'next'
 import { Post } from '@/payload-types'
 import { RichText } from '@/app/components/RichText/RichText'
 import ThreeDImageCard from '@/app/components/ThreeDImageCard'
-import post01 from "@/public/images/post01.png"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string, slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params
@@ -16,6 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     where: {
       slug: {
         equals: slug,
+      },
+      // La Local API ignora el access control de la colección (overrideAccess),
+      // así que el filtro de publicados tiene que ser explícito acá.
+      _status: {
+        equals: 'published',
       },
     },
     locale: locale as any,
@@ -57,8 +61,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
       slug: {
         equals: slug,
       },
+      // La Local API ignora el access control de la colección (overrideAccess),
+      // así que el filtro de publicados tiene que ser explícito acá.
+      _status: {
+        equals: 'published',
+      },
     },
-    // Removiendo la validación de _status por ahora para depurar
     locale: locale as any,
   })
 
@@ -80,7 +88,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
         {post.meta?.image && typeof post.meta.image !== 'string' && post.meta.image.url && (
             <div className="w-full h-[480px] mb-8">
                 <ThreeDImageCard 
-                    src={post01.src} 
+                    src={post.meta.image.url} 
                     alt={post.meta.image.alt || post.title}
                     priority
                     className="h-full"
