@@ -36,20 +36,35 @@ function languageAlternates(path: string) {
     )
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const payload = await getPayload({ config: configPromise })
+// Durante el build no siempre hay acceso a Payload (faltan PAYLOAD_SECRET o
+// DATABASE_URL en el entorno de CI). En ese caso el sitemap se degrada a las
+// rutas estáticas en vez de tumbar el deploy: la revalidación posterior, ya en
+// runtime y con las variables cargadas, incorpora los posts.
+async function findPublishedPosts() {
+    try {
+        const payload = await getPayload({ config: configPromise })
 
-    const posts = await payload.find({
-        collection: 'posts',
-        where: {
-            _status: {
-                equals: 'published',
+        const posts = await payload.find({
+            collection: 'posts',
+            where: {
+                _status: {
+                    equals: 'published',
+                },
             },
-        },
-        pagination: false,
-        depth: 0,
-        sort: '-publishedAt',
-    })
+            pagination: false,
+            depth: 0,
+            sort: '-publishedAt',
+        })
+
+        return posts.docs
+    } catch (error) {
+        console.error('[sitemap] no se pudieron leer los posts de Payload:', error)
+        return []
+    }
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const posts = await findPublishedPosts()
 
     const now = new Date()
 
@@ -63,7 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         })),
     )
 
-    const postEntries = posts.docs.flatMap((post) => {
+    const postEntries = posts.flatMap((post) => {
         const path = `/insights/${post.slug}`
 
         return routing.locales.map((locale) => ({
