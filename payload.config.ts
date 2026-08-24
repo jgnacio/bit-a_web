@@ -50,6 +50,6 @@ export default buildConfig({
     ],
     localization: {
         locales: ['es', 'en'],
-        defaultLocale: 'en',
+        defaultLocale: 'es',
     },
 })

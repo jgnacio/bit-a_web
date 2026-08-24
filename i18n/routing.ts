@@ -5,8 +5,8 @@ export const routing = defineRouting({
   // Lista de idiomas soportados
   locales: ['es', 'en'],
   
-  // Idioma por defecto
-  defaultLocale: 'en'
+  // Idioma por defecto: el público objetivo es Uruguay
+  defaultLocale: 'es'
 });
 
 // Extraer locales y defaultLocale para usar en otros archivos
