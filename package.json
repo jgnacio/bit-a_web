@@ -40,6 +40,7 @@
     "react-dom": "19.2.3",
     "sharp": "^0.34.5",
     "three": "^0.178.0",
+    "turndown": "^7.2.4",
     "zod": "^4.0.5"
   },
   "devDependencies": {
@@ -49,6 +50,7 @@
     "@types/node": "^20",
     "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
+    "@types/turndown": "^5.0.6",
     "eslint": "^9",
     "eslint-config-next": "16.3.2",
     "tailwindcss": "^4",
