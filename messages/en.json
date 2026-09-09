@@ -6,14 +6,14 @@
     "contact": "Contact",
     "insights": "Insights",
     "realEstateWeb": "Real state web",
-    "realEstateWebDescription": "Luxury real state website",
-    "expressLanding": "Express luxury landing",
-    "ecommercePremium": "Premium e-commerce",
+    "realEstateWebDescription": "Real estate website",
+    "expressLanding": "Express landing",
+    "ecommercePremium": "Scalable e-commerce",
     "corporateWeb": "Corporate website",
     "automationAI": "Automation & AI",
     "digitalBranding": "Digital branding",
     "digitalDiagnosis": "Digital diagnosis",
-    "expressDescription": "Impact in 10 days, loads in 1 second",
+    "expressDescription": "Online the same day, loads in 1 second",
     "ecommerceDescription": "Dynamic catalog and frictionless sales",
     "corporateDescription": "Custom site that reflects your brand",
     "automationDescription": "Eliminate repetitive tasks with AI",
@@ -23,48 +23,48 @@
   "Hero": {
     "volLabel": "SHIFT + PURPOSE",
     "title": {
-      "line1": "Software engineering for companies",
-      "line2": "outgrowing their digital presence."
+      "line1": "Software engineering for businesses",
+      "line2": "that want to grow seriously online."
     },
-    "subtitle": "We are a development boutique dedicated to building high-performance digital assets. We transform technological complexity into strategic, scalable software designed for leaders who accept nothing less than excellence.",
+    "subtitle": "We are a digital engineering and design team dedicated to building high-performance digital assets for local businesses. We transform technological complexity into strategic, scalable software, built with the same excellence you demand from your own business.",
     "cta": {
       "schedule": "Start Project",
       "portfolio": "Explore Success Stories"
     },
     "scrollIndicator": "Scroll to explore",
-    "socialProof": "Strategic partner for companies in Uruguay"
+    "socialProof": "Strategic partner for local businesses in Uruguay"
   },
   "Problem": {
-    "title": "Your site doesn't convey exclusivity,",
-    "subtitle": "and top prospects move on",
-    "description": "Elevate your web to match your brand level and transform premium visits into clients, hassle-free",
+    "title": "Your site doesn't reflect the work you do,",
+    "subtitle": "and clients go to the competition",
+    "description": "Bring your web up to the level of your business and turn more visits into clients, hassle-free",
     "cta": "Transform my site now"
   },
   "Services": {
     "title": "Our services",
-    "subtitle": "We transform visions into extraordinary digital experiences",
+    "subtitle": "We turn your local business into a solid digital brand",
     "items": {
       "express": {
-        "title": "Luxury web express",
-        "description": "High-impact landing or one-page site, ready in 10 days, optimized for SEO and speed. Ideal for boutique brands that need immediate exclusivity.",
+        "title": "Express landing",
+        "description": "High-impact landing or one-page site, ready the same day I have your content, optimized for SEO and speed. Ideal for businesses that need to be online now.",
         "cta": "Schedule your free demo"
       },
       "ecommerce": {
-        "title": "Premium scalable e-commerce",
-        "description": "Your headless next.js+payload e-commerce that loads in 1s, showcases unlimited premium catalogs and automates up-sell/cross-sell for exclusive experiences.",
+        "title": "Scalable e-commerce",
+        "description": "Your headless next.js+payload e-commerce that loads in 1s, showcases your unlimited catalog and automates up-sell/cross-sell to sell more.",
         "cta": "Request free diagnosis"
       },
       "automation": {
-        "title": "White-glove automation & AI",
-        "description": "Intelligent virtual assistants, emails and reports that eliminate repetitive tasks. Designed for companies seeking an ethical and close partner.",
+        "title": "Automation & AI",
+        "description": "Intelligent virtual assistants, emails and reports that eliminate repetitive tasks. Designed for businesses seeking an ethical and close partner.",
         "cta": "Book a 1-on-1 consultation"
       }
     }
   },
   "About": {
     "title": "Our essence",
-    "subtitle": "We are digital craftsmen specialized in creating unique experiences",
-    "description": "Bit-A is a digital engineering and design boutique that transforms complex processes into luxury, fast and profitable experiences. Our team applies solid security standards, cutting-edge comprehensive development and a firm commitment to conversion, guided by principles of service and genuine excellence."
+    "subtitle": "We are a digital engineering and design team focused on building solid experiences",
+    "description": "Bit-A is a digital engineering and design team that transforms complex processes into fast, solid and profitable digital experiences. We apply solid security standards, cutting-edge comprehensive development and a firm commitment to conversion, guided by principles of service and genuine excellence."
   },
   "CaseStudies": {
     "title": "Case studies",
@@ -150,15 +150,15 @@
   },
   "LeadMagnet": {
     "title": "Mail mini-course:",
-    "subtitle": "\"Luxury landing in 5 steps\"",
-    "description": "In just 5 days and one daily email, discover how to create a landing worthy of your premium brand. From value proposition to final checklist + access to private demo with Bit-A.",
+    "subtitle": "\"Effective landing in 5 steps\"",
+    "description": "In just 5 days and one daily email, discover how to create a landing that matches your business. From value proposition to final checklist + access to private demo with Bit-A.",
     "placeholder": "Your email here",
     "cta": "Subscribe to mini-course"
   },
   "DiscoverYourPotential": {
     "title": "Discover your digital potential",
-    "description": "In 30 min we analyze speed, ux and conversion opportunities to deliver an exclusive roadmap that elevates your brand and multiplies your sales.",
-    "cta": "Schedule your premium diagnosis"
+    "description": "In 30 min we analyze speed, ux and conversion opportunities to deliver a concrete roadmap that grows your business and multiplies your sales.",
+    "cta": "Schedule your free diagnosis"
   },
   "AboutPage": {
     "title": {
@@ -171,7 +171,7 @@
     },
     "story": {
       "heading": "We believe there's a better way to craft digital experiences",
-      "content": "Bit-A was born after watching high-caliber brands pour fortunes into showrooms, dealerships, and luxury offices while their online presence stagnated in outdated sites and legacy systems propped up by the old \"if it ain't broke, don't fix it.\" Our mission is to overturn that mindset: we bring the same excellence, security, and innovation you showcase offline to the digital realm, unleashing your brand's full potential."
+      "content": "Bit-A was born after watching businesses that put real care into their storefront, their service, and their reputation... stuck with an outdated online presence and legacy systems propped up by the old \"if it ain't broke, don't fix it.\" Our mission is to overturn that mindset: we bring the same excellence, security, and innovation you already put into your business every day to the digital realm, unleashing your brand's full potential."
     },
     "cta": {
       "heading": "Let's Elevate Your Brand",
@@ -181,21 +181,21 @@
   },
   "ServicesPage": {
     "hero": {
-      "title": "Bold. Refined. Memorable.",
-      "subtitle": "We craft digital experiences that stand out with elegance, perform with speed, and leave a lasting impression. Perfect for brands that lead, not follow.",
+      "title": "Bold. Clear. Memorable.",
+      "subtitle": "We craft digital experiences that stand out with clarity, perform with speed, and leave a lasting impression. Perfect for businesses that want to grow.",
       "cta": "Get your free audit"
     },
     "services": {
       "title": "Our Services",
       "express": {
-        "title": "Express Luxury Landing",
-        "subtitle": "Impact in 10 Days",
-        "description": "Loads in under 1 second and built to convert premium leads effortlessly.",
+        "title": "Express Landing",
+        "subtitle": "Online the Same Day",
+        "description": "Loads in under 1 second and ready the same day I have your content — with same-business-day support if you need a change after it's live. Fixed price from $15,000 UYU (~USD 370), agreed in writing before we start.",
         "cta": "Discover more",
         "ctaSecondary": "Book your free demo"
       },
       "ecommerce": {
-        "title": "Premium E-commerce",
+        "title": "Scalable E-commerce",
         "subtitle": "Frictionless Sales",
         "description": "Dynamic catalog, secure checkout & automated up-sell flows.",
         "cta": "Discover more",
@@ -208,15 +208,15 @@
         "cta": "See it in action"
       },
       "corporate": {
-        "title": "High-End Corporate Website",
+        "title": "Corporate Website",
         "subtitle": "Your brand, elevated",
-        "description": "A tailor-made site that blends luxury, speed, and conversion.",
+        "description": "A tailor-made site that blends solid design, speed, and conversion.",
         "cta": "Discover more",
         "ctaSecondary": "Book your free demo"
       },
       "automation": {
         "title": "Automation & AI",
-        "subtitle": "White-Glove Service",
+        "subtitle": "Personalized Service",
         "description": "Eliminate repetitive tasks and elevate your post-sale experience.",
         "cta": "Discover more",
         "ctaSecondary": "Book a 1-on-1 automation consultation"
@@ -239,13 +239,13 @@
       "forAnyone": "This is for anyone who...",
       "nowImagine": "Now imagine if you could...",
       "items": {
-        "ready": "Is ready to start attracting high-value clients with a website that impresses in under a second.",
+        "ready": "Is ready to start attracting more clients with a website that impresses in under a second.",
         "tired": "Is tired of having a slow, generic site that doesn't reflect the quality of their business.",
         "investing": "Is investing in marketing, but you're not seeing real conversions or growth."
       },
       "results": {
         "stop": "Stop struggling to explain what you do every time someone lands on your website.",
-        "confident": "Finally feel confident sharing your site, knowing it positions your brand as premium.",
+        "confident": "Finally feel confident sharing your site, knowing it represents your business well.",
         "clarity": "Get clarity on how to turn your digital presence into your best-performing sales tool."
       }
     },
@@ -262,14 +262,14 @@
         "benefit": "Get expert clarity on your next move"
       },
       "development": {
-        "title": "Premium Development",
+        "title": "Quality Development",
         "description": "Top-tier codebase using Next.js, Tailwind & Payload CMS. Fast, secure, and future-proof.",
         "benefit": "Launch a site built to last"
       },
       "brandAlignment": {
         "title": "Brand Alignment",
         "description": "UI Kit + brand system that ensures consistency across your online presence — visuals, fonts, colors, and more.",
-        "benefit": "Look as premium as you truly are"
+        "benefit": "Look as good as your business truly is"
       },
       "performance": {
         "title": "Performance Optimization",
@@ -299,7 +299,7 @@
       },
       "step3": {
         "title": "Design & Build",
-        "description": "We bring your vision to life with a premium, high-performance website tailored to your brand and audience."
+        "description": "We bring your vision to life with a solid, high-performance website tailored to your brand and audience."
       },
       "step4": {
         "title": "Review & Refine",
@@ -318,7 +318,7 @@
     }
   },
   "Footer": {
-    "description": "digital boutique for high-impact branding and technology",
+    "description": "digital team for high-impact branding and technology",
     "links": {
       "privacy": "Privacy policy",
       "terms": "Terms of service",
@@ -828,8 +828,8 @@
         "projectType": {
           "label": "Project Type",
           "options": {
-            "express": "Express luxury landing",
-            "ecommerce": "Premium e-commerce",
+            "express": "Express landing",
+            "ecommerce": "Scalable e-commerce",
             "corporate": "Corporate website",
             "automation": "Automation & AI",
             "branding": "Digital branding",

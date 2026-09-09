@@ -6,14 +6,14 @@
     "contact": "Contacto",
     "insights": "Perspectivas",
     "realEstateWeb": "Real state web",
-    "realEstateWebDescription": "Sitio web para bienes raíces de lujo",
-    "expressLanding": "Landing de lujo express",
-    "ecommercePremium": "E-commerce premium",
+    "realEstateWebDescription": "Sitio web para inmobiliarias y bienes raíces",
+    "expressLanding": "Landing express",
+    "ecommercePremium": "E-commerce escalable",
     "corporateWeb": "Web corporativa",
     "automationAI": "Automatización & IA",
     "digitalBranding": "Branding digital",
     "digitalDiagnosis": "Diagnóstico digital",
-    "expressDescription": "Impacto en 10 días, carga en 1 segundo",
+    "expressDescription": "Online el mismo día, carga en 1 segundo",
     "ecommerceDescription": "Catálogo dinámico y ventas sin fricción",
     "corporateDescription": "Sitio a medida que refleja tu marca",
     "automationDescription": "Elimina tareas repetitivas con IA",
@@ -23,48 +23,48 @@
   "Hero": {
     "volLabel": "SHIFT + PURPOSE",
     "title": {
-      "line1": "Ingeniería de software para empresas",
-      "line2": "que superaron su presencia digital."
+      "line1": "Ingeniería de software para negocios",
+      "line2": "que quieren crecer en serio online."
     },
-    "subtitle": "Somos una boutique de desarrollo dedicada a construir activos digitales de alto rendimiento. Transformamos la complejidad tecnológica en software estratégico, escalable y diseñado para líderes que no aceptan menos que la excelencia.",
+    "subtitle": "Somos un equipo de ingeniería y diseño digital dedicado a construir activos digitales de alto rendimiento para negocios locales. Transformamos la complejidad tecnológica en software estratégico y escalable, hecho con la misma excelencia que le exigís a tu propio negocio.",
     "cta": {
       "schedule": "Iniciar Proyecto",
       "portfolio": "Explorar Casos de Éxito"
     },
     "scrollIndicator": "Desliza para ver más",
-    "socialProof": "Partner estratégico para empresas en Uruguay"
+    "socialProof": "Partner estratégico para negocios locales en Uruguay"
   },
   "Problem": {
-    "title": "Tu sitio no transmite exclusividad,",
-    "subtitle": "y los prospectos premium se van",
-    "description": "Eleva tu web al nivel de tu marca y transforma visitas premium en clientes, sin complicaciones",
+    "title": "Tu sitio no refleja el trabajo que hacés,",
+    "subtitle": "y los clientes se van a la competencia",
+    "description": "Actualizá tu web al nivel de tu negocio y convertí más visitas en clientes, sin complicaciones",
     "cta": "Transformar mi sitio ahora"
   },
   "Services": {
     "title": "Nuestros servicios",
-    "subtitle": "Transformamos visiones en experiencias digitales extraordinarias",
+    "subtitle": "Convertimos tu negocio local en una marca digital sólida",
     "items": {
       "express": {
-        "title": "Lujo web express",
-        "description": "Landing o sitio one-page de alto impacto, listo en 10 días, optimizado para seo y velocidad. Ideal para marcas boutique que necesitan exclusividad inmediata.",
+        "title": "Landing express",
+        "description": "Landing o sitio one-page de alto impacto, listo el mismo día que tengo tu contenido, optimizado para seo y velocidad. Ideal para negocios que necesitan estar online ya.",
         "cta": "Agenda tu demo gratuita"
       },
       "ecommerce": {
-        "title": "E-commerce premium escalable",
-        "description": "Tu e-commerce headless next.js+payload que carga en 1s, muestra catálogos premium sin límite y automatiza up-sell/cross-sell para experiencias exclusivas.",
+        "title": "E-commerce escalable",
+        "description": "Tu e-commerce headless next.js+payload que carga en 1s, muestra tu catálogo sin límite y automatiza up-sell/cross-sell para vender más.",
         "cta": "Solicita diagnóstico gratis"
       },
       "automation": {
-        "title": "Automatización & IA white-glove",
-        "description": "Asistentes virtuales inteligentes, emails y reportes que eliminan tareas repetitivas. Pensado para empresas que buscan un partner ético y cercano.",
+        "title": "Automatización & IA",
+        "description": "Asistentes virtuales inteligentes, emails y reportes que eliminan tareas repetitivas. Pensado para negocios que buscan un partner ético y cercano.",
         "cta": "Reserva una consultoría 1-a-1"
       }
     }
   },
   "About": {
     "title": "Nuestra esencia",
-    "subtitle": "Somos artesanos digitales especializados en crear experiencias únicas",
-    "description": "Bit-A es una boutique de ingeniería y diseño digital que transforma procesos complejos en experiencias de lujo, veloces y rentables. Nuestro equipo aplica sólidos estándares de seguridad, desarrollo integral de vanguardia y un compromiso firme con la conversión, guiados por principios de servicio y excelencia genuina."
+    "subtitle": "Somos un equipo de ingeniería y diseño digital enfocado en crear experiencias sólidas",
+    "description": "Bit-A es un equipo de ingeniería y diseño digital que transforma procesos complejos en experiencias digitales rápidas, sólidas y rentables. Aplicamos estándares firmes de seguridad, desarrollo integral de vanguardia y un compromiso firme con la conversión, guiados por principios de servicio y excelencia genuina."
   },
   "CaseStudies": {
     "title": "Casos de estudio",
@@ -150,15 +150,15 @@
   },
   "LeadMagnet": {
     "title": "Mini-curso por correo:",
-    "subtitle": "\"Landing de lujo en 5 pasos\"",
-    "description": "En solo 5 días y un e-mail diario, descubre cómo crear una landing digna de tu marca premium. Desde la promesa de valor hasta el checklist final + acceso a demo privada con bit-a.",
+    "subtitle": "\"Landing efectiva en 5 pasos\"",
+    "description": "En solo 5 días y un e-mail diario, descubre cómo crear una landing a la altura de tu negocio. Desde la promesa de valor hasta el checklist final + acceso a demo privada con bit-a.",
     "placeholder": "Tu email aquí",
     "cta": "Suscríbeme al mini-curso"
   },
   "DiscoverYourPotential": {
     "title": "Descubrí tu potencial",
-    "description": "En 30 min analizamos velocidad, ux y oportunidades de conversión para entregarte un roadmap exclusivo que eleve tu marca y multiplique tus ventas.",
-    "cta": "Agenda tu diagnóstico premium"
+    "description": "En 30 min analizamos velocidad, ux y oportunidades de conversión para entregarte un roadmap concreto que haga crecer tu negocio y multiplique tus ventas.",
+    "cta": "Agenda tu diagnóstico gratuito"
   },
   "AboutPage": {
     "title": {
@@ -171,7 +171,7 @@
     },
     "story": {
       "heading": "Creemos en una forma mejor de crear experiencias digitales",
-      "content": "Bit-A nació al ver cómo firmas de alto calibre destinaban fortunas a showrooms, concesionarios y oficinas de lujo… mientras su presencia digital se quedaba en sitios desactualizados y sistemas heredados sostenidos por un simple \"si funciona, ni lo toques\". Venimos a derribar ese paradigma: trasladamos al mundo online la misma excelencia, seguridad e innovación que exhibes fuera de la pantalla, liberando todo el potencial de tu marca."
+      "content": "Bit-A nació al ver cómo negocios que invertían en cuidar cada detalle de su local, su atención y su reputación… se quedaban con una presencia digital desactualizada y sistemas heredados sostenidos por un simple \"si funciona, ni lo toques\". Venimos a derribar ese paradigma: trasladamos al mundo online la misma excelencia, seguridad e innovación que ya ponés en tu negocio todos los días, liberando todo el potencial de tu marca."
     },
     "cta": {
       "heading": "Impulsá tu presencia digital con claridad y propósito",
@@ -182,20 +182,20 @@
   "ServicesPage": {
     "hero": {
       "title": "Marca con fuerza",
-      "subtitle": "Creamos experiencias digitales que destacan con elegancia, cargan con velocidad y dejan una impresión duradera. Ideal para marcas que lideran.",
+      "subtitle": "Creamos experiencias digitales que destacan con claridad, cargan con velocidad y dejan una impresión duradera. Ideal para negocios que quieren crecer.",
       "cta": "Obtené tu auditoría gratuita"
     },
     "services": {
       "title": "Nuestros Servicios",
       "express": {
-        "title": "Landing de Lujo Express",
-        "subtitle": "Impacto en 10 días",
-        "description": "Carga en menos de 1 segundo y está diseñada para convertir prospectos premium sin fricción.",
+        "title": "Landing Express",
+        "subtitle": "Online el mismo día",
+        "description": "Carga en menos de 1 segundo y está lista el mismo día que tengo tu contenido — con respuesta el mismo día hábil si después necesitás un cambio. Precio fijo desde $15.000, acordado por escrito antes de arrancar.",
         "cta": "Ver más",
         "ctaSecondary": "Solicitar Demo"
       },
       "ecommerce": {
-        "title": "E-commerce Premium",
+        "title": "E-commerce Escalable",
         "subtitle": "Vende sin fricción",
         "description": "Catálogo dinámico, pago seguro y up-sell automático.",
         "cta": "Ver más",
@@ -208,15 +208,15 @@
         "cta": "Ver en acción"
       },
       "corporate": {
-        "title": "Web Corporativa de Alto Nivel",
+        "title": "Web Corporativa",
         "subtitle": "Tu marca, a la altura",
-        "description": "Sitio a medida que combina lujo, velocidad y conversión.",
+        "description": "Sitio a medida que combina diseño cuidado, velocidad y conversión.",
         "cta": "Ver más",
         "ctaSecondary": "Solicitar Demo"
       },
       "automation": {
         "title": "Automatización & IA",
-        "subtitle": "White-Glove Service",
+        "subtitle": "Atención personalizada",
         "description": "Elimina tareas repetitivas y eleva la experiencia post-venta.",
         "cta": "Ver más",
         "ctaSecondary": "Solicitar Demo"
@@ -239,13 +239,13 @@
       "forAnyone": "Esto es para vos si...",
       "nowImagine": "Ahora imaginate si pudieras...",
       "items": {
-        "ready": "Estás listo para empezar a atraer clientes de alto valor con una web que impacta en menos de un segundo.",
+        "ready": "Estás listo para empezar a atraer más clientes con una web que impacta en menos de un segundo.",
         "tired": "Estás cansado de tener un sitio lento, genérico y que no refleja la calidad de tu negocio.",
         "investing": "Estás invirtiendo en marketing, pero no ves conversiones reales ni crecimiento tangible."
       },
       "results": {
         "stop": "Dejar de luchar para explicar qué hacés cada vez que alguien entra a tu web.",
-        "confident": "Sentirte por fin confiado de mostrar tu sitio sabiendo que posiciona tu marca como premium.",
+        "confident": "Sentirte por fin confiado de mostrar tu sitio sabiendo que representa bien a tu negocio.",
         "clarity": "Tener claridad sobre cómo convertir tu presencia digital en tu mejor herramienta de ventas."
       }
     },
@@ -262,7 +262,7 @@
         "benefit": "Tomá decisiones con respaldo experto"
       },
       "development": {
-        "title": "Desarrollo Premium",
+        "title": "Desarrollo de Calidad",
         "description": "Código limpio, moderno y escalable. Usamos Next.js, Tailwind y Payload CMS.",
         "benefit": "Lanzá una web que rinde al máximo"
       },
@@ -299,7 +299,7 @@
       },
       "step3": {
         "title": "Diseño y desarrollo",
-        "description": "Damos vida a tu visión con un sitio web premium, rápido y alineado con tu marca y audiencia."
+        "description": "Damos vida a tu visión con un sitio web sólido, rápido y alineado con tu marca y audiencia."
       },
       "step4": {
         "title": "Revisión y ajustes",
@@ -318,7 +318,7 @@
     }
   },
   "Footer": {
-    "description": "boutique digital de branding y tecnología de alto impacto",
+    "description": "equipo digital de branding y tecnología de alto impacto",
     "links": {
       "privacy": "Política de privacidad",
       "terms": "Términos de servicio",
@@ -828,8 +828,8 @@
         "projectType": {
           "label": "Tipo de proyecto",
           "options": {
-            "express": "Landing de lujo express",
-            "ecommerce": "E-commerce premium",
+            "express": "Landing express",
+            "ecommerce": "E-commerce escalable",
             "corporate": "Web corporativa",
             "automation": "Automatización & IA",
             "branding": "Branding digital",
