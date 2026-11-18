@@ -36,7 +36,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   })
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 pt-36 pb-8">
       {/* Intent Filter */}
       <div className="text-center mb-16 max-w-2xl mx-auto">
         <h1 className="text-4xl lg:text-5xl font-bold mb-4">{t('title')}</h1>

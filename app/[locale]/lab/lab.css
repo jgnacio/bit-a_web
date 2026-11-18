@@ -1,0 +1,166 @@
+/* Per-character reveal. CSS only, so it starts on first paint without hydration. */
+.lab-reveal__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/*
+ * Two tracks on the same stagger: a quick entrance (transparent -> visible)
+ * and a slow color settle (strong Bit Blue -> deep navy), so each letter
+ * lands bright and then "solidifies".
+ */
+.lab-reveal__char {
+  display: inline-block;
+  color: #000;
+  animation:
+    lab-char-in 450ms ease-out both,
+    lab-char-settle 3000ms linear both;
+  animation-delay: calc(100ms + var(--i) * 16ms);
+}
+
+@keyframes lab-char-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * White -> Bit Blue, a long blue hold for
+ * suspense, then a geometric settle: every 7% of the timeline halves the
+ * remaining distance to navy (1, 1/2, 1/4, 1/8, 1/16 of #0B40FF -> #06134A).
+ */
+@keyframes lab-char-settle {
+  0%,
+  11% {
+    color: #fcfdff;
+  }
+  16% {
+    color: #0b40ff;
+  }
+  45% {
+    color: #0b40ff;
+  }
+  52% {
+    color: #092aa5;
+  }
+  59% {
+    color: #040f3d;
+  }
+  66% {
+    color: #030b24;
+  }
+  73% {
+    color: #02070f;
+  }
+  100% {
+    color: #000;
+  }
+}
+
+/*
+ * Line morph: a Bit Blue bar wipes in over the line (0-50%), the text swaps in
+ * hidden under it, then the bar wipes out to the right (50-100%).
+ */
+.lab-morph-measure {
+  color: transparent;
+}
+
+.lab-morph-line {
+  position: relative;
+  display: block;
+  width: fit-content;
+  color: var(--ink);
+  animation: lab-morph-ink 700ms steps(1, end) both;
+  animation-delay: calc(var(--base) + var(--l) * var(--line-stagger));
+}
+
+.lab-morph-line::after {
+  content: "";
+  position: absolute;
+  inset: 0.08em -0.12em;
+  background: #0b40ff;
+  clip-path: inset(0 100% 0 0);
+  animation: lab-morph-bar 700ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation-delay: inherit;
+}
+
+.lab-morph-line--static,
+.lab-morph-line--static::after {
+  animation: none;
+}
+
+@keyframes lab-morph-ink {
+  0% {
+    color: transparent;
+  }
+  50% {
+    color: var(--ink);
+  }
+}
+
+@keyframes lab-morph-bar {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+/*
+ * Pill morph: the CTA is born as a dot, swells into a circle, then stretches
+ * into the full pill. The last stop overshoots the box so the beam's bloom is
+ * not clipped once the morph ends.
+ */
+.lab-morph-pill {
+  animation: lab-pill 900ms cubic-bezier(0.76, 0, 0.24, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes lab-pill {
+  0% {
+    clip-path: inset(calc(50% - 4px) calc(50% - 4px) round 999px);
+  }
+  35% {
+    clip-path: inset(0 calc(50% - 26px) round 999px);
+  }
+  100% {
+    clip-path: inset(-32px round 999px);
+  }
+}
+
+/* Link is "written" left to right. */
+.lab-morph-wipe {
+  display: inline-block;
+  animation: lab-wipe 600ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes lab-wipe {
+  from {
+    clip-path: inset(-4px 100% -4px 0);
+  }
+  to {
+    clip-path: inset(-4px 0 -4px 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-reveal__char,
+  .lab-morph-line,
+  .lab-morph-line::after,
+  .lab-morph-pill,
+  .lab-morph-wipe {
+    animation: none;
+  }
+
+  .lab-morph-line::after {
+    display: none;
+  }
+}

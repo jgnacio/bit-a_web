@@ -157,7 +157,7 @@ export default function RestaurantWebPage() {
       <ModularGrid variant="default" className="min-h-screen" showGrid={false}>
         {/* Hero Section */}
         <GridItem span={12} className="relative">
-          <section ref={heroRef} className="relative pt-32 pb-20 px-6 overflow-hidden">
+          <section ref={heroRef} className="relative pt-60 pb-20 px-6 overflow-hidden">
             {/* Fondo del hero: se aleja al hacer scroll para que el texto suba
                 sobre la imagen en vez de arrastrarla. */}
             <div className="hero-bg absolute inset-0 -z-10 will-change-transform">

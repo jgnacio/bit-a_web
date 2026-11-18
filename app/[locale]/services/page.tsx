@@ -123,7 +123,7 @@ export default function ServicesPage() {
       <ModularGrid variant="default" className="min-h-screen" showGrid={true}>
         {/* Hero Section */}
         <GridItem span={12} className="relative">
-          <section ref={heroRef} className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#f8fafc]/5 via-transparent to-[#f8fafc]/3 relative z-20">
+          <section ref={heroRef} className="pt-60 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#f8fafc]/5 via-transparent to-[#f8fafc]/3 relative z-20">
             <div className="max-w-5xl mx-auto text-center">
               <AnimatedTitle
                 as="h1"

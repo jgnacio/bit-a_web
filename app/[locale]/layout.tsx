@@ -70,9 +70,7 @@ export default async function RootLayout({
         <LenisProvider>
           <NextIntlClientProvider messages={messages}>
             <Navbar />
-            <div className=' bg-[#11111177] border border-[#ffffff11] max-w-7xl mx-auto rounded-[3rem] overflow-hidden mt-[7rem]'>
             {children}
-            </div>
           </NextIntlClientProvider>
         </LenisProvider>
       </body>

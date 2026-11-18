@@ -121,7 +121,7 @@ export default function RealEstateWebPage() {
       <ModularGrid variant="default" className="min-h-screen" showGrid={false}>
         {/* Hero Section */}
         <GridItem span={12} className="relative">
-          <section ref={heroRef} className="pt-32 pb-20 px-6">
+          <section ref={heroRef} className="pt-60 pb-20 px-6">
             <div className="max-w-5xl mx-auto text-center">
               <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
                 {t('hero.title')}

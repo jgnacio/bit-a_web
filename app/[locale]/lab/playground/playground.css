@@ -1,0 +1,985 @@
+/*
+ * Playground lab.
+ *
+ * Everything is scoped to `.pg-root`, or to a `:has(.pg-root)` selector for the
+ * few rules that have to reach outside it, so the sheet cannot leak into the
+ * rest of the site.
+ *
+ * Tokens live here as custom properties and, for three.js, in
+ * _content/tokens.ts. Keep the two in sync.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Tokens                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.pg-root {
+  --pg-ground: #F4F6FD;
+  --pg-paper: #FCFDFF;
+  --pg-ink: #0B0B1F;
+  --pg-ink-soft: #3B3F5C;
+
+  --pg-blue: #0B40FF;
+  --pg-orange: #FF7A1A;
+  --pg-pink: #FF5FAE;
+  --pg-lime: #C6FF3D;
+  --pg-lilac: #A98BFF;
+  --pg-sun: #FFD23F;
+
+  --pg-display: var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --pg-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --pg-gutter: clamp(16px, 4vw, 48px);
+  --pg-radius-card: 28px;
+  --pg-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  position: relative;
+  min-height: 100svh;
+  background: var(--pg-ground);
+  color: var(--pg-ink);
+  font-family: var(--pg-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  /* Rotated marquee bands overshoot the viewport; clip, do not scroll. */
+  overflow-x: clip;
+}
+
+/* The site navbar belongs to the other pages; the lab brings its own. */
+body:has(.pg-root) > nav:not(.pg-nav) {
+  display: none;
+}
+
+.pg-root *,
+.pg-root *::before,
+.pg-root *::after {
+  box-sizing: border-box;
+}
+
+/* :where() keeps the reset at zero specificity, so every component class wins. */
+:where(.pg-root) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pg-root :focus-visible {
+  outline: 2px solid var(--pg-ink);
+  outline-offset: 3px;
+}
+
+.pg-root .pg-closing :focus-visible {
+  outline-color: var(--pg-paper);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Shared pieces                                                               */
+/* -------------------------------------------------------------------------- */
+
+.pg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.45rem 0.95rem 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--pg-ink) 6%, transparent);
+  color: var(--pg-ink);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.pg-eyebrow::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--pg-blue);
+}
+
+.pg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 1.05rem 1.9rem;
+  border-radius: 999px;
+  font-family: var(--pg-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  transition: transform 0.25s var(--pg-ease);
+}
+
+.pg-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pg-btn--ink {
+  background: var(--pg-ink);
+  color: var(--pg-paper);
+}
+
+.pg-btn--paper {
+  background: var(--pg-paper);
+  color: var(--pg-ink);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Lab nav                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.pg-nav {
+  position: fixed;
+  z-index: 60;
+  top: 14px;
+  left: 0;
+  right: 0;
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 8px 8px 22px;
+  border: 1px solid color-mix(in srgb, var(--pg-ink) 8%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--pg-paper) 80%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  backdrop-filter: blur(16px) saturate(1.5);
+  box-shadow: 0 10px 30px -14px color-mix(in srgb, var(--pg-ink) 28%, transparent);
+}
+
+.pg-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  width: 34px;
+  height: 30px;
+  margin-right: 14px;
+  color: var(--pg-ink);
+}
+
+.pg-nav__brand svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pg-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pg-nav__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 0.95rem;
+  border-radius: 999px;
+  color: var(--pg-ink-soft);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.pg-nav__link:hover {
+  background: color-mix(in srgb, var(--pg-ink) 6%, transparent);
+  color: var(--pg-ink);
+}
+
+.pg-nav__cta {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  background: var(--pg-ink);
+  color: var(--pg-paper);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transition: transform 0.25s var(--pg-ease);
+}
+
+.pg-nav__cta:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 639px) {
+  .pg-nav {
+    top: 10px;
+    padding-left: 16px;
+  }
+
+  .pg-nav__brand {
+    margin-right: 6px;
+  }
+
+  /* Keep the pill to the isotype, one link and the call to action. */
+  .pg-nav__links li:not(:first-child) {
+    display: none;
+  }
+
+  .pg-nav__cta {
+    padding-inline: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hero                                                                        */
+/* -------------------------------------------------------------------------- */
+
+.pg-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 112px var(--pg-gutter) 80px;
+  overflow: clip;
+}
+
+/* Dot grid: ink at 6%, fading out toward the bottom edge. */
+.pg-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--pg-ink) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.06;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent);
+}
+
+/* The canvas fills the hero behind the text and fades in once it has painted. */
+.pg-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.pg-hero[data-3d="on"] .pg-stage {
+  opacity: 1;
+}
+
+.pg-stage__canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.pg-stage canvas {
+  display: block;
+}
+
+/* Touch: tapping a toy selects it, and the page must still scroll vertically. */
+@media (pointer: coarse) {
+  .pg-stage,
+  .pg-stage__canvas,
+  .pg-stage__canvas div,
+  .pg-stage canvas {
+    touch-action: pan-y;
+  }
+}
+
+/* Text layer: above the canvas, but only links and buttons catch the pointer. */
+.pg-hero__text {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 64rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.pg-hero__text a,
+.pg-hero__text button {
+  pointer-events: auto;
+}
+
+.pg-headline {
+  max-width: 14ch;
+  margin: 1.4rem 0 0;
+  color: var(--pg-ink);
+  font-family: var(--pg-display);
+  font-size: clamp(3rem, 7.6vw, 7.5rem);
+  font-weight: 800;
+  letter-spacing: -0.032em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+/* Colored for now; a later task makes it cycle through the service colors. */
+.pg-dot {
+  color: var(--pg-blue);
+}
+
+.pg-sub {
+  max-width: 46ch;
+  margin: 1.5rem 0 0;
+  color: var(--pg-ink-soft);
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.pg-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.75rem;
+  margin-top: 2rem;
+}
+
+.pg-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.25rem;
+  color: var(--pg-ink);
+  font-size: 1rem;
+  font-weight: 700;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.pg-link:hover {
+  text-decoration-line: underline;
+}
+
+/* Hand-placed hint, next to one of the toys. */
+.pg-hint {
+  position: absolute;
+  z-index: 4;
+  left: 19%;
+  top: 72.5%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: var(--pg-pink);
+  color: var(--pg-ink);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+  rotate: -6deg;
+  pointer-events: none;
+  box-shadow: 0 8px 18px -10px color-mix(in srgb, var(--pg-ink) 55%, transparent);
+}
+
+/* The arrow leaves the label's lower-left corner and points down at the toy. */
+.pg-hint__arrow {
+  position: absolute;
+  right: calc(100% - 10px);
+  top: 62%;
+  width: 48px;
+  height: 42px;
+  color: var(--pg-ink);
+  overflow: visible;
+}
+
+/* One sentence per pointer type, chosen in CSS so it never flashes on load. */
+.pg-hint__fine,
+.pg-hint__coarse {
+  display: none;
+}
+
+.pg-hint__coarse {
+  display: inline;
+}
+
+.pg-hero[data-3d="on"] .pg-hint__fine {
+  display: inline;
+}
+
+.pg-hero[data-3d="on"] .pg-hint__coarse {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .pg-hero[data-3d="on"] .pg-hint__fine {
+    display: none;
+  }
+
+  .pg-hero[data-3d="on"] .pg-hint__coarse {
+    display: inline;
+  }
+}
+
+/* Portrait and narrow windows: three toys above the text, three below. */
+@media (max-aspect-ratio: 5/4) {
+  .pg-hint {
+    left: 50%;
+    top: auto;
+    bottom: 4.5%;
+    translate: -50% 0;
+  }
+
+  /* Under the bottom row of toys: the arrow now climbs up toward them. */
+  .pg-hint__arrow {
+    right: auto;
+    left: 14px;
+    top: auto;
+    bottom: calc(100% - 8px);
+    rotate: 180deg;
+  }
+}
+
+/* Phones: the toy rows leave less room, so the text block gets more compact. */
+@media (max-width: 639px) {
+  .pg-hero {
+    padding-top: 92px;
+    padding-bottom: 72px;
+  }
+
+  .pg-headline {
+    max-width: 15.5ch;
+    margin-top: 1rem;
+    font-size: clamp(2.5rem, 10.6vw, 3rem);
+  }
+
+  .pg-sub {
+    max-width: 34ch;
+    margin-top: 1rem;
+    font-size: 1.0625rem;
+  }
+
+  .pg-cta-row {
+    margin-top: 1.25rem;
+    gap: 0.25rem 1rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sticker fallback                                                            */
+/* -------------------------------------------------------------------------- */
+
+.pg-stickers {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Once the 3D stage is up: fade out, then leave the tab order for good. */
+.pg-stickers[data-faded] {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    visibility 0s linear 0.5s;
+}
+
+.pg-sticker {
+  position: absolute;
+  left: calc(50% + var(--lx) * 100%);
+  top: calc(50% - var(--ly) * 100%);
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  padding: 0;
+  border: 0;
+  border-radius: 32%;
+  background: var(--sticker-bg);
+  color: var(--sticker-fg);
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow:
+    inset 0 -8px 14px color-mix(in srgb, var(--pg-ink) 14%, transparent),
+    inset 0 7px 12px color-mix(in srgb, var(--pg-paper) 42%, transparent),
+    0 18px 26px -16px color-mix(in srgb, var(--pg-ink) 55%, transparent);
+  animation: pg-bob 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.45s);
+  transition: scale 0.2s var(--pg-ease);
+}
+
+.pg-sticker:hover {
+  scale: 1.08;
+}
+
+.pg-sticker:active {
+  scale: 0.94;
+}
+
+.pg-sticker svg {
+  width: 42%;
+  height: 42%;
+}
+
+@keyframes pg-bob {
+  0%,
+  100% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(3deg);
+  }
+}
+
+@media (max-aspect-ratio: 5/4) {
+  .pg-sticker {
+    left: calc(50% + var(--px) * 100%);
+    top: calc(50% - var(--py) * 100%);
+  }
+}
+
+@media (max-width: 639px) {
+  .pg-sticker {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Marquee                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.pg-marquee {
+  position: relative;
+  z-index: 2;
+  height: clamp(170px, 18vw, 260px);
+  overflow: clip;
+}
+
+.pg-band {
+  position: absolute;
+  left: -8%;
+  width: 116%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-block: clamp(0.55rem, 1.1vw, 0.9rem);
+  box-shadow: 0 14px 30px -16px color-mix(in srgb, var(--pg-ink) 45%, transparent);
+}
+
+.pg-band--a {
+  z-index: 1;
+  top: 50%;
+  background: var(--pg-blue);
+  color: var(--pg-paper);
+  translate: 0 -50%;
+  rotate: -3deg;
+}
+
+.pg-band--b {
+  z-index: 2;
+  top: 50%;
+  background: var(--pg-lime);
+  color: var(--pg-ink);
+  translate: 0 -50%;
+  rotate: 2deg;
+}
+
+.pg-band__track {
+  display: flex;
+  flex: none;
+  width: max-content;
+}
+
+.pg-band__group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.75rem);
+  padding-right: clamp(0.9rem, 2vw, 1.75rem);
+}
+
+.pg-band__item {
+  font-family: var(--pg-display);
+  font-size: clamp(1.35rem, 2.7vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pg-band__star {
+  flex: none;
+  width: clamp(1rem, 1.9vw, 1.75rem);
+  height: clamp(1rem, 1.9vw, 1.75rem);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Services                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.pg-services {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding: clamp(72px, 10vw, 140px) var(--pg-gutter);
+  scroll-margin-top: 72px;
+}
+
+.pg-section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 52rem;
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.pg-title {
+  margin: 1.1rem 0 0;
+  font-family: var(--pg-display);
+  font-size: clamp(2.4rem, 5.6vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: -0.032em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.pg-lede {
+  max-width: 44ch;
+  margin: 1.2rem 0 0;
+  color: var(--pg-ink-soft);
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  text-wrap: pretty;
+}
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pg-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
+  min-height: clamp(320px, 31vw, 420px);
+  padding: clamp(22px, 2.4vw, 34px);
+  border-radius: var(--pg-radius-card);
+  background: var(--card-bg);
+  color: var(--card-fg);
+  overflow: hidden;
+}
+
+.pg-card--webs {
+  grid-column: span 4;
+}
+
+.pg-card--ecommerce,
+.pg-card--brand,
+.pg-card--ai,
+.pg-card--security {
+  grid-column: span 2;
+}
+
+.pg-card--growth {
+  grid-column: span 6;
+  min-height: clamp(260px, 24vw, 320px);
+}
+
+.pg-card__head {
+  grid-row: 1;
+}
+
+.pg-card__name {
+  max-width: 14ch;
+  margin: 0;
+  font-family: var(--pg-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.pg-card__blurb {
+  max-width: 32ch;
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  opacity: 0.88;
+  text-wrap: pretty;
+}
+
+/* Reserved for the looping illustration; static artwork until then. */
+.pg-card__art {
+  grid-row: 2;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+}
+
+.pg-card__art svg {
+  width: min(100%, 290px);
+  height: auto;
+  max-height: 100%;
+}
+
+.pg-card__foot {
+  grid-row: 3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pg-card__btn {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--card-fg);
+  color: var(--card-bg);
+  cursor: pointer;
+}
+
+.pg-card__btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  transition: transform 0.3s var(--pg-ease);
+}
+
+/* Animate the glyph, never the button: a transform on the button would turn it
+   into the containing block of the ::after below and shrink the hit area. */
+.pg-card__btn:hover svg {
+  transform: rotate(90deg);
+}
+
+/* The button's hit area is the whole card; the focus ring wraps the card too. */
+.pg-card__btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--pg-radius-card);
+}
+
+.pg-card__btn:focus-visible {
+  outline: none;
+}
+
+.pg-card__btn:focus-visible::after {
+  outline: 2px solid var(--pg-ink);
+  outline-offset: 3px;
+}
+
+.pg-card.is-pulsing {
+  animation: pg-pulse 1.2s var(--pg-ease);
+}
+
+@keyframes pg-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--card-bg) 85%, transparent);
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.025);
+  }
+  100% {
+    box-shadow: 0 0 0 22px transparent;
+    transform: scale(1);
+  }
+}
+
+/* Wide cards: text on the left, artwork on the right. */
+@media (min-width: 1024px) {
+  .pg-card--webs,
+  .pg-card--growth {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+  }
+
+  .pg-card--webs .pg-card__head,
+  .pg-card--growth .pg-card__head {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .pg-card--webs .pg-card__art,
+  .pg-card--growth .pg-card__art {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .pg-card--webs .pg-card__foot,
+  .pg-card--growth .pg-card__foot {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+}
+
+/* Tablet: two columns, the wide cards take a full row. */
+@media (max-width: 1023px) {
+  .pg-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pg-card {
+    min-height: 340px;
+  }
+
+  .pg-card--webs,
+  .pg-card--growth {
+    grid-column: span 2;
+  }
+
+  .pg-card--ecommerce,
+  .pg-card--brand,
+  .pg-card--ai,
+  .pg-card--security {
+    grid-column: span 1;
+  }
+}
+
+/* Phone: one column. */
+@media (max-width: 639px) {
+  .pg-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .pg-card,
+  .pg-card--webs,
+  .pg-card--ecommerce,
+  .pg-card--brand,
+  .pg-card--ai,
+  .pg-card--security,
+  .pg-card--growth {
+    grid-column: span 1;
+    min-height: 320px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Closing                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.pg-closing {
+  position: relative;
+  padding: clamp(96px, 14vw, 190px) var(--pg-gutter);
+  background: var(--pg-ink);
+  color: var(--pg-paper);
+  overflow: clip;
+}
+
+.pg-closing__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  /* Same measure as the services section, which carries its own side padding. */
+  max-width: calc(1320px - 2 * var(--pg-gutter));
+  margin-inline: auto;
+}
+
+.pg-closing__title {
+  max-width: 9ch;
+  margin: 0;
+  font-family: var(--pg-display);
+  font-size: clamp(3.75rem, 13vw, 11rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  text-wrap: balance;
+}
+
+.pg-closing__body {
+  max-width: 38ch;
+  margin: 1.75rem 0 2.25rem;
+  color: color-mix(in srgb, var(--pg-paper) 76%, transparent);
+  font-size: clamp(1.125rem, 1.7vw, 1.375rem);
+  text-wrap: pretty;
+}
+
+/* Static for now; a later task spins it. */
+.pg-round-sticker {
+  position: absolute;
+  z-index: 0;
+  top: clamp(48px, 8vw, 120px);
+  right: clamp(16px, 9vw, 160px);
+  width: clamp(120px, 17vw, 240px);
+  height: auto;
+  rotate: 12deg;
+}
+
+.pg-round-sticker__text {
+  font-family: var(--pg-display);
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 639px) {
+  .pg-round-sticker {
+    top: 28px;
+    right: 8px;
+    width: 112px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reduced motion                                                              */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-sticker {
+    animation: none;
+    transition: none;
+  }
+
+  .pg-stage,
+  .pg-stickers,
+  .pg-stickers[data-faded] {
+    transition: none;
+  }
+
+  .pg-btn,
+  .pg-nav__cta,
+  .pg-card__btn svg {
+    transition: none;
+  }
+
+  .pg-btn:hover,
+  .pg-nav__cta:hover,
+  .pg-card__btn:hover svg {
+    transform: none;
+  }
+
+  /* The highlight stays, without moving the card. */
+  .pg-card.is-pulsing {
+    animation-name: pg-pulse-still;
+  }
+}
+
+@keyframes pg-pulse-still {
+  0% {
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--pg-ink) 80%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}

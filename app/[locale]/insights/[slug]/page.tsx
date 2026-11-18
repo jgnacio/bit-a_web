@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
   }
 
   return (
-    <article className="container mx-auto px-4 py-8 max-w-4xl">
+    <article className="container mx-auto px-4 pt-36 pb-8 max-w-4xl">
       <header className="mb-8">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <div className="text-gray-500 mb-6">

@@ -20,7 +20,7 @@ const HeroSection = forwardRef<HTMLElement, React.ComponentPropsWithoutRef<'sect
   }, []);
 
   return (
-    <section ref={ref} {...props} className={`min-h-screen flex flex-col relative px-4 sm:px-6 lg:px-8 xl:px-12 z-20 py-8 sm:py-12 lg:py-16 bg-black overflow-hidden ${props.className || ''}`}>
+    <section ref={ref} {...props} className={`min-h-screen flex flex-col relative px-4 sm:px-6 lg:px-8 xl:px-12 z-20 pt-36 pb-8 sm:pt-40 sm:pb-12 lg:pt-44 lg:pb-16 bg-black overflow-hidden ${props.className || ''}`}>
       {/* Background Subtle Glow following cursor */}
       <div 
         className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 opacity-40"

@@ -1,0 +1,464 @@
+/*
+ * BorderBeam — animated border glow.
+ *
+ * Self-contained on purpose: no preprocessor, no CSS Modules, no build-time
+ * dependency. Class names are prefixed (`hn-beam`) so the file can be dropped
+ * into any project without collisions.
+ *
+ * Every value below is a default. BorderBeam.tsx overrides them inline as CSS
+ * custom properties, so re-theming never requires touching this file.
+ *
+ * The effect is NOT a rotating rainbow ring. The color field is static; a light
+ * source travels over it. See "Anatomy" below.
+ */
+
+/*
+ * Registered so they interpolate. All four inherit, so the wrapper animates them
+ * once and every layer reads the same value — that is what keeps the head, the
+ * trail and the bloom locked to each other.
+ *
+ * Browsers without @property support ignore these blocks: the beam then steps
+ * through the explicit keyframe stops instead of freezing.
+ */
+@property --hn-beam-angle {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 0deg;
+}
+
+@property --hn-beam-breathe {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 1;
+}
+
+@property --hn-beam-spike {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 1;
+}
+
+@property --hn-beam-spike2 {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 1;
+}
+
+.hn-beam {
+	position: relative;
+	display: block;
+	/* Keeps the bloom layer's negative z-index scoped to this wrapper instead
+	   of dropping it behind the page background. */
+	isolation: isolate;
+
+	/* Nine static elliptical color blobs. Built by BorderBeam.tsx. */
+	--hn-beam-field: radial-gradient(
+		ellipse 70px 40px at 33% -7.4%,
+		#6366f1,
+		transparent
+	);
+	/* Same field with slightly smaller blobs, for the inner glow. */
+	--hn-beam-field-inner: radial-gradient(
+		ellipse 63px 36px at 33% -7.4%,
+		#6366f1,
+		transparent
+	);
+	--hn-beam-radius: 12px;
+	--hn-beam-border-width: 1px;
+	--hn-beam-duration: 1.96s;
+	--hn-beam-spike-duration: 2.55s;
+	--hn-beam-spike2-duration: 3.47s;
+	--hn-beam-hue-duration: 12s;
+	--hn-beam-hue-range: 30deg;
+	--hn-beam-strength: 1;
+	--hn-beam-saturation: 1.2;
+	--hn-beam-brightness: 1.3;
+	--hn-beam-stroke-opacity: 0.26;
+	--hn-beam-inner-opacity: 0.19;
+	--hn-beam-bloom-opacity: 0.24;
+	--hn-beam-bloom-spread: 0px;
+	--hn-beam-bloom-blur: 8px;
+	/* How far the inner glow reaches in from each edge before it fades out. */
+	--hn-beam-inner-falloff: 28px;
+	--hn-beam-fade: 420ms;
+	/* The traveling highlight: white on dark, black on light. */
+	--hn-beam-head-rgb: 255, 255, 255;
+	--hn-beam-head-peak: 0.75;
+	--hn-beam-bloom-peak: 0.85;
+	--hn-beam-inner-shadow: rgba(255, 255, 255, 0.27);
+	/* 1 keeps the full-length trail; lower values shorten it. */
+	--hn-beam-trail: 1;
+}
+
+.hn-beam[data-theme="light"] {
+	--hn-beam-head-rgb: 0, 0, 0;
+	--hn-beam-head-peak: 0.55;
+	--hn-beam-bloom-peak: 0.6;
+	--hn-beam-inner-shadow: rgba(0, 0, 0, 0.14);
+}
+
+/* --- Anatomy ------------------------------------------------------------
+ *
+ * Three layers, all `pointer-events: none` and `aria-hidden`:
+ *
+ *   stroke — the crisp hairline on the border
+ *   inner  — a soft glow bleeding in from the edges
+ *   bloom  — the halo spilling outward, behind the content
+ *
+ * Each one paints the same static color field. What moves is the light:
+ *
+ *   1. a rotating conic HEAD arc adds a bright hot spot over the colors
+ *   2. a rotating conic TRAIL mask reveals only an arc of the ring, with soft
+ *      tails, so the head drags a comet trail behind it
+ *
+ * The apparent acceleration is free geometry: a conic gradient sweeps angle at a
+ * constant rate, but on a wide rounded rectangle the perimeter covered per
+ * degree varies a lot — the light rips along the long edges and eases through
+ * the corners.
+ *
+ * The gradients are held in custom properties rather than written inline. Each
+ * one is needed by two or three layers, and a mask list cannot be composed any
+ * other way in plain CSS — this also leaves them overridable by consumers.
+ * --------------------------------------------------------------------- */
+
+.hn-beam {
+	/*
+	 * The trail. Stops are offsets around the head at 66%, scaled by
+	 * `--hn-beam-trail`, so one number controls the comet's length: a long arc
+	 * sweeps many color blobs at once and reads as a rainbow smear, a short one
+	 * keeps a single hue and reads as one moving light.
+	 */
+	--hn-beam-trail-mask: conic-gradient(
+		from var(--hn-beam-angle),
+		transparent 0%,
+		transparent calc(66% - 36% * var(--hn-beam-trail)),
+		rgba(255, 255, 255, 0.1) calc(66% - 30% * var(--hn-beam-trail)),
+		rgba(255, 255, 255, 0.35) calc(66% - 22% * var(--hn-beam-trail)),
+		#fff calc(66% - 14% * var(--hn-beam-trail)),
+		#fff calc(66% + 14% * var(--hn-beam-trail)),
+		rgba(255, 255, 255, 0.35) calc(66% + 20% * var(--hn-beam-trail)),
+		rgba(255, 255, 255, 0.1) calc(66% + 26% * var(--hn-beam-trail)),
+		transparent calc(66% + 29% * var(--hn-beam-trail)),
+		transparent 100%
+	);
+
+	/* The bright head, sitting on the hairline. */
+	--hn-beam-head-arc: conic-gradient(
+		from var(--hn-beam-angle),
+		transparent 0%,
+		transparent 54%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-head-peak) * 0.13)) 57%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-head-peak) * 0.4)) 60%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-head-peak) * 0.8)) 63%,
+		rgba(var(--hn-beam-head-rgb), var(--hn-beam-head-peak)) 66%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-head-peak) * 0.8)) 69%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-head-peak) * 0.4)) 72%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-head-peak) * 0.13)) 75%,
+		transparent 78%,
+		transparent 100%
+	);
+
+	/*
+	 * The bloom's head is a much tighter, hotter spike than the stroke's. Blurred,
+	 * that is what reads as the comet's glow rather than a lit border.
+	 */
+	--hn-beam-bloom-arc: conic-gradient(
+		from var(--hn-beam-angle),
+		transparent 0%,
+		transparent 58%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.04)) 62%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.09)) 65%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.24)) 67%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.53)) 69%,
+		rgba(var(--hn-beam-head-rgb), var(--hn-beam-bloom-peak)) 70%,
+		rgba(var(--hn-beam-head-rgb), var(--hn-beam-bloom-peak)) 70.5%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.53)) 71.5%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.24)) 73%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.09)) 75%,
+		rgba(var(--hn-beam-head-rgb), calc(var(--hn-beam-bloom-peak) * 0.04)) 78%,
+		transparent 82%
+	);
+
+	/* Carves the ring: the two cancel out, leaving only the padding band. */
+	--hn-beam-ring-mask-outer: linear-gradient(#fff 0 0);
+	--hn-beam-ring-mask-inner: linear-gradient(#fff 0 0);
+
+	/*
+	 * Added together these two make a frame that is opaque near all four edges and
+	 * fades to nothing toward the middle — a much softer falloff than a hard band.
+	 */
+	--hn-beam-edge-mask-v: linear-gradient(
+		#fff,
+		transparent var(--hn-beam-inner-falloff),
+		transparent calc(100% - var(--hn-beam-inner-falloff)),
+		#fff
+	);
+	--hn-beam-edge-mask-h: linear-gradient(
+		to right,
+		#fff,
+		transparent var(--hn-beam-inner-falloff),
+		transparent calc(100% - var(--hn-beam-inner-falloff)),
+		#fff
+	);
+}
+
+.hn-beam__layer {
+	position: absolute;
+	inset: 0;
+	box-sizing: border-box;
+	border-radius: var(--hn-beam-radius);
+	background: var(--hn-beam-field);
+	pointer-events: none;
+	filter: blur(calc(var(--hn-beam-layer-blur, 0px) * var(--hn-beam-spike)))
+		saturate(var(--hn-beam-saturation))
+		brightness(calc(var(--hn-beam-brightness) * var(--hn-beam-breathe)));
+	transition: opacity var(--hn-beam-fade) ease;
+}
+
+.hn-beam__stroke,
+.hn-beam__bloom {
+	-webkit-mask:
+		var(--hn-beam-ring-mask-inner) content-box,
+		var(--hn-beam-ring-mask-outer);
+	-webkit-mask-composite: xor;
+	mask:
+		var(--hn-beam-ring-mask-inner) content-box,
+		var(--hn-beam-ring-mask-outer);
+	mask-composite: exclude;
+}
+
+.hn-beam__stroke {
+	z-index: 2;
+	padding: var(--hn-beam-border-width);
+	opacity: calc(var(--hn-beam-stroke-opacity) * var(--hn-beam-strength));
+}
+
+/*
+ * No ring band and no blur here on purpose. The blobs are large enough that
+ * blurring them smears color across the content instead of hugging the edge; the
+ * soft falloff comes from the crossed edge masks and the inset shadow.
+ *
+ * Also deliberately no head arc: this layer's mask reveals a wide band, so the
+ * bright head would paint across it as a washed-out smudge instead of a comet.
+ * The head belongs on the 1px stroke; this layer only carries color.
+ */
+.hn-beam__inner {
+	z-index: 1;
+	background: var(--hn-beam-field-inner);
+	box-shadow: inset 0 0 9px 1px var(--hn-beam-inner-shadow);
+	opacity: calc(var(--hn-beam-inner-opacity) * var(--hn-beam-strength));
+	-webkit-mask-image: var(--hn-beam-edge-mask-v), var(--hn-beam-edge-mask-h);
+	-webkit-mask-composite: source-over;
+	mask-image: var(--hn-beam-edge-mask-v), var(--hn-beam-edge-mask-h);
+	mask-composite: add;
+}
+
+/*
+ * The outward halo, behind the content — which means the wrapped child must be
+ * opaque, and the surrounding layout needs room to spill into.
+ *
+ * It sits ON the border, not outside it: the blur is what spills the halo
+ * outward. Pushing the band itself out makes the glow detach into a floating
+ * smudge instead of hugging the edge. `--hn-beam-bloom-spread` is there if a
+ * consumer wants a wider halo.
+ */
+.hn-beam__bloom {
+	z-index: -1;
+	inset: calc(var(--hn-beam-bloom-spread) * -1);
+	border-radius: calc(var(--hn-beam-radius) + var(--hn-beam-bloom-spread));
+	padding: calc(
+		var(--hn-beam-border-width) +
+		var(--hn-beam-bloom-spread) +
+		1px
+	);
+	--hn-beam-layer-blur: var(--hn-beam-bloom-blur);
+	opacity: calc(var(--hn-beam-bloom-opacity) * var(--hn-beam-strength));
+}
+
+/* --- Rotate: a light source traveling over the static color field ------- */
+
+.hn-beam[data-variant="rotate"] .hn-beam__stroke {
+	background: var(--hn-beam-head-arc), var(--hn-beam-field);
+}
+
+.hn-beam[data-variant="rotate"] .hn-beam__bloom {
+	background: var(--hn-beam-bloom-arc), var(--hn-beam-field);
+}
+
+/* `intersect` clips the trail to the ring the layer already carved out. */
+.hn-beam[data-variant="rotate"] .hn-beam__stroke,
+.hn-beam[data-variant="rotate"] .hn-beam__bloom {
+	-webkit-mask:
+		var(--hn-beam-trail-mask),
+		var(--hn-beam-ring-mask-inner) content-box,
+		var(--hn-beam-ring-mask-outer);
+	-webkit-mask-composite: source-in, xor;
+	mask:
+		var(--hn-beam-trail-mask),
+		var(--hn-beam-ring-mask-inner) content-box,
+		var(--hn-beam-ring-mask-outer);
+	mask-composite: intersect, exclude;
+}
+
+.hn-beam[data-variant="rotate"] .hn-beam__inner {
+	-webkit-mask-image:
+		var(--hn-beam-trail-mask), var(--hn-beam-edge-mask-v),
+		var(--hn-beam-edge-mask-h);
+	-webkit-mask-composite: source-in, source-over;
+	mask-image:
+		var(--hn-beam-trail-mask), var(--hn-beam-edge-mask-v),
+		var(--hn-beam-edge-mask-h);
+	mask-composite: intersect, add;
+}
+
+/* --- Motion ------------------------------------------------------------- */
+
+/*
+ * Driven on the wrapper, not per layer: the properties inherit, so one animation
+ * keeps every layer in lockstep. `filter` stays on the layers, because animating
+ * it here would tint and blur the wrapped content too.
+ */
+.hn-beam[data-variant="rotate"] {
+	animation: hn-beam-spin var(--hn-beam-duration) linear infinite;
+}
+
+/*
+ * Three tracks at incommensurate periods with deliberately uneven, non-monotonic
+ * stops. The irregularity is the point — a symmetric ease-in-out reads as a
+ * metronome, this reads as breathing.
+ */
+.hn-beam[data-variant="pulse"] {
+	animation:
+		hn-beam-breathe var(--hn-beam-duration) ease-in-out infinite,
+		hn-beam-spike var(--hn-beam-spike-duration) ease-in-out infinite,
+		hn-beam-spike2 var(--hn-beam-spike2-duration) ease-in-out infinite;
+}
+
+.hn-beam .hn-beam__layer {
+	animation: hn-beam-hue var(--hn-beam-hue-duration) ease-in-out infinite;
+}
+
+/* The halo swells slightly out of step with the brightness. */
+.hn-beam[data-variant="pulse"] .hn-beam__bloom {
+	transform: scale(calc(1 + (var(--hn-beam-spike2) - 1) * 0.06));
+}
+
+.hn-beam[data-active="false"] {
+	animation-play-state: paused;
+}
+
+.hn-beam[data-active="false"] .hn-beam__layer {
+	opacity: 0;
+	animation-play-state: paused;
+}
+
+/*
+ * Explicit quarter stops so browsers without @property still move the beam
+ * (in four steps) instead of freezing it at 0deg.
+ */
+@keyframes hn-beam-spin {
+	0% {
+		--hn-beam-angle: 0deg;
+	}
+	25% {
+		--hn-beam-angle: 90deg;
+	}
+	50% {
+		--hn-beam-angle: 180deg;
+	}
+	75% {
+		--hn-beam-angle: 270deg;
+	}
+	100% {
+		--hn-beam-angle: 360deg;
+	}
+}
+
+@keyframes hn-beam-breathe {
+	0%,
+	100% {
+		--hn-beam-breathe: 0.8;
+	}
+	25% {
+		--hn-beam-breathe: 1.25;
+	}
+	55% {
+		--hn-beam-breathe: 0.85;
+	}
+	80% {
+		--hn-beam-breathe: 1.3;
+	}
+}
+
+@keyframes hn-beam-spike {
+	0%,
+	100% {
+		--hn-beam-spike: 0.8;
+	}
+	25% {
+		--hn-beam-spike: 1.3;
+	}
+	50% {
+		--hn-beam-spike: 0.9;
+	}
+	75% {
+		--hn-beam-spike: 1.4;
+	}
+}
+
+@keyframes hn-beam-spike2 {
+	0%,
+	100% {
+		--hn-beam-spike2: 1.2;
+	}
+	25% {
+		--hn-beam-spike2: 0.7;
+	}
+	50% {
+		--hn-beam-spike2: 1.4;
+	}
+	75% {
+		--hn-beam-spike2: 0.8;
+	}
+}
+
+/*
+ * The hue cycle has to restate the whole filter chain — filter is a single
+ * property, so an animation on it replaces everything, including the layer's own
+ * blur and the breathing multipliers. With `--hn-beam-hue-range: 0deg`
+ * (staticColors) the rotation itself becomes a no-op.
+ */
+@keyframes hn-beam-hue {
+	0%,
+	100% {
+		filter: blur(calc(var(--hn-beam-layer-blur, 0px) * var(--hn-beam-spike)))
+			saturate(var(--hn-beam-saturation))
+			brightness(calc(var(--hn-beam-brightness) * var(--hn-beam-breathe)))
+			hue-rotate(calc(var(--hn-beam-hue-range) * -1));
+	}
+	50% {
+		filter: blur(calc(var(--hn-beam-layer-blur, 0px) * var(--hn-beam-spike)))
+			saturate(var(--hn-beam-saturation))
+			brightness(calc(var(--hn-beam-brightness) * var(--hn-beam-breathe)))
+			hue-rotate(var(--hn-beam-hue-range));
+	}
+}
+
+/* --- Fallbacks and accessibility --------------------------------------- */
+
+/*
+ * Without mask compositing the ring would never get carved out, so the layers
+ * would paint as solid blobs over the content.
+ */
+@supports not ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+	.hn-beam__layer {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hn-beam,
+	.hn-beam__layer {
+		animation: none !important;
+	}
+}
