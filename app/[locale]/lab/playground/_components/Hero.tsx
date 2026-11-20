@@ -12,7 +12,7 @@ import {
   REDUCED_MOTION_QUERY,
   useMediaQuery,
   useWebGLSupport,
-} from "./hooks";
+} from "../../../../components/toys/hooks";
 import { StickerFallback } from "./StickerFallback";
 
 /**

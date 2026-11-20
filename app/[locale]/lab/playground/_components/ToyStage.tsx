@@ -23,7 +23,7 @@ import {
   setLayout,
   setSquashMode,
   step,
-} from "./physics";
+} from "../../../../components/toys/physics";
 import { SHADOW_OFFSET, Toy, type ToyHandlers, WALL_Z } from "./toys/Toy";
 
 /** A press that ends within this time and travel counts as a click. */

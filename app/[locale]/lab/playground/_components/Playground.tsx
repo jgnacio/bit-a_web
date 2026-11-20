@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { Copy, Locale, LocalizedService, ServiceId } from "../_content/copy";
 import { bricolage } from "../_content/fonts";
 import { Hero } from "./Hero";
-import { REDUCED_MOTION_QUERY } from "./hooks";
+import { REDUCED_MOTION_QUERY } from "../../../../components/toys/hooks";
 import { LabNav } from "./LabNav";
 import { Closing } from "./sections/Closing";
 import { Marquee } from "./sections/Marquee";
