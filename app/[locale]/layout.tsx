@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 
 import { SITE_URL } from "@/content/site";
 import { routing } from "@/i18n/routing";
+import { previewImage } from "@/lib/seo";
 
 import { fontVariables } from "../fonts";
 import "../globals.css";
@@ -37,8 +38,9 @@ export async function generateMetadata({
       siteName: "Bit-A",
       type: "website",
       locale: locale === "es" ? "es_UY" : "en_US",
+      images: [previewImage(locale)],
     },
-    twitter: { card: "summary_large_image" },
+    twitter: { card: "summary_large_image", images: [previewImage(locale).url] },
   };
 }
 
