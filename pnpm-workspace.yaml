@@ -11,3 +11,5 @@ allowBuilds:
   # Solo SDKs de JavaScript: no necesitan compilar nada.
   '@google/genai': false
   protobufjs: false
+minimumReleaseAgeExclude:
+  - zod@4.6.0
