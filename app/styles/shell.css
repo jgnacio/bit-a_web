@@ -328,6 +328,15 @@
     }
   }
 
+  /* A finger gets the full 44px; a mouse keeps the tighter list. */
+  @media (pointer: coarse) {
+    .site-footer__link,
+    .site-footer__lang,
+    .motion-toggle {
+      min-height: 44px;
+    }
+  }
+
   .site-footer__base {
     display: flex;
     flex-wrap: wrap;
