@@ -9,7 +9,8 @@ const turndownService = new TurndownService({
   headingStyle: "atx",
   codeBlockStyle: "fenced",
 });
-turndownService.remove(["script", "style", "noscript", "nav", "footer"]);
+// The shell is not content: drop the nav, the menu sheet and the footer.
+turndownService.remove(["script", "style", "noscript", "nav", "header", "dialog", "footer"]);
 
 export async function GET(
   request: NextRequest,
@@ -33,7 +34,9 @@ export async function GET(
 
   const html = await upstream.text();
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-  const markdown = turndownService.turndown(bodyMatch ? bodyMatch[1] : html).trim();
+  // The skip link only makes sense on the rendered page.
+  const body = (bodyMatch ? bodyMatch[1] : html).replace(/<a\b[^>]*\bskip-link\b[^>]*>[\s\S]*?<\/a>/i, "");
+  const markdown = turndownService.turndown(body).trim();
 
   return new NextResponse(markdown, {
     status: 200,
