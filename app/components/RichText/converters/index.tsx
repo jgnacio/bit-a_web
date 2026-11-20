@@ -16,8 +16,18 @@ export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({defaultConverter
   ...defaultConverters,
   ...LinkJSXConverter({internalDocToHref}),
   ...headingConverter,
+  // The blocks ship unstyled; the wrapper gives them their place in the
+  // long-form column (see app/styles/notes.css).
   blocks: {
-    contentWithMedia: ({node}) => <ContentWithMedia {...node.fields} />,
-    tableOfContents: ({node}) => <TableOfContents {...node.fields} />,
+    contentWithMedia: ({node}) => (
+      <div className="notes-block notes-block--media">
+        <ContentWithMedia {...node.fields} />
+      </div>
+    ),
+    tableOfContents: ({node}) => (
+      <div className="notes-block notes-block--toc">
+        <TableOfContents {...node.fields} />
+      </div>
+    ),
   }
 })

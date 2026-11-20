@@ -1,0 +1,378 @@
+/*
+ * Notes (the blog) and the legal documents. Both are reading pages: one
+ * column of long-form text, with the list of notes as cards.
+ */
+
+@layer components {
+  /* ---- Shared ------------------------------------------------------------- */
+
+  /* A mono line of facts: date · category · reading time. */
+  /*
+   * Every item carries its separator in the gap before it; the ones that land
+   * at the start of a line fall outside the box and are clipped, so a wrapped
+   * line never opens with a dot.
+   */
+  .notes-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 24px;
+    overflow: hidden;
+  }
+
+  .notes-meta > * {
+    white-space: nowrap;
+  }
+
+  .notes-meta > *::before {
+    content: "·";
+    display: inline-block;
+    width: 24px;
+    margin-inline-start: -24px;
+    text-align: center;
+  }
+
+  /* ---- List of notes ------------------------------------------------------ */
+
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 4vw, 48px);
+    padding-bottom: var(--section-y);
+  }
+
+  /* Columns fill from the start, so a short list never stretches one card. */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+    gap: clamp(28px, 4vw, 48px);
+  }
+
+  .notes-grid__item {
+    display: flex;
+  }
+
+  .notes-card {
+    position: relative;
+    flex: 1;
+  }
+
+  .notes-card__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background-color: var(--sunken);
+  }
+
+  /*
+   * A cover that fails to load leaves the quiet block behind it instead of a
+   * broken-image icon and its alt text; the alt stays for assistive technology.
+   */
+  .notes-card__image,
+  .notes-article__image {
+    color: transparent;
+  }
+
+  .notes-card__image {
+    object-fit: cover;
+  }
+
+  .notes-card__placeholder {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 12%;
+    color: var(--text-subtle);
+  }
+
+  .notes-card__wave {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .notes-card__body {
+    flex: 1;
+    gap: 12px;
+  }
+
+  .notes-card__body > .title {
+    max-width: 30ch;
+  }
+
+  /* The title link covers the whole card: one target per note. */
+  .notes-card__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  .notes-card__link:focus-visible {
+    outline: none;
+  }
+
+  .notes-card:has(.notes-card__link:focus-visible) {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  @media (forced-colors: active) {
+    .notes-card:has(.notes-card__link:focus-visible) {
+      outline-color: Highlight;
+    }
+  }
+
+  .notes-card__excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    line-height: 1.5;
+  }
+
+  .notes-card__more {
+    margin-top: auto;
+    min-height: 44px;
+  }
+
+  @media (hover: hover) {
+    .notes-card__link {
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .notes-card:hover .notes-card__link,
+    .notes-card:hover .notes-card__more {
+      color: var(--brand);
+    }
+
+    .notes-card:hover .notes-card__more svg {
+      translate: 3px 0;
+    }
+  }
+
+  /* The newest note: cover beside the text once there is room for both. */
+  @media (min-width: 60rem) {
+    .notes-card--lead {
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      align-items: stretch;
+      gap: clamp(24px, 3vw, 40px);
+    }
+
+    .notes-card--lead .notes-card__media {
+      aspect-ratio: 3 / 2;
+    }
+
+    .notes-card--lead .notes-card__body {
+      justify-content: center;
+      padding: 20px 24px 20px 0;
+    }
+
+    .notes-card--lead .notes-card__more {
+      margin-top: 12px;
+    }
+  }
+
+  /* ---- Empty state -------------------------------------------------------- */
+
+  .notes-empty {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    align-items: center;
+    gap: clamp(24px, 4vw, 56px);
+    padding: clamp(28px, 4vw, 48px);
+    border-radius: var(--radius-card);
+    background-color: var(--sunken);
+  }
+
+  .notes-empty__wave {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    color: var(--text-subtle);
+  }
+
+  /* ---- One note ----------------------------------------------------------- */
+
+  .notes-article {
+    padding-bottom: var(--section-y);
+  }
+
+  .notes-article__head {
+    gap: 18px;
+    max-width: var(--measure-prose);
+    padding-bottom: clamp(32px, 5vw, 56px);
+  }
+
+  .notes-article__title {
+    max-width: 22ch;
+  }
+
+  .notes-back {
+    margin-bottom: 8px;
+  }
+
+  @media (hover: hover) {
+    .notes-back:hover svg {
+      translate: -3px 0;
+    }
+  }
+
+  .notes-article__cover {
+    margin-bottom: clamp(40px, 6vw, 72px);
+    border-radius: var(--radius-card);
+    background-color: var(--sunken);
+  }
+
+  .notes-article__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 72vh;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+  }
+
+  .notes-article__body {
+    font-size: 1.125rem;
+  }
+
+  .notes-article__body > :first-child {
+    margin-top: 0;
+  }
+
+  .longform :is(h2, h3, h4)[id] {
+    scroll-margin-top: var(--nav-clearance);
+  }
+
+  /* Blocks from the editor, placed inside the reading column. */
+  .notes-block--media > section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    align-items: center;
+    gap: 24px;
+  }
+
+  .notes-block--media img {
+    width: 100%;
+    height: auto;
+  }
+
+  .notes-block--toc > section > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 20px;
+    border-radius: var(--radius-panel);
+    background-color: var(--sunken);
+  }
+
+  .notes-block--toc a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* ---- Legal documents ---------------------------------------------------- */
+
+  .legal {
+    padding-bottom: var(--section-y);
+  }
+
+  .legal__head {
+    gap: 18px;
+  }
+
+  .legal__layout {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(32px, 5vw, 48px);
+  }
+
+  .legal-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .legal-nav__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding-inline: 16px;
+    border-radius: var(--radius-pill);
+    color: var(--text-muted);
+    font-size: var(--text-small);
+    font-weight: 600;
+    line-height: 1.25;
+    box-shadow: inset 0 0 0 1px var(--line);
+    transition-property: color, background-color;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  /* The current document: ink text, a filled pill and a dot, not color alone. */
+  .legal-nav__link[aria-current="page"] {
+    background-color: var(--wash-strong);
+    color: var(--text);
+    font-weight: 700;
+    box-shadow: none;
+  }
+
+  .legal-nav__link[aria-current="page"]::before {
+    content: "";
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background-color: currentColor;
+  }
+
+  @media (hover: hover) {
+    .legal-nav__link:not([aria-current="page"]):hover {
+      background-color: var(--wash);
+      color: var(--text);
+    }
+  }
+
+  /* On wide screens the nav stays beside the text while it scrolls. */
+  @media (min-width: 64rem) {
+    .legal__layout {
+      display: grid;
+      grid-template-columns: minmax(200px, 260px) minmax(0, var(--measure-prose));
+      align-items: start;
+      gap: clamp(48px, 6vw, 96px);
+    }
+
+    .legal-nav {
+      position: sticky;
+      top: var(--nav-clearance);
+    }
+
+    .legal-nav__list {
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .legal-nav__link {
+      width: 100%;
+    }
+  }
+
+  .legal-doc > section + section {
+    margin-top: 2.4em;
+  }
+
+  .legal-doc h2 {
+    margin-top: 0;
+    font-size: var(--text-title-md);
+    scroll-margin-top: var(--nav-clearance);
+  }
+
+  .legal-doc h2 + p {
+    margin-top: 0.7em;
+    overflow-wrap: break-word;
+  }
+}
