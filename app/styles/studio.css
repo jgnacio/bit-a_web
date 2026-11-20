@@ -1,0 +1,395 @@
+/*
+ * The offer for companies (/studio), the about page and the contact page.
+ * Shared pieces of the three pages use the studio- prefix.
+ */
+
+@layer components {
+  /* ---- Shared: drawings, numbered lists, fact tiles ------------------------ */
+
+  /* The cut lines take the panel's color, so they read as holes in the shape. */
+  .studio-art__cut {
+    stroke: var(--product, var(--surface));
+  }
+
+  .studio-numbered {
+    list-style: none;
+  }
+
+  .studio-numbered--steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: clamp(28px, 4vw, 48px);
+  }
+
+  .studio-numbered--steps .studio-numbered__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .studio-numbered--rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .studio-numbered--rows .studio-numbered__item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: var(--radius-panel);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-raised);
+  }
+
+  /* A quiet chip, so the number reads as an index and never as a control. */
+  .studio-numbered__index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 26px;
+    padding-inline: 8px;
+    border-radius: var(--radius-pill);
+    background-color: var(--wash-strong);
+  }
+
+  .studio-numbered__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 40ch;
+  }
+
+  .studio-numbered--rows .studio-numbered__body {
+    max-width: 60ch;
+  }
+
+  .studio-numbered__text {
+    font-size: var(--text-lead);
+    font-weight: 500;
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+
+  .studio-facts__item {
+    gap: 6px;
+  }
+
+  /* Every value sits on the same line, links or plain text. */
+  .studio-facts__value {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-family-display);
+    font-size: var(--text-title-sm);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  /* Links in a tile keep a touch-sized target. */
+  .studio-facts__value a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    min-width: 0;
+  }
+
+  /* ---- /studio ---------------------------------------------------------- */
+
+  .studio-head__lead {
+    max-width: 52ch;
+  }
+
+  .studio-head__action {
+    margin-top: 6px;
+  }
+
+  .studio-caps {
+    padding-bottom: var(--section-y);
+  }
+
+  .studio-caps__list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3vw, 32px);
+  }
+
+  /* A card: the product's color panel holds the drawing, text stays on paper. */
+  .studio-cap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  @media (min-width: 56em) {
+    .studio-cap {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+  }
+
+  .studio-cap__panel {
+    display: grid;
+    place-items: center;
+    min-height: clamp(180px, 30vw, 320px);
+  }
+
+  .studio-cap__art {
+    width: clamp(88px, 11vw, 152px);
+    height: auto;
+  }
+
+  .studio-cap__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 22px 12px 4px;
+  }
+
+  @media (min-width: 56em) {
+    .studio-cap__body {
+      padding: clamp(20px, 3vw, 36px) clamp(20px, 3.5vw, 44px) 12px;
+    }
+  }
+
+  .studio-cap__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 52ch;
+  }
+
+  .studio-cap__points {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 60ch;
+    list-style: none;
+  }
+
+  .studio-cap__points li {
+    position: relative;
+    padding-inline-start: 22px;
+    text-wrap: pretty;
+  }
+
+  /* A short dash on the first line's center, as in a parameter list. */
+  .studio-cap__points li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 2px;
+    top: calc(0.75em - 1px);
+    width: 10px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--text);
+  }
+
+  .studio-cap__limit {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 60ch;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  .studio-cap__limit-icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    color: var(--text);
+  }
+
+  .studio-cap__proof {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 24px;
+    margin-top: auto;
+  }
+
+  .studio-fit__item {
+    max-width: 40ch;
+  }
+
+  /* ---- /about ----------------------------------------------------------- */
+
+  .about-story__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 72px);
+  }
+
+  @media (min-width: 64em) {
+    .about-story__grid {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      align-items: end;
+    }
+  }
+
+  .about-story__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Large, and capped near 60 characters a line. */
+  .about-story__prose {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 30em;
+    font-size: var(--text-lead);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  @media (min-width: 48em) {
+    .about-story__prose {
+      font-size: var(--text-title-sm);
+      line-height: 1.55;
+    }
+  }
+
+  .about-story__signature {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: clamp(28px, 4vw, 40px);
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+
+  /* The pink stroke is signal, on ink, and only decorates the name. */
+  .about-story__signature::before {
+    content: "";
+    flex: none;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--signal);
+  }
+
+  .about-story__wave {
+    width: 100%;
+    max-width: 460px;
+    color: var(--signal);
+    justify-self: end;
+  }
+
+  .about-facts {
+    padding-bottom: var(--section-y);
+  }
+
+  .about-facts__title {
+    margin-bottom: 18px;
+  }
+
+  /* ---- /contact --------------------------------------------------------- */
+
+  .contact-channels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 16px;
+    list-style: none;
+  }
+
+  .contact-channel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: clamp(22px, 2.5vw, 30px);
+    border-radius: var(--radius-card);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .contact-channel__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-channel__value {
+    font-family: var(--font-family-display);
+    font-size: var(--text-title-sm);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  /* Buttons sit on one line across the three cards. */
+  .contact-channel__action {
+    margin-top: auto;
+    padding-top: 4px;
+  }
+
+  .contact-channel__icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+  }
+
+  .contact-brief {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+  }
+
+  .contact-brief .section-head {
+    margin-bottom: 0;
+  }
+
+  /* The height is reserved so the page does not jump when the calendar paints. */
+  .contact-booking__box {
+    position: relative;
+    min-height: 660px;
+    border-radius: var(--radius-card);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-raised);
+    overflow: hidden;
+  }
+
+  .contact-booking__loading {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .contact-booking__cal {
+    position: relative;
+    width: 100%;
+    min-height: 660px;
+  }
+
+  .contact-booking__fallback {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 20px;
+    margin-top: 16px;
+  }
+
+  .contact-info__title {
+    margin-bottom: 18px;
+  }
+
+  .contact-info__email {
+    overflow-wrap: anywhere;
+  }
+}
