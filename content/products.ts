@@ -79,3 +79,20 @@ export const CAPABILITIES = [
   { id: "apps", proof: "acordes-finos" },
   { id: "ai", proof: "tablatura" },
 ] as const satisfies readonly { id: string; proof: ProductId }[];
+
+/**
+ * Products of the studio that are not audio. They are shown apart, on the
+ * products page only, and stay out of the audio lists above (the marquee, the
+ * agent route): the site says one thing, and this is the honest footnote.
+ */
+export const OTHER_PRODUCTS = [
+  {
+    id: "facilitador-docente",
+    key: "facilitadorDocente",
+    // Live, with a free plan and paid subscriptions.
+    status: "available",
+    site: "https://www.facilitadordocente.com",
+    mark: { src: "/images/products/facilitador-docente/isotipo.png", width: 659, height: 737 },
+  },
+] as const satisfies readonly { id: string; key: string; status: Status; site: string; mark: object }[];
+

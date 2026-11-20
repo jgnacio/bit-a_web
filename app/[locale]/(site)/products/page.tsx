@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { AcordesCard, LevitaCard, TablaturaCard } from "@/app/components/products/ProductCards";
+import { AcordesCard, FacilitadorCard, LevitaCard, TablaturaCard } from "@/app/components/products/ProductCards";
 import { ClosingBand } from "@/app/components/site/ClosingBand";
-import { Dotted } from "@/app/components/ui/Text";
+import { Dotted, SectionHead } from "@/app/components/ui/Text";
 import { ROUTES } from "@/content/routes";
 import { pageMetadata } from "@/lib/seo";
 
@@ -44,6 +44,15 @@ export default async function ProductsPage({ params }: PageProps) {
           <TablaturaCard locale={locale} level={2} className="reveal" />
         </div>
       </div>
+
+      <section className="section" data-surface="sunken" aria-labelledby="other-title">
+        <div className="wrap">
+          <SectionHead id="other-title" label={t("other.label")} title={t("other.title")}>
+            <p className="lead">{t("other.lead")}</p>
+          </SectionHead>
+          <FacilitadorCard locale={locale} level={3} className="product-card--wide reveal" />
+        </div>
+      </section>
 
       <ClosingBand locale={locale} />
     </>

@@ -157,6 +157,21 @@
         "summary": "Transcription and pitch detection with open models, inside a web tool.",
         "proof": "As in Audio to tablature"
       }
+    },
+    "other": {
+      "label": "Outside audio",
+      "title": "Another product from the studio",
+      "lead": "It is not audio, but it is ours: a complete platform, with its app, its AI engine and its subscriptions.",
+      "items": {
+        "facilitadorDocente": {
+          "name": "Facilitador Docente",
+          "meta": "Education · Web",
+          "status": "Available",
+          "summary": "An AI assistant for primary school teachers in Uruguay. It reads the official ANEP curriculum, knows the students and plans together with the teacher. It has a free plan.",
+          "link": "Visit Facilitador Docente",
+          "logoAlt": "Facilitador Docente mark"
+        }
+      }
     }
   },
   "Levita": {

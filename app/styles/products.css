@@ -73,6 +73,16 @@
     margin-block: auto;
   }
 
+  /* A product outside audio: ink, a shorter block, and its own mark. */
+  .product-card__media--plain {
+    height: 260px;
+  }
+
+  .product-card__mark--tall {
+    width: auto;
+    height: 112px;
+  }
+
   .product-card__title {
     display: flex;
     flex-wrap: wrap;

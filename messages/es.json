@@ -157,6 +157,21 @@
         "summary": "Transcripción y detección de tono con modelos abiertos, dentro de una herramienta web.",
         "proof": "Como en Audio a tablatura"
       }
+    },
+    "other": {
+      "label": "Fuera del audio",
+      "title": "Otro producto del estudio",
+      "lead": "No es de audio, pero es nuestro: una plataforma completa, con su aplicación, su motor de IA y sus suscripciones.",
+      "items": {
+        "facilitadorDocente": {
+          "name": "Facilitador Docente",
+          "meta": "Educación · Web",
+          "status": "Disponible",
+          "summary": "Un asistente con IA para docentes de primaria de Uruguay. Lee el currículo oficial de ANEP, conoce a los alumnos y planifica junto al docente. Tiene un plan gratuito.",
+          "link": "Ver Facilitador Docente",
+          "logoAlt": "Isotipo de Facilitador Docente"
+        }
+      }
     }
   },
   "Levita": {

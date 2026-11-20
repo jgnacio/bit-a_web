@@ -5,7 +5,7 @@ import { ArrowLink } from "@/app/components/ui/Actions";
 import { KnobArt } from "@/app/components/ui/Motifs";
 import { StatusPill } from "@/app/components/ui/Status";
 import { ACORDES_SHOTS } from "@/content/acordes-finos";
-import { getProduct } from "@/content/products";
+import { OTHER_PRODUCTS, getProduct } from "@/content/products";
 import { ROUTES } from "@/content/routes";
 
 import { AcordesIcon, LevitaLogo, TabArt } from "./Marks";
@@ -102,3 +102,43 @@ export async function TablaturaCard({ locale, level = 3, className }: CardProps)
     </article>
   );
 }
+
+/**
+ * Facilitador Docente: the studio's product outside audio. It wears ink, not a
+ * color, because on this site color belongs to the sound.
+ */
+export async function FacilitadorCard({ locale, level = 3, className }: CardProps) {
+  const t = await getTranslations({ locale, namespace: "Products" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const product = OTHER_PRODUCTS[0];
+  const Heading = `h${level}` as const;
+
+  return (
+    <article className={classes("card product-card", className)}>
+      <div className="card__media product-card__media product-card__media--plain" data-surface="inverse">
+        <div className="product-card__side">
+          <Image
+            className="product-card__mark product-card__mark--tall"
+            src={product.mark.src}
+            width={product.mark.width}
+            height={product.mark.height}
+            alt={t("other.items.facilitadorDocente.logoAlt")}
+            sizes="76px"
+          />
+          <span className="label">{t("other.items.facilitadorDocente.meta")}</span>
+        </div>
+      </div>
+      <div className="card__body">
+        <div className="product-card__title">
+          <Heading className="title title--lg">{t("other.items.facilitadorDocente.name")}</Heading>
+          <StatusPill status={product.status}>{t("other.items.facilitadorDocente.status")}</StatusPill>
+        </div>
+        <p className="muted product-card__summary">{t("other.items.facilitadorDocente.summary")}</p>
+        <ArrowLink href={product.site} direction="external" externalHint={tCommon("newTab")}>
+          {t("other.items.facilitadorDocente.link")}
+        </ArrowLink>
+      </div>
+    </article>
+  );
+}
+
