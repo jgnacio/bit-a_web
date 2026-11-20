@@ -1,0 +1,532 @@
+/*
+ * The home: hero with the audio toys, the crossing marquee, the sequencer,
+ * the Levita band and the companies section.
+ */
+
+@layer components {
+  /* ---- Hero --------------------------------------------------------------- */
+
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(700px, 100svh, 840px);
+    /* The floating nav covers the top of the hero. */
+    padding-block: calc(var(--nav-clearance) + 32px) 72px;
+    text-align: center;
+    overflow: clip;
+  }
+
+  .hero__toys,
+  .hero__stickers {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* The text column spans the page; only its own boxes may catch the pointer,
+     so the toys beside it stay reachable. */
+  .hero__text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .hero__text > * {
+    pointer-events: auto;
+  }
+
+  .hero__title {
+    max-width: 15ch;
+    margin-top: 22px;
+  }
+
+  .hero__sub {
+    margin-top: 24px;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px 26px;
+    margin-top: 34px;
+  }
+
+  /* Flat toys: the look everyone gets first, and the only one on a phone. */
+  .hero__stickers {
+    pointer-events: none;
+    transition: opacity 400ms var(--ease-out);
+  }
+
+  .hero__stickers[data-faded] {
+    opacity: 0;
+  }
+
+  .toy-sticker {
+    position: absolute;
+    left: calc(50% + var(--wx) * 100%);
+    top: calc(50% - var(--wy) * 100%);
+    display: grid;
+    place-items: center;
+    width: 88px;
+    height: 88px;
+    margin: -44px 0 0 -44px;
+    border-radius: 32%;
+    background-color: var(--toy-bg);
+    color: var(--toy-fg);
+    box-shadow:
+      inset 0 -8px 14px color-mix(in srgb, var(--ink-900) 14%, transparent),
+      inset 0 7px 12px color-mix(in srgb, var(--ice-50) 42%, transparent),
+      0 18px 26px -16px color-mix(in srgb, var(--ink-900) 55%, transparent);
+  }
+
+  .toy-sticker svg {
+    width: 42%;
+    height: 42%;
+  }
+
+  /* Mirrors NARROW_MAX_WIDTH in app/components/toys/homes.ts. */
+  @media (max-width: 1100px) {
+    .hero {
+      min-height: 0;
+      /* Room for a row of toys under the nav, and for one under the text. */
+      padding-block: 184px 116px;
+    }
+
+    .toy-sticker {
+      left: calc(50% + var(--nx) * 100%);
+      top: calc(50% - var(--ny) * 100%);
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .toy-sticker {
+      animation: toy-bob 2.6s ease-in-out infinite;
+      animation-delay: calc(var(--i) * -0.45s);
+    }
+
+    /* The first screen arrives in order: label, headline, text, actions. */
+    .hero__text > * {
+      animation: hero-rise var(--duration-reveal) var(--ease-reveal) both;
+    }
+
+    .hero__text > :nth-child(2) {
+      animation-delay: 80ms;
+    }
+
+    .hero__text > :nth-child(3) {
+      animation-delay: 160ms;
+    }
+
+    .hero__text > :nth-child(4) {
+      animation-delay: 240ms;
+    }
+  }
+
+  @keyframes toy-bob {
+    0%,
+    100% {
+      translate: 0 -6px;
+      rotate: -3deg;
+    }
+    50% {
+      translate: 0 6px;
+      rotate: 3deg;
+    }
+  }
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      translate: 0 18px;
+    }
+  }
+
+  /* ---- Marquee ------------------------------------------------------------ */
+
+  .marquee {
+    position: relative;
+    z-index: 2;
+    height: clamp(170px, 18vw, 260px);
+    overflow: clip;
+  }
+
+  .marquee__band {
+    position: absolute;
+    top: 50%;
+    left: -8%;
+    display: flex;
+    align-items: center;
+    width: 116%;
+    padding-block: 14px;
+    overflow: hidden;
+    box-shadow: 0 14px 30px -16px color-mix(in srgb, var(--ink-900) 45%, transparent);
+  }
+
+  .marquee__band--a {
+    z-index: 1;
+    background-color: var(--blue-600);
+    color: var(--ice-50);
+    transform: translateY(-50%) rotate(-3deg);
+  }
+
+  .marquee__band--b {
+    z-index: 2;
+    background-color: var(--signal);
+    color: var(--ink-900);
+    transform: translateY(-50%) rotate(2deg);
+  }
+
+  .marquee__track {
+    display: flex;
+    flex: none;
+    width: max-content;
+  }
+
+  .marquee__group {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 28px;
+    padding-inline-end: 28px;
+  }
+
+  .marquee__item {
+    font-family: var(--font-family-display);
+    font-size: clamp(1.35rem, 0.9rem + 1.6vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .marquee__star {
+    flex: none;
+    width: clamp(1rem, 0.7rem + 1.1vw, 1.75rem);
+    height: clamp(1rem, 0.7rem + 1.1vw, 1.75rem);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee__track {
+      animation: marquee-slide 60s linear infinite;
+    }
+
+    .marquee__band--b .marquee__track {
+      animation-direction: reverse;
+      animation-duration: 52s;
+    }
+  }
+
+  /* Each track holds two identical groups: sliding by one group loops cleanly. */
+  @keyframes marquee-slide {
+    to {
+      translate: -50% 0;
+    }
+  }
+
+  /* ---- Sequencer ---------------------------------------------------------- */
+
+  .home-instrument {
+    padding-top: clamp(56px, 7vw, 96px);
+  }
+
+  .home-instrument__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px 48px;
+    margin-bottom: clamp(28px, 4vw, 44px);
+  }
+
+  .home-instrument__lead {
+    max-width: 40ch;
+  }
+
+  .seq {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 28px;
+    border-radius: var(--radius-card);
+  }
+
+  .seq__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .seq__bar .btn {
+    min-height: 52px;
+  }
+
+  .seq__play {
+    min-width: 168px;
+  }
+
+  /* Play and stop share one slot and cross-fade. */
+  .seq__icon {
+    position: relative;
+    flex: none;
+    width: 14px;
+    height: 14px;
+  }
+
+  .seq__icon svg {
+    position: absolute;
+    inset: 0;
+    width: 14px;
+    height: 14px;
+    transition-property: opacity, scale, filter;
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-swap);
+  }
+
+  .seq__icon-stop,
+  .seq__play[data-playing] .seq__icon-play {
+    opacity: 0;
+    scale: 0.25;
+    filter: blur(4px);
+  }
+
+  .seq__play[data-playing] .seq__icon-stop {
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
+  }
+
+  .seq__readout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 22px;
+    margin-inline-start: auto;
+  }
+
+  .seq__sound {
+    color: var(--text-muted);
+  }
+
+  /* The playhead position is signal, so it is pink: 6.93:1 on ink. */
+  .seq__position {
+    min-width: 104px;
+    color: var(--signal);
+    text-align: end;
+  }
+
+  .seq__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .seq__track {
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+  }
+
+  .seq__name {
+    font-size: 0.9375rem;
+    font-weight: 700;
+  }
+
+  .seq__steps {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .seq__step {
+    height: 56px;
+    border-radius: 12px;
+    background-color: var(--inverse-surface);
+    box-shadow: inset 0 0 0 1.5px var(--ink-600);
+    cursor: pointer;
+    transition-property: background-color, box-shadow, scale;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  /* The first step of each beat is a shade lighter, to count by eye. */
+  .seq__step[data-beat] {
+    background-color: var(--inverse-raised);
+  }
+
+  .seq__step[aria-pressed="true"] {
+    background-color: var(--signal);
+    box-shadow: inset 0 0 0 1.5px var(--signal);
+  }
+
+  .seq__step[data-now] {
+    background-color: var(--ink-700);
+    box-shadow: inset 0 0 0 1.5px var(--ice-50);
+  }
+
+  .seq__step[data-now][aria-pressed="true"] {
+    background-color: var(--ice-50);
+  }
+
+  .seq__step:active {
+    scale: 0.96;
+  }
+
+  @media (hover: hover) {
+    .seq__step:hover {
+      box-shadow: inset 0 0 0 1.5px var(--ice-50);
+    }
+  }
+
+  .seq__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 24px;
+    color: var(--text-muted);
+  }
+
+  /* Sixteen steps in a row stop being touchable: fold each track into two rows of eight. */
+  @media (max-width: 52em) {
+    .seq {
+      padding: 18px;
+      border-radius: 24px;
+    }
+
+    /* Both buttons share one row instead of stacking. */
+    .seq__bar .btn {
+      flex: 1 1 0;
+      min-width: 0;
+      padding-inline: 14px;
+    }
+
+    .seq__readout {
+      width: 100%;
+      margin-inline-start: 0;
+    }
+
+    .seq__position {
+      min-width: 0;
+      margin-inline-start: auto;
+    }
+
+    .seq__grid {
+      gap: 14px;
+    }
+
+    .seq__track {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+    }
+
+    .seq__steps {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .seq__step {
+      height: 44px;
+      border-radius: 10px;
+    }
+  }
+
+  /* ---- Levita band --------------------------------------------------------- */
+
+  .home-levita__top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr));
+    align-items: end;
+    gap: clamp(28px, 5vw, 72px);
+    margin-bottom: clamp(32px, 5vw, 56px);
+  }
+
+  .home-levita__brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .home-levita__logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Levita orange as text only here, on ink: 7.44:1. */
+  .home-levita__kicker {
+    color: var(--product-levita);
+  }
+
+  .home-levita__title {
+    margin-top: 22px;
+  }
+
+  .home-levita__body {
+    max-width: 48ch;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  /* ---- Companies ----------------------------------------------------------- */
+
+  .capability {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    /* The drawings cut their details out of the ground they sit on. */
+    --icon-cut: var(--sunken);
+  }
+
+  .capability__icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 4px;
+  }
+
+  .capability__text {
+    max-width: 40ch;
+  }
+
+  .home-companies__more {
+    margin-top: clamp(28px, 4vw, 44px);
+  }
+}
+
+/*
+ * Forced colors drop fills and shadows, which is all a step is made of.
+ * Borders and system colors carry the three states there instead.
+ */
+@media (forced-colors: active) {
+  .seq__step {
+    border: 1.5px solid ButtonText;
+  }
+
+  .seq__step[aria-pressed="true"] {
+    background-color: Highlight;
+    forced-color-adjust: none;
+  }
+
+  .seq__step[data-now] {
+    border: 3px solid Highlight;
+  }
+}
+
+/*
+ * The visitor's pause switch (data-motion on <html>) stops every loop that
+ * runs by itself. Unlayered on purpose, so it wins over any component rule.
+ */
+html[data-motion="off"] :is(.toy-sticker, .marquee__track, .meter__level, .knob-art__cap) {
+  animation-play-state: paused;
+}

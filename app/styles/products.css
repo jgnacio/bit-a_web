@@ -1,0 +1,514 @@
+/*
+ * Product pieces shared by the home and the product pages: cards, the plugin
+ * capture, and the product pages themselves.
+ */
+
+@layer components {
+  /* ---- Product card ------------------------------------------------------- */
+
+  .product-card__media {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    height: 380px;
+    padding: 28px;
+  }
+
+  .product-card__side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .product-card__mark {
+    width: 76px;
+    height: 76px;
+  }
+
+  /* An app icon keeps the rounded square of its platform. */
+  .product-card__mark--app {
+    border-radius: 22%;
+  }
+
+  .product-card__media--levita {
+    align-items: stretch;
+  }
+
+  .product-card__knob {
+    align-self: center;
+    width: min(240px, 46%);
+    height: auto;
+  }
+
+  /* The phone screen stands on the bottom edge of the media. */
+  .product-card__media--acordes {
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+
+  .product-card__media--acordes .product-card__side {
+    padding-bottom: 28px;
+  }
+
+  .product-card__phone {
+    flex: none;
+    align-self: flex-start;
+    width: 232px;
+    max-width: 54%;
+    height: auto;
+    border-radius: 22px 22px 0 0;
+    box-shadow: var(--shadow-lifted);
+  }
+
+  .product-card__media--tablatura {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-card__art {
+    width: 100%;
+    max-height: 280px;
+    margin-block: auto;
+  }
+
+  .product-card__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+  }
+
+  .product-card__summary {
+    max-width: 52ch;
+  }
+
+  @media (max-width: 30em) {
+    .product-card__media {
+      height: 320px;
+      padding: 20px;
+    }
+
+    .product-card__media--acordes .product-card__side {
+      padding-bottom: 20px;
+    }
+
+    .product-card__mark {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  /* ---- Plugin capture ------------------------------------------------------ */
+
+  .board-figure {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* Outer radius 28 = inner radius 12 + padding 16. */
+  .board-figure__frame {
+    padding: 16px;
+    border-radius: var(--radius-card);
+    background-color: var(--inverse-surface);
+    box-shadow: inset 0 0 0 1px var(--inverse-line);
+  }
+
+  .board-figure__scroll {
+    border-radius: 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    --focus-ring: var(--ice-50);
+  }
+
+  .board-figure__img {
+    display: block;
+    width: 100%;
+    /* Below this width the knob labels stop being readable. */
+    min-width: 880px;
+    height: auto;
+  }
+
+  .board-figure__caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 24px;
+    padding-inline: 4px;
+    color: var(--text-muted);
+  }
+
+  /* The hint only makes sense while the capture overflows its frame. */
+  .board-figure__hint {
+    display: none;
+  }
+
+  @media (max-width: 62em) {
+    .board-figure__hint {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 30em) {
+    .board-figure__frame {
+      padding: 10px;
+      border-radius: 22px;
+    }
+  }
+}
+
+@layer components {
+  /* ---- Products index ------------------------------------------------------ */
+
+  .products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: var(--section-y);
+  }
+
+  /* The main product takes a full row: its color on one side, the text on the other. */
+  @media (min-width: 62em) {
+    .product-card--wide {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .product-card--wide .card__body {
+      justify-content: center;
+      gap: 14px;
+      padding: 28px 36px;
+    }
+  }
+
+  /* ---- Product page head --------------------------------------------------- */
+
+  .product-head__brand {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 14px;
+  }
+
+  .product-head__logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .product-head__logo--app {
+    border-radius: 22%;
+  }
+
+  .product-head__lead {
+    max-width: 54ch;
+  }
+
+  .product-head__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 26px;
+    margin-top: 10px;
+  }
+
+  /* A line at the end of a product page: when its state was read, and its own site. */
+  .product-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-block: clamp(28px, 4vw, 48px);
+  }
+
+  .product-foot--plain {
+    padding-bottom: 0;
+  }
+
+  /* Small paper tiles for a list of features or promises. */
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 22px;
+    border-radius: var(--radius-panel);
+    background-color: var(--surface);
+    color: var(--ink-900);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .feature .pill {
+    margin-bottom: 4px;
+  }
+
+  /* ---- Levita ---------------------------------------------------------------- */
+
+  .levita-board {
+    margin-top: 0;
+    padding-block: clamp(24px, 4vw, 56px);
+  }
+
+  .pedal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 22px;
+    border-radius: var(--radius-panel);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-raised);
+  }
+
+  /* The signal runs through the pedals in this order. */
+  .pedal__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    padding: 4px 8px;
+    border-radius: var(--radius-pill);
+    background-color: var(--product);
+    color: var(--on-product);
+  }
+
+  .pedal__source {
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .references {
+    margin-top: clamp(24px, 4vw, 40px);
+    border-top: 1px solid var(--line);
+  }
+
+  .references__summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 56px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .references__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* A plus that turns into a minus when the list opens. */
+  .references__summary::before {
+    content: "";
+    flex: none;
+    width: 14px;
+    height: 14px;
+    background:
+      linear-gradient(currentColor, currentColor) center / 14px 2px no-repeat,
+      linear-gradient(currentColor, currentColor) center / 2px 14px no-repeat;
+    transition: rotate var(--duration-base) var(--ease-out);
+  }
+
+  .references[open] > .references__summary::before {
+    background:
+      linear-gradient(currentColor, currentColor) center / 14px 2px no-repeat;
+  }
+
+  .references__intro {
+    max-width: 68ch;
+  }
+
+  .references__list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 78ch;
+    margin-top: 20px;
+    padding-bottom: 8px;
+    padding-inline-start: 1.4em;
+    list-style: decimal;
+  }
+
+  .references__item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-inline-start: 6px;
+  }
+
+  /* Manrope has no italic; a synthesized one would distort it. Weight marks the title. */
+  .references__item cite {
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .levita-plan {
+    margin-top: 0;
+  }
+
+  .levita-plan__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+    gap: clamp(40px, 6vw, 96px);
+  }
+
+  .levita-plan__heading {
+    margin-block: 12px 14px;
+  }
+
+  .levita-plan__platforms {
+    display: flex;
+    flex-direction: column;
+    margin-block: 8px 18px;
+  }
+
+  .levita-plan__platforms li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
+    min-height: 56px;
+    padding-block: 10px;
+    border-bottom: 1px solid var(--line);
+    font-weight: 600;
+  }
+
+  .roadmap {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .roadmap__item {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 16px;
+    padding-block: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .roadmap__stage {
+    padding-top: 6px;
+    color: var(--text-muted);
+  }
+
+  /* What is being built now carries the product color: 7.44:1 on ink. */
+  .roadmap__item:first-child .roadmap__stage {
+    color: var(--product);
+  }
+
+  .roadmap__item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  @media (max-width: 30em) {
+    .roadmap__item {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+    }
+  }
+
+  /* A capture that always fits its column. */
+  .board-figure--fit .board-figure__img {
+    min-width: 0;
+  }
+
+  /* ---- Acordes Finos ---------------------------------------------------------- */
+
+  .acordes-head {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    align-items: center;
+    gap: clamp(32px, 5vw, 72px);
+  }
+
+  .acordes-head__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .acordes-head__note {
+    max-width: 54ch;
+  }
+
+  /* The app's own color behind its screen. */
+  .acordes-head__stage {
+    display: flex;
+    justify-content: center;
+    padding: clamp(28px, 5vw, 56px) 24px 0;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .phone-shot {
+    width: min(300px, 78%);
+    height: auto;
+    border-radius: 24px;
+    box-shadow: var(--shadow-lifted);
+  }
+
+  .acordes-head__stage .phone-shot {
+    border-radius: 24px 24px 0 0;
+  }
+
+  .acordes-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* Outer radius 28 = inner radius 16 + padding 12. */
+  .acordes-feature {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+    border-radius: var(--radius-card);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .acordes-feature__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    max-width: 56ch;
+    padding: clamp(16px, 3vw, 44px);
+  }
+
+  .acordes-feature__figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: clamp(24px, 4vw, 44px) 20px 22px;
+    border-radius: var(--radius-panel);
+    text-align: center;
+  }
+
+  .acordes-feature__figure .phone-shot {
+    width: min(280px, 82%);
+  }
+
+  .acordes-feature__figure figcaption {
+    max-width: 34ch;
+    font-weight: 600;
+  }
+
+  /* Alternate the side of the screen from one feature to the next. */
+  @media (min-width: 52em) {
+    .acordes-feature:nth-child(even) .acordes-feature__copy {
+      order: 2;
+    }
+  }
+}

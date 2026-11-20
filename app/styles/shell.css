@@ -1,0 +1,410 @@
+/*
+ * The shell every page shares: skip link, floating nav, menu sheet, footer.
+ */
+
+@layer components {
+  /* ---- Skip link ---------------------------------------------------------- */
+
+  .skip-link {
+    position: fixed;
+    top: 12px;
+    inset-inline-start: 12px;
+    z-index: 100;
+    translate: 0 -200%;
+  }
+
+  .skip-link:focus-visible {
+    translate: none;
+  }
+
+  /* <main> takes focus from the skip link; it is a container, not a control. */
+  main:focus {
+    outline: none;
+  }
+
+  /* ---- Floating nav ------------------------------------------------------- */
+
+  .site-nav {
+    position: fixed;
+    top: 14px;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    /* The strip beside the pill lets clicks through to the page. */
+    pointer-events: none;
+  }
+
+  .site-nav__bar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: min(1100px, calc(100% - 32px));
+    margin-inline: auto;
+    padding: 8px 8px 8px 22px;
+    border-radius: var(--radius-pill);
+    background-color: color-mix(in srgb, var(--ice-50) 82%, transparent);
+    color: var(--ink-900);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--ink-900) 8%, transparent),
+      var(--shadow-float);
+    backdrop-filter: blur(16px) saturate(1.4);
+    pointer-events: auto;
+    /* The pill is light on every band, so its own tokens never invert. */
+    --focus-ring: var(--ink-900);
+    --wash: color-mix(in srgb, var(--ink-900) 6%, transparent);
+  }
+
+  .site-nav__brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-inline-end: 14px;
+    border-radius: var(--radius-control);
+  }
+
+  .site-nav__brand svg {
+    width: 34px;
+    height: 29px;
+  }
+
+  .site-nav__links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .site-nav__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  /* The current page: a wash plus a heavier weight, never color alone. */
+  .site-nav__link[aria-current="page"] {
+    background-color: var(--wash);
+    font-weight: 800;
+  }
+
+  @media (hover: hover) {
+    .site-nav__link:hover {
+      background-color: var(--wash);
+    }
+  }
+
+  .site-nav__end {
+    display: flex;
+    align-items: center;
+    margin-inline-start: auto;
+  }
+
+  /* In the bar the labels never wrap: the bar folds into the menu first. */
+  .site-nav__cta {
+    flex: none;
+    margin-inline-start: 10px;
+    white-space: nowrap;
+  }
+
+  .site-nav__menu-btn {
+    display: none;
+    flex: none;
+    margin-inline-start: 8px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 53.75em) {
+    .site-nav__links,
+    .site-nav__cta,
+    .site-nav__end .locale-switch {
+      display: none;
+    }
+
+    .site-nav__menu-btn {
+      display: inline-flex;
+    }
+  }
+
+  /* ---- Language switch ---------------------------------------------------- */
+
+  .locale-switch {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border-radius: var(--radius-pill);
+    background-color: color-mix(in srgb, currentColor 6%, transparent);
+  }
+
+  .locale-switch__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 38px;
+    border-radius: var(--radius-pill);
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .locale-switch__item[aria-current="true"] {
+    background-color: var(--ink-900);
+    color: var(--ice-50);
+  }
+
+  @media (hover: hover) {
+    .locale-switch__item:not([aria-current="true"]):hover {
+      background-color: color-mix(in srgb, currentColor 8%, transparent);
+    }
+  }
+
+  /* ---- Menu sheet (narrow screens) ---------------------------------------- */
+
+  .site-menu {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 14px 16px calc(24px + env(safe-area-inset-bottom));
+    border: 0;
+    background-color: var(--bg);
+    color: var(--ink-900);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .site-menu[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-menu::backdrop {
+    background-color: var(--bg);
+  }
+
+  .site-menu__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding: 8px 8px 8px 22px;
+  }
+
+  .site-menu__links {
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(20px, 6vh, 48px);
+    padding-inline: 22px;
+  }
+
+  .site-menu__link {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    font-family: var(--font-family-display);
+    font-size: clamp(2.25rem, 1.4rem + 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  .site-menu__link[aria-current="page"] {
+    text-decoration-line: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 0.14em;
+    text-decoration-color: var(--signal);
+  }
+
+  .site-menu__foot {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    margin-top: auto;
+    padding: 32px 22px 0;
+  }
+
+  .site-menu__foot .locale-switch {
+    align-self: flex-start;
+  }
+
+  .site-menu__foot .locale-switch__item {
+    min-width: 56px;
+    min-height: 44px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .site-menu[open] {
+      animation: menu-in var(--duration-base) var(--ease-out);
+    }
+  }
+
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  /* ---- Footer ------------------------------------------------------------- */
+
+  .site-footer {
+    margin-top: 24px;
+    padding-block: 56px 32px;
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+    gap: 32px;
+  }
+
+  /* On a phone the link columns pair up and the brand takes its own row. */
+  @media (max-width: 46em) {
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .site-footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    font-family: var(--font-family-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .site-footer__logo svg {
+    width: 34px;
+    height: 29px;
+  }
+
+  .site-footer__col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .site-footer__heading {
+    margin-bottom: 6px;
+    color: var(--text-muted);
+  }
+
+  .site-footer__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .site-footer__link:hover {
+      color: var(--brand);
+    }
+  }
+
+  .site-footer__base {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--text-muted);
+  }
+
+  .site-footer__tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 28px;
+  }
+
+  .motion-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    cursor: pointer;
+  }
+
+  .motion-toggle svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  @media (hover: hover) {
+    .motion-toggle:hover {
+      color: var(--text);
+    }
+  }
+
+  .site-footer__langs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .site-footer__lang {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+  }
+
+  .site-footer__lang[aria-current="true"] {
+    color: var(--text);
+  }
+
+  @media (hover: hover) {
+    .site-footer__lang:hover {
+      color: var(--text);
+    }
+  }
+}
+
+/* ---- Closing band --------------------------------------------------------- */
+
+@layer components {
+  .closing {
+    padding-block: clamp(64px, 9vw, 128px);
+  }
+
+  .closing__title {
+    max-width: 13ch;
+  }
+
+  .closing__body {
+    max-width: 44ch;
+    font-weight: 500;
+  }
+
+  .closing__wave {
+    width: 100%;
+    max-width: 600px;
+    justify-self: end;
+  }
+}

@@ -2,32 +2,11 @@ import type { MetadataRoute } from 'next'
 import { getPayload } from 'payload'
 import configPromise from '@/payload.config'
 import { routing } from '@/i18n/routing'
-
-// Misma base que usa metadataBase en app/[locale]/layout.tsx.
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bit-a.com').replace(/\/+$/, '')
+import { STATIC_PATHS } from '@/content/routes'
+import { SITE_URL } from '@/content/site'
 
 // Se regenera cada hora: un Insight publicado aparece sin necesidad de un deploy.
 export const revalidate = 3600
-
-type StaticRoute = {
-    path: string
-    priority: number
-    changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']
-}
-
-const STATIC_ROUTES: StaticRoute[] = [
-    { path: '', priority: 1, changeFrequency: 'monthly' },
-    { path: '/services', priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/restaurant-web', priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/real-estate-web', priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/insights', priority: 0.8, changeFrequency: 'weekly' },
-    { path: '/about', priority: 0.6, changeFrequency: 'yearly' },
-    { path: '/contact', priority: 0.6, changeFrequency: 'yearly' },
-    { path: '/legal', priority: 0.2, changeFrequency: 'yearly' },
-    { path: '/legal/privacy-policy', priority: 0.2, changeFrequency: 'yearly' },
-    { path: '/legal/terms-of-service', priority: 0.2, changeFrequency: 'yearly' },
-    { path: '/legal/accessibility', priority: 0.2, changeFrequency: 'yearly' },
-]
 
 // hreflang: cada URL declara sus equivalentes en los demás idiomas.
 function languageAlternates(path: string) {
@@ -68,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const now = new Date()
 
-    const staticEntries = STATIC_ROUTES.flatMap(({ path, priority, changeFrequency }) =>
+    const staticEntries = STATIC_PATHS.flatMap(({ path, priority, changeFrequency }) =>
         routing.locales.map((locale) => ({
             url: `${SITE_URL}/${locale}${path}`,
             lastModified: now,

@@ -1,46 +1,51 @@
-import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata, Viewport } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
+import { SITE_URL } from "@/content/site";
+import { routing } from "@/i18n/routing";
+
+import { fontVariables } from "../fonts";
 import "../globals.css";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from '../../i18n/routing';
-import Navbar from '../components/Navbar';
-import LenisProvider from '../components/Providers/LenisProvider';
-import { GoogleAnalytics } from '@next/third-parties/google'
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Meta" });
 
-export const metadata: Metadata = {
-  // Sin esto, Next emite og:image con ruta relativa y ningún cliente
-  // (WhatsApp, Slack, Twitter) puede resolverla. Tiene que ser absoluta.
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://bit-a.com"),
-  title: "Bit-A | Boutique Digital de Branding y Tecnología de Alto Impacto",
-  description: "Transformamos marcas audaces en leyendas digitales. Sitios de lujo que mueven corazones y métricas.",
-  keywords: "branding digital, desarrollo web premium, e-commerce de lujo, automatización IA, Next.js, boutique digital",
-  authors: [{ name: "Bit-A" }],
-  creator: "Bit-A",
-  publisher: "Bit-A",
-  openGraph: {
-    title: "Bit-A | Digital Legends",
-    description: "Luxury sites that move hearts and metrics",
-    type: "website",
-    locale: "es_ES",
-    alternateLocale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Bit-A | Digital Legends",
-    description: "Luxury sites that move hearts and metrics",
-  },
+  return {
+    // Without an absolute base, social clients cannot resolve og:image.
+    metadataBase: new URL(SITE_URL),
+    title: { default: t("title"), template: "%s · Bit-A" },
+    description: t("description"),
+    authors: [{ name: "Bit-A" }],
+    creator: "Bit-A",
+    publisher: "Bit-A",
+    manifest: "/site.webmanifest",
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      siteName: "Bit-A",
+      type: "website",
+      locale: locale === "es" ? "es_UY" : "en_US",
+    },
+    twitter: { card: "summary_large_image" },
+  };
+}
+
+/** The browser chrome takes the color of the page ground. */
+export const viewport: Viewport = {
+  themeColor: "#F4F6FD",
+  colorScheme: "light",
 };
 
 export default async function RootLayout({
@@ -51,29 +56,26 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  
-  // Validar que el locale existe
+
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
-  // Obtener mensajes para el locale actual
-  const messages = await getMessages();
+  // Lets the pages below render statically instead of reading the request.
+  setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
-      <head>
-        <link rel="manifest" href="/site.webmanifest" />
+    <html lang={locale} className={fontVariables}>
+      <body>
+        {/*
+          Client components get their text through props, so no messages are
+          sent to the browser. The provider stays for next-intl's Link.
+        */}
+        <NextIntlClientProvider locale={locale} messages={null}>
+          {children}
+        </NextIntlClientProvider>
         <GoogleAnalytics gaId="G-PZ93FY9JWT" />
-      </head>
-      <body className={`${manrope.variable} antialiased`} suppressHydrationWarning>
-        <LenisProvider>
-          <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            {children}
-          </NextIntlClientProvider>
-        </LenisProvider>
       </body>
     </html>
   );
-} 
+}

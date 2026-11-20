@@ -1,704 +1,624 @@
 {
-  "Navigation": {
-    "services": "Servicios",
-    "about": "Nosotros",
-    "cases": "Casos",
+  "Meta": {
+    "title": "Bit-A · Estudio de software de audio",
+    "description": "Bit-A diseña y programa plugins, apps y herramientas con IA para quienes hacen música. Productos propios y trabajo a pedido para empresas."
+  },
+  "Nav": {
+    "skip": "Saltar al contenido",
+    "main": "Principal",
+    "home": "Bit-A, inicio",
+    "levita": "Levita",
+    "products": "Productos",
+    "studio": "Estudio",
+    "notes": "Notas",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "Idioma"
+  },
+  "Common": {
+    "cta": "Cuéntanos tu proyecto",
+    "newTab": "(se abre en otra pestaña)",
+    "status": {
+      "available": "Disponible",
+      "inProgress": "En desarrollo",
+      "measuring": "En medición",
+      "planned": "Planeado"
+    },
+    "closing": {
+      "title": "¿Tienes un proyecto de audio?",
+      "body": "Cuéntanos qué necesitas: un plugin, una app o una prueba con IA de audio."
+    }
+  },
+  "Footer": {
+    "tagline": "Estudio de software de audio.",
+    "products": "Productos",
+    "allProducts": "Todos los productos",
+    "studio": "Estudio",
+    "forCompanies": "Para tu empresa",
+    "about": "Sobre el estudio",
     "contact": "Contacto",
-    "insights": "Perspectivas",
-    "realEstateWeb": "Real state web",
-    "realEstateWebDescription": "Sitio web para bienes raíces de lujo",
-    "expressLanding": "Landing de lujo express",
-    "ecommercePremium": "E-commerce premium",
-    "corporateWeb": "Web corporativa",
-    "automationAI": "Automatización & IA",
-    "digitalBranding": "Branding digital",
-    "digitalDiagnosis": "Diagnóstico digital",
-    "expressDescription": "Impacto en 10 días, carga en 1 segundo",
-    "ecommerceDescription": "Catálogo dinámico y ventas sin fricción",
-    "corporateDescription": "Sitio a medida que refleja tu marca",
-    "automationDescription": "Elimina tareas repetitivas con IA",
-    "brandingDescription": "Coherencia visual en toda tu presencia",
-    "diagnosisDescription": "Evaluación gratuita de tu presencia digital"
+    "legal": "Legal",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "accessibility": "Accesibilidad",
+    "social": "Redes",
+    "newTab": "(se abre en otra pestaña)",
+    "copyright": "© {year} Bit-A · Uruguay",
+    "pauseMotion": "Pausar movimiento",
+    "resumeMotion": "Reanudar movimiento"
   },
-  "Hero": {
-    "volLabel": "SHIFT + PURPOSE",
-    "title": {
-      "line1": "Ingeniería de software para empresas",
-      "line2": "que superaron su presencia digital."
+  "Home": {
+    "hero": {
+      "eyebrow": "Estudio de software de audio · Uruguay",
+      "title": "Software de audio hecho para tocar",
+      "sub": "Diseñamos y programamos plugins, apps y herramientas con IA para quienes hacen música. Lo hacemos en nuestros productos y también para tu empresa.",
+      "secondary": "Conocer Levita"
     },
-    "subtitle": "Somos una boutique de desarrollo dedicada a construir activos digitales de alto rendimiento. Transformamos la complejidad tecnológica en software estratégico, escalable y diseñado para líderes que no aceptan menos que la excelencia.",
-    "cta": {
-      "schedule": "Iniciar Proyecto",
-      "portfolio": "Explorar Casos de Éxito"
+    "marquee": {
+      "1": "Plugins",
+      "2": "Apps para músicos",
+      "3": "IA de audio",
+      "4": "DSP en tiempo real"
     },
-    "scrollIndicator": "Desliza para ver más",
-    "socialProof": "Partner estratégico para empresas en Uruguay"
+    "instrument": {
+      "label": "Pruébalo",
+      "title": "Arma un ritmo",
+      "lead": "Un secuenciador de 16 pasos que suena con el audio de tu navegador. Enciende o apaga pasos y pulsa Reproducir.",
+      "play": "Reproducir",
+      "stop": "Detener",
+      "clear": "Vaciar patrón",
+      "restore": "Patrón inicial",
+      "tracks": {
+        "kick": "Bombo",
+        "snare": "Caja",
+        "hat": "Hi-hat",
+        "bass": "Bajo"
+      },
+      "steps": "Pasos del patrón",
+      "step": "{track}, paso {step}",
+      "position": "Paso {step} / 16",
+      "positionIdle": "Paso -- / 16",
+      "tempo": "96 BPM",
+      "sound": {
+        "idle": "Suena al reproducir",
+        "on": "Con sonido",
+        "off": "Sin sonido en este navegador"
+      },
+      "legend": "Rosa: paso encendido. Blanco: el paso que suena ahora.",
+      "size": "4 pistas · 16 pasos",
+      "undo": "Deshacer"
+    },
+    "levita": {
+      "kicker": "Producto principal",
+      "title": "Levita: un rig de bajo para alabanza",
+      "body": "Un plugin con seis pedales, presets de alabanza y gospel, afinador y un modo escenario para cambiar de sonido sin menús en pleno servicio. Viene con un DAW pequeño para grabar el ensayo.",
+      "link": "Conocer Levita"
+    },
+    "products": {
+      "label": "Más del estudio",
+      "title": "Dos productos más en camino"
+    },
+    "companies": {
+      "label": "Para tu empresa",
+      "title": "Hacemos para tu empresa lo que hacemos para nosotros",
+      "link": "Ver cómo trabajamos"
+    }
   },
-  "Problem": {
-    "title": "Tu sitio no transmite exclusividad,",
-    "subtitle": "y los prospectos premium se van",
-    "description": "Eleva tu web al nivel de tu marca y transforma visitas premium en clientes, sin complicaciones",
-    "cta": "Transformar mi sitio ahora"
-  },
-  "Services": {
-    "title": "Nuestros servicios",
-    "subtitle": "Transformamos visiones en experiencias digitales extraordinarias",
+  "Products": {
+    "meta": {
+      "title": "Productos",
+      "description": "Los productos propios de Bit-A, cada uno con su estado real: Levita, Acordes Finos y Audio a tablatura."
+    },
+    "label": "Productos",
+    "title": "Lo que hacemos, con su estado real",
+    "lead": "Tres productos propios. Cada uno dice qué existe hoy y qué falta.",
+    "logoAlt": {
+      "levita": "Logo de Levita",
+      "acordesFinos": "Icono de Acordes Finos"
+    },
     "items": {
-      "express": {
-        "title": "Lujo web express",
-        "description": "Landing o sitio one-page de alto impacto, listo en 10 días, optimizado para seo y velocidad. Ideal para marcas boutique que necesitan exclusividad inmediata.",
-        "cta": "Agenda tu demo gratuita"
+      "levita": {
+        "name": "Levita",
+        "kicker": "Producto principal",
+        "meta": "Plugin · CLAP · Linux",
+        "status": "En desarrollo",
+        "summary": "Un rig de bajo para alabanza que corre como plugin dentro de tu DAW. Viene con un DAW pequeño para grabar el ensayo.",
+        "link": "Conocer Levita"
       },
-      "ecommerce": {
-        "title": "E-commerce premium escalable",
-        "description": "Tu e-commerce headless next.js+payload que carga en 1s, muestra catálogos premium sin límite y automatiza up-sell/cross-sell para experiencias exclusivas.",
-        "cta": "Solicita diagnóstico gratis"
+      "acordesFinos": {
+        "name": "Acordes Finos",
+        "meta": "Android · Web",
+        "status": "Versión de prueba",
+        "summary": "Una calculadora de armonía. Eliges los acordes y te muestra las notas, las opciones de bajo y el porqué de cada cambio. Próximamente en Google Play.",
+        "link": "Conocer Acordes Finos",
+        "shotAlt": "Pantalla de Acordes Finos con la progresión Cmaj7, Am7, Dm7 y G7"
       },
-      "automation": {
-        "title": "Automatización & IA white-glove",
-        "description": "Asistentes virtuales inteligentes, emails y reportes que eliminan tareas repetitivas. Pensado para empresas que buscan un partner ético y cercano.",
-        "cta": "Reserva una consultoría 1-a-1"
+      "tablatura": {
+        "name": "Audio a tablatura",
+        "meta": "Guitarra · Web",
+        "status": "Prototipo",
+        "summary": "Transcribe audio de guitarra a tablatura con un modelo abierto de detección de tono. Todavía no es público.",
+        "artAlt": "Una onda de audio que se convierte en tablatura"
+      }
+    },
+    "capabilities": {
+      "dsp": {
+        "title": "Plugins y DSP",
+        "summary": "Efectos e instrumentos en Rust, con el camino de audio sin asignaciones de memoria en tiempo real.",
+        "proof": "Como en Levita"
+      },
+      "apps": {
+        "title": "Apps para músicos",
+        "summary": "Apps móviles y web hechas con Flutter. La de Android funciona sin conexión.",
+        "proof": "Como en Acordes Finos"
+      },
+      "ai": {
+        "title": "IA aplicada a audio",
+        "summary": "Transcripción y detección de tono con modelos abiertos, dentro de una herramienta web.",
+        "proof": "Como en Audio a tablatura"
+      }
+    }
+  },
+  "Levita": {
+    "meta": {
+      "title": "Levita, un rig de bajo para alabanza",
+      "description": "Levita, de Bit-A: un plugin con seis pedales, presets de alabanza y gospel, afinador y modo escenario. Funciona hoy en Linux como plugin CLAP."
+    },
+    "kicker": "Producto principal",
+    "title": "Levita, un rig de bajo para alabanza",
+    "lead": "Levita trae tonos de alabanza ya armados y eco al tempo: abres, eliges un sonido y tocas. El plugin se llama Bass Rig y viene con un DAW pequeño para grabar el ensayo.",
+    "facts": {
+      "runs": "Funciona hoy en Linux, como plugin CLAP",
+      "beta": "Beta gratuita en preparación, con lista de espera",
+      "planned": "Windows y VST3, planeados"
+    },
+    "actions": {
+      "site": "Ver el sitio de Levita",
+      "waitlist": "Unirme a la lista de espera",
+      "board": "Ver la pedalera"
+    },
+    "board": {
+      "alt": "La pedalera de Bass Rig: seis pedales en fila, Compressor, Octave, Drive, Chorus, Echo y Hammer, cada uno con sus perillas y su interruptor de pie. Arriba están el preset Gospel, los botones Save, Save as y Stage, el afinador y la perilla de salida.",
+      "caption": "Captura real de la pedalera de Bass Rig con el preset Gospel. La interfaz todavía está en desarrollo.",
+      "region": "Captura de la pedalera de Bass Rig",
+      "hint": "Desliza para ver los seis pedales"
+    },
+    "features": {
+      "label": "Qué trae",
+      "title": "Menos configurar, más tocar",
+      "lead": "Nos enfocamos en un género, la alabanza, y en que el sonido esté listo cuando llegas al ensayo. Cada tarjeta dice qué existe hoy y qué falta.",
+      "items": {
+        "presets": {
+          "title": "Presets de alabanza y gospel",
+          "text": "Sonidos de fábrica para bajo, pensados para cantar encima de la banda. También puedes guardar y borrar los tuyos."
+        },
+        "echo": {
+          "title": "Eco al tempo",
+          "text": "El eco se sincroniza por valor de nota, incluida la corchea con puntillo tan usada en alabanza, con carácter de cinta."
+        },
+        "pedalboard": {
+          "title": "Pedalera con perillas",
+          "text": "Una interfaz propia con perillas, pedales que puedes reordenar arrastrando y barra de presets, dentro del mismo plugin."
+        },
+        "tuner": {
+          "title": "Afinador en el plugin",
+          "text": "Muestra la nota más cercana y si estás alto o bajo. Escucha el instrumento antes de los pedales, llega hasta el si grave de un bajo de cinco cuerdas y usa La = 440 Hz."
+        },
+        "stage": {
+          "title": "Modo escenario",
+          "text": "Un botón grande por preset, con páginas y atajos de teclado, para cambiar de sonido sin menús en pleno servicio."
+        },
+        "remote": {
+          "title": "Control desde el celular",
+          "text": "Desde el navegador del celular: play y stop, cambiar de canción, silenciar pistas, volumen general y las perillas del rig. Solo responde en el mismo equipo (el celular se conecta por USB con adb), salvo que lo abras a la red."
+        },
+        "latency": {
+          "title": "Baja latencia por diseño",
+          "text": "Camino de audio sin asignaciones de memoria en tiempo real. Falta medir la latencia total con una interfaz real."
+        },
+        "daw": {
+          "title": "Un DAW para grabar el ensayo",
+          "text": "Varias pistas, metrónomo con su propia salida, tap tempo y cuenta regresiva antes de grabar."
+        }
+      }
+    },
+    "pedals": {
+      "label": "El rig",
+      "title": "Seis pedales de diseño propio",
+      "lead": "Todos son diseño propio, sin código ni modelos de terceros. Donde existe investigación publicada, la seguimos y la citamos.",
+      "items": {
+        "compressor": {
+          "text": "Compresor de rodilla suave, con detector logarítmico.",
+          "basedOn": "Basado en Giannoulis et al., 2012"
+        },
+        "octave": {
+          "text": "Octavas abajo, sin detector de tono.",
+          "basedOn": "Basado en Haghparast et al., 2007"
+        },
+        "drive": {
+          "text": "Saturación con dos caracteres y antialiasing.",
+          "basedOn": "Basado en Parker et al., 2016 y Bilbao et al., 2017"
+        },
+        "chorus": {
+          "text": "Línea de retardo modulada, de estilo clásico.",
+          "basedOn": "Diseño propio, sin trabajo publicado"
+        },
+        "echo": {
+          "text": "Eco de cinta al tempo, con histéresis opcional.",
+          "basedOn": "Basado en Chowdhury, 2019"
+        },
+        "hammer": {
+          "text": "Previo de tres bandas con medios ajustables.",
+          "basedOn": "Filtros de Bristow-Johnson; el resto es diseño propio"
+        }
+      },
+      "references": {
+        "summary": "Investigación en la que se basan",
+        "intro": "Usamos estos trabajos publicados para las técnicas de cada pedal. Los circuitos, los valores y el ajuste final son diseño propio y se afinan de oído.",
+        "read": "Leer el trabajo",
+        "notes": {
+          "giannoulis2012": "Curva de ganancia con rodilla suave del compresor.",
+          "haghparast2007": "Algoritmo de la octava.",
+          "parker2016": "Antialiasing de la saturación.",
+          "bilbao2017": "Forma de antialiasing de primer orden usada en la saturación.",
+          "chowdhury2019": "Respuesta de pérdidas de la cinta y saturación por histéresis del eco.",
+          "cookbook": "Filtros de los ecualizadores de la saturación y del previo."
+        }
+      }
+    },
+    "stage": {
+      "label": "En vivo",
+      "title": "Un botón grande por preset",
+      "body": "El modo escenario muestra los presets como botones grandes, con páginas y atajos de teclado, para cambiar de sonido sin menús en pleno servicio.",
+      "alt": "El modo escenario de Bass Rig: cinco botones grandes, uno por preset, con Gospel seleccionado.",
+      "caption": "Captura real del modo escenario, con dos presets de fábrica y tres de ejemplo."
+    },
+    "platforms": {
+      "label": "Plataformas",
+      "title": "Dónde funciona",
+      "items": {
+        "linux": "Linux, como plugin CLAP",
+        "windows": "Windows",
+        "vst3": "Formato VST3"
+      },
+      "note": "No hay planes para macOS por ahora."
+    },
+    "roadmap": {
+      "label": "Hoja de ruta",
+      "title": "Lo que viene, en orden",
+      "lead": "Es una dirección, no una promesa: no hay fechas.",
+      "stages": {
+        "now": "Ahora",
+        "next": "Después",
+        "planned": "Planeado"
+      },
+      "items": {
+        "interface": {
+          "title": "Pedalera, presets y afinador",
+          "text": "Terminar la interfaz del rig y probarla dentro del DAW."
+        },
+        "beta": {
+          "title": "Beta gratuita pública",
+          "text": "Primero la lista de espera con tres videos de tono, después la beta abierta y al final el lanzamiento de pago."
+        },
+        "amp": {
+          "title": "Ampli y cabina",
+          "text": "Modelos de ampli y respuesta de cabina, usando solo material que podamos distribuir legalmente. Todavía no está implementado."
+        },
+        "reverb": {
+          "title": "Reverb y ambiente",
+          "text": "Reverb con modo ambiente para sonidos amplios de alabanza. Todavía no está implementado."
+        },
+        "windows": {
+          "title": "Windows y VST3",
+          "text": "Una versión para Windows y el formato VST3, para llegar a la mayoría de los equipos."
+        }
+      }
+    },
+    "updated": "Estado del producto al {date}.",
+    "closing": {
+      "title": "¿Necesitas un plugin para tu marca?",
+      "body": "Lo que aprendimos haciendo Levita lo aplicamos en proyectos a pedido: procesamiento de audio, presets e interfaz."
+    }
+  },
+  "AcordesFinos": {
+    "meta": {
+      "title": "Acordes Finos, la armonía de cada progresión",
+      "description": "Acordes Finos, de Bit-A: una app de armonía para Android y web. Muestra las notas de cada acorde, sus bajos e inversiones, la tonalidad y el porqué de cada cambio."
+    },
+    "kicker": "Android · Web",
+    "title": "Acordes Finos, la armonía de cada progresión",
+    "lead": "Eliges los acordes de una progresión y la app muestra las notas de cada uno, sus bajos posibles, la tonalidad y por qué funciona cada cambio.",
+    "status": "Versión de prueba. Próximamente en Google Play.",
+    "facts": {
+      "free": "Gratis",
+      "offline": "Funciona sin internet",
+      "noData": "No recopila datos",
+      "noAds": "Sin publicidad"
+    },
+    "actions": {
+      "webApp": "Abrir la versión web",
+      "apk": "Descargar el APK para Android",
+      "site": "Ver el sitio de Acordes Finos"
+    },
+    "apkNote": "Es una versión de prueba para Android 7 o posterior. Cuando la app esté en Google Play, habrá que desinstalar esta para instalar la de la tienda.",
+    "heroShotAlt": "La progresión Cmaj7, Am7, Dm7, G7 en la app, con la tonalidad C mayor y la tarjeta de Cmaj7: sus notas C, E, G y B con el intervalo de cada una.",
+    "features": {
+      "label": "Qué muestra",
+      "title": "Todo sale de los acordes que eliges",
+      "lead": "12 notas raíz y 16 tipos de acorde, de la tríada mayor al 13 y al 7b9.",
+      "items": {
+        "notes": {
+          "title": "Cada acorde, nota por nota",
+          "text": "Las notas se escriben como las escribe un músico, con su intervalo respecto de la raíz y la construcción en semitonos. Cm es C Eb G, D es D F# A y C°7 es C Eb Gb Bbb.",
+          "alt": "El selector de acordes con la raíz G y el tipo 7 elegidos, y el botón Agregar G7.",
+          "caption": "El selector: raíz, tipo de acorde y sostenido o bemol."
+        },
+        "changes": {
+          "title": "El porqué de cada cambio",
+          "text": "Entre dos acordes, la app muestra el movimiento de la raíz, las notas en común, cuántos semitonos se mueven las voces y una puntuación de suavidad del 0 al 10, con una explicación del movimiento armónico.",
+          "alt": "El paso de Cmaj7 a Am7 abierto: la raíz baja una tercera menor, las notas comunes son C, E y G, y una explicación del movimiento.",
+          "caption": "De Cmaj7 a Am7: tres notas en común."
+        },
+        "basses": {
+          "title": "Bajos e inversiones",
+          "text": "Cada acorde lista sus opciones de bajo, de la posición fundamental a cada inversión, con el carácter de cada una. Para la progresión entera sugiere líneas de bajo. También detecta la tonalidad probable y nombra cada acorde según ella.",
+          "alt": "Las cuatro opciones de bajo de G7: posición fundamental, G7/B en primera inversión, G7/D en segunda y G7/F en tercera, cada una con su carácter.",
+          "caption": "Las cuatro opciones de bajo de G7."
+        },
+        "songs": {
+          "title": "Canciones por secciones",
+          "text": "Las progresiones se guardan en canciones, ordenadas por secciones: introducción, verso, pre-coro, coro, puente, solo, outro y coda. Las secciones se editan, se reordenan y se borran.",
+          "alt": "La canción Balada en G con sus secciones: introducción, verso 1, pre-coro, coro, una variante del coro y puente, cada una con sus acordes.",
+          "caption": "Una canción con seis secciones, una de ellas variante del coro."
+        }
+      }
+    },
+    "audience": {
+      "label": "Para quién es",
+      "title": "Para quien toca, compone, arregla o estudia",
+      "body": "Sirve para ver qué notas tiene un acorde, elegir un bajo o entender por qué una progresión suena como suena. Los acordes usan el cifrado americano (C, D, E, F, G, A, B) y la interfaz está en español."
+    },
+    "promises": {
+      "label": "Sin sorpresas",
+      "title": "Gratis, sin conexión y sin recopilar datos",
+      "items": {
+        "free": {
+          "title": "Gratis",
+          "text": "No cuesta nada, no pide cuenta y no tiene publicidad."
+        },
+        "offline": {
+          "title": "Sin internet",
+          "text": "La app de Android funciona sin conexión, y la versión para Google Play no pide permiso de acceso a internet. La versión web sí necesita conexión para abrirse."
+        },
+        "noServer": {
+          "title": "Sin servidor",
+          "text": "No hay analítica ni registro, y la app no envía nada por su cuenta: las canciones se guardan en el teléfono."
+        }
+      }
+    },
+    "closing": {
+      "title": "¿Necesitas una app para músicos?",
+      "body": "Acordes Finos es una muestra de lo que hacemos: lógica musical, una interfaz clara y nada que el usuario no haya pedido."
+    }
+  },
+  "Studio": {
+    "meta": {
+      "title": "Software de audio a pedido",
+      "description": "Bit-A desarrolla software de audio para empresas: plugins y DSP, apps para músicos y herramientas con IA de audio. Cada capacidad tiene un producto propio que la demuestra."
+    },
+    "label": "Para tu empresa",
+    "title": "Software de audio a pedido",
+    "lead": "Hacemos para tu empresa lo que hacemos para nosotros: plugins, apps para músicos y herramientas con IA de audio. Cada capacidad tiene un producto nuestro que la demuestra.",
+    "capabilities": {
+      "label": "Qué hacemos",
+      "title": "Tres capacidades, cada una con su prueba",
+      "items": {
+        "dsp": {
+          "points": {
+            "1": "Efectos e instrumentos como plugin, con interfaz propia: perillas, presets y afinador.",
+            "2": "Procesamiento en Rust, con el camino de audio sin asignaciones de memoria en tiempo real.",
+            "3": "Técnicas tomadas de investigación publicada, citadas una por una."
+          },
+          "limit": "Hoy publicamos en formato CLAP para Linux. Windows y VST3 están planeados y todavía no existen.",
+          "proofLink": "Ver Levita"
+        },
+        "apps": {
+          "points": {
+            "1": "Apps móviles y web hechas con Flutter, desde una sola base de código.",
+            "2": "Lógica musical propia: acordes, tonalidad, bajos y conducción de voces.",
+            "3": "Sin conexión, sin cuentas y sin recopilar datos, cuando el producto lo permite."
+          },
+          "limit": "Hoy publicamos para Android y web. Todavía no tenemos una app en la App Store.",
+          "proofLink": "Ver Acordes Finos"
+        },
+        "ai": {
+          "points": {
+            "1": "Transcripción de audio a notación con modelos abiertos de detección de tono.",
+            "2": "Un servicio en Python y una interfaz web para usarlo.",
+            "3": "Pruebas cortas para saber si una idea funciona antes de construir el producto."
+          },
+          "limit": "Es nuestro trabajo más reciente: hoy es un prototipo y no es público.",
+          "proofLink": "Ver los productos"
+        }
+      }
+    },
+    "process": {
+      "label": "Cómo trabajamos",
+      "title": "Corto, claro y por etapas",
+      "steps": {
+        "brief": {
+          "title": "Nos cuentas el proyecto",
+          "text": "Un correo o una llamada para entender qué necesitas y para cuándo."
+        },
+        "scope": {
+          "title": "Proponemos un alcance",
+          "text": "Te decimos qué podemos hacer, en qué plazo y con qué costo, antes de empezar."
+        },
+        "build": {
+          "title": "Construimos por etapas",
+          "text": "Entregas cortas que puedes probar. Lo que falta queda a la vista, con su estado real."
+        }
+      }
+    },
+    "fit": {
+      "label": "Para quién",
+      "title": "Proyectos donde el audio es el centro",
+      "items": {
+        "what": {
+          "title": "Qué tomamos",
+          "text": "Software que procesa, analiza o genera sonido, o que ayuda a quien hace música."
+        },
+        "who": {
+          "title": "Con quién",
+          "text": "Con empresas y equipos que ya tienen un producto o un público en audio y necesitan desarrollo."
+        },
+        "where": {
+          "title": "Desde dónde",
+          "text": "Desde Uruguay, en español y en inglés."
+        }
       }
     }
   },
   "About": {
-    "title": "Nuestra esencia",
-    "subtitle": "Somos artesanos digitales especializados en crear experiencias únicas",
-    "description": "Bit-A es una boutique de ingeniería y diseño digital que transforma procesos complejos en experiencias de lujo, veloces y rentables. Nuestro equipo aplica sólidos estándares de seguridad, desarrollo integral de vanguardia y un compromiso firme con la conversión, guiados por principios de servicio y excelencia genuina."
-  },
-  "CaseStudies": {
-    "title": "Casos de estudio",
-    "subtitle": "Resultados que hablan por sí solos",
-    "viewMore": "Ver más casos",
-    "cases": {
-      "facilitadordocente": {
-        "title": "Facilitador Docente · EdTech con IA",
-        "description": "Plataforma SaaS que lee el currículo oficial de ANEP, conoce a los alumnos y planifica junto al docente. Producto completo: landing, aplicación y motor de IA.",
-        "challenge": "El reto",
-        "challengeDescription": "Más del 60% de los docentes dedica más de 5 horas semanales a planificar a mano, sin herramientas alineadas al marco curricular EBI ni soporte para aulas multigrado.",
-        "impact": "Impacto",
-        "impactDescription": "• Planificaciones EBI alineadas a competencias y criterios de logro\n• Adaptaciones curriculares y soporte multigrado\n• Asistente IA entrenado con documentos oficiales de ANEP\n• Suscripciones con Mercado Pago Uruguay",
-        "period": "2026 — En curso",
-        "tags": [
-          "Educación",
-          "Inteligencia Artificial",
-          "SaaS"
-        ]
-      },
-      "nyn": {
-        "title": "Ignacio & Nicol · Invitación de boda",
-        "description": "Invitación digital para el casamiento del 24 de octubre de 2026, con confirmación de asistencia, galería colaborativa y lista de regalos.",
-        "challenge": "El reto",
-        "challengeDescription": "Reemplazar la invitación en papel por una experiencia digital que los invitados pudieran usar desde el celular, sin instalar nada ni crear una cuenta.",
-        "impact": "Impacto",
-        "impactDescription": "• Confirmación de asistencia online\n• Galería con fotos subidas por los propios invitados\n• Lista de regalos con aporte guiado\n• Cuenta regresiva y save the date",
-        "period": "Julio 2026",
-        "tags": [
-          "Invitación digital",
-          "RSVP",
-          "Galería colaborativa"
-        ]
-      },
-      "bym": {
-        "title": "Barbi & Mauro · Invitación de boda",
-        "description": "Invitación digital para el casamiento del 12 de septiembre de 2026, construida como sitio estático para cargar al instante desde cualquier conexión.",
-        "challenge": "El reto",
-        "challengeDescription": "Lograr una pieza de estética editorial, con fotografía y música, que igual abriera al instante en el celular de invitados con conexión limitada.",
-        "impact": "Impacto",
-        "impactDescription": "• Sitio estático ultrarrápido en Astro\n• Confirmación de asistencia y lista de regalos\n• Galería masonry y música ambiente\n• Ubicaciones con acceso directo a mapas",
-        "period": "Junio 2026",
-        "tags": [
-          "Invitación digital",
-          "Astro",
-          "Performance"
-        ]
-      },
-      "stocklink": {
-        "title": "Stocklink · Retail & Distribución",
-        "description": "Transformamos operaciones de distribución tradicionales en sistemas inteligentes que eliminan errores y maximizan rentabilidad.",
-        "challenge": "El reto",
-        "challengeDescription": "Las distribuidoras dependían de hojas de cálculo y llamadas telefónicas, provocando quiebres de stock y ventas perdidas.",
-        "impact": "Impacto",
-        "impactDescription": "• 70% menos errores de inventario\n• Sistema de reposición predictiva\n• Venta autoadministrada",
-        "period": "2025",
-        "tags": [
-          "Distribución",
-          "Eficiencia",
-          "Automatización"
-        ]
-      },
-      "rolex": {
-        "title": "Rolex Reimagined · Rediseño conceptual",
-        "description": "Rediseño especulativo de la experiencia web de una maison relojera, construido como pieza de exploración técnica en animación, video y transiciones de página.",
-        "disclaimer": "Proyecto conceptual no comisionado por Rolex. Bit-A no tiene vínculo comercial con la marca; las marcas y nombres citados pertenecen a sus respectivos titulares.",
-        "challenge": "El reto",
-        "challengeDescription": "Sostener el nivel de detalle y el ritmo visual que exige una marca de lujo, sin sacrificar la fluidez en móvil ni la velocidad de carga.",
-        "impact": "Lo que exploramos",
-        "impactDescription": "• Transiciones de página con View Transitions API\n• Animaciones de texto y galería con GSAP y SplitText\n• Video hero servido en dos cortes según dispositivo\n• Navegación y menú móvil animados a medida",
-        "period": "Junio 2025",
-        "tags": [
-          "Lujo",
-          "Animación",
-          "Concepto"
-        ]
-      }
+    "meta": {
+      "title": "Sobre el estudio",
+      "description": "Bit-A es un estudio de software de audio de Uruguay. Hacemos productos propios y trabajo a pedido para empresas."
     },
-    "cta": "Solicita diagnóstico gratis",
-    "visitWebsite": "Visitar sitio web",
-    "caseLabel": "Caso de estudio",
-    "conceptLabel": "Proyecto conceptual"
-  },
-  "LeadMagnet": {
-    "title": "Mini-curso por correo:",
-    "subtitle": "\"Landing de lujo en 5 pasos\"",
-    "description": "En solo 5 días y un e-mail diario, descubre cómo crear una landing digna de tu marca premium. Desde la promesa de valor hasta el checklist final + acceso a demo privada con bit-a.",
-    "placeholder": "Tu email aquí",
-    "cta": "Suscríbeme al mini-curso"
-  },
-  "DiscoverYourPotential": {
-    "title": "Descubrí tu potencial",
-    "description": "En 30 min analizamos velocidad, ux y oportunidades de conversión para entregarte un roadmap exclusivo que eleve tu marca y multiplique tus ventas.",
-    "cta": "Agenda tu diagnóstico premium"
-  },
-  "AboutPage": {
-    "title": {
-      "line1": "Tecnología que hace",
-      "line2": "vibrar tu marca"
-    },
-    "intro": {
-      "heading": "Introducción",
-      "content": "Durante años toqué música, y siempre me impresionó la armonía de las canciones de worship. Había algo que sonaba increíble y no sabía qué era… hasta que empecé a tocar el bajo porque no había bajista en la banda. Ahí entendí el rol que cumplía: eso que nadie escucha claramente, pero que sostiene todo y hace que todo suene bien.\n\nCon la digitalización pasa lo mismo. Muchas personas ven cómo las grandes marcas destacan, pero no saben por qué. Y el secreto está en las personas y la tecnología que hay detrás.\n\nSoy Ignacio Gómez, director de Bit-A, y estamos acá para que tu presencia online vibre con esa armonía profunda, mientras vos tocás el solo de tu marca."
-    },
+    "label": "Sobre el estudio",
+    "title": "Un estudio de Uruguay dedicado al sonido",
+    "lead": "Bit-A diseña y programa software de audio: productos propios y trabajo a pedido para empresas.",
     "story": {
-      "heading": "Creemos en una forma mejor de crear experiencias digitales",
-      "content": "Bit-A nació al ver cómo firmas de alto calibre destinaban fortunas a showrooms, concesionarios y oficinas de lujo… mientras su presencia digital se quedaba en sitios desactualizados y sistemas heredados sostenidos por un simple \"si funciona, ni lo toques\". Venimos a derribar ese paradigma: trasladamos al mundo online la misma excelencia, seguridad e innovación que exhibes fuera de la pantalla, liberando todo el potencial de tu marca."
+      "label": "De dónde viene",
+      "title": "Empezó con un bajo",
+      "paragraphs": {
+        "1": "Durante años toqué música, y siempre me impresionó la armonía de las canciones de alabanza. Había algo que sonaba increíble y no sabía qué era, hasta que empecé a tocar el bajo porque en la banda no había bajista.",
+        "2": "Ahí entendí su papel: eso que nadie escucha con claridad, pero que sostiene todo y hace que todo suene bien.",
+        "3": "Bit-A hace ese tipo de piezas: software que no se ve en el escenario y hace que la música suene. Por eso nuestro producto principal es un rig de bajo para alabanza."
+      },
+      "signature": "Ignacio Gómez, director de Bit-A"
     },
-    "cta": {
-      "heading": "Impulsá tu presencia digital con claridad y propósito",
-      "content": "Ya conocés nuestra forma de trabajar. Si querés una web a la altura de tu marca, estamos listos para ayudarte a dar el próximo paso.",
-      "button": "Contactanos"
-    }
-  },
-  "ServicesPage": {
-    "hero": {
-      "title": "Marca con fuerza",
-      "subtitle": "Creamos experiencias digitales que destacan con elegancia, cargan con velocidad y dejan una impresión duradera. Ideal para marcas que lideran.",
-      "cta": "Obtené tu auditoría gratuita"
-    },
-    "services": {
-      "title": "Nuestros Servicios",
-      "express": {
-        "title": "Landing de Lujo Express",
-        "subtitle": "Impacto en 10 días",
-        "description": "Carga en menos de 1 segundo y está diseñada para convertir prospectos premium sin fricción.",
-        "cta": "Ver más",
-        "ctaSecondary": "Solicitar Demo"
-      },
-      "ecommerce": {
-        "title": "E-commerce Premium",
-        "subtitle": "Vende sin fricción",
-        "description": "Catálogo dinámico, pago seguro y up-sell automático.",
-        "cta": "Ver más",
-        "ctaSecondary": "Solicitar Demo"
-      },
-      "assistant": {
-        "title": "Asistente Digital",
-        "subtitle": "Diagnóstico en 5 min",
-        "description": "Chatbot IA que revela tu madurez digital al instante.",
-        "cta": "Ver en acción"
-      },
-      "corporate": {
-        "title": "Web Corporativa de Alto Nivel",
-        "subtitle": "Tu marca, a la altura",
-        "description": "Sitio a medida que combina lujo, velocidad y conversión.",
-        "cta": "Ver más",
-        "ctaSecondary": "Solicitar Demo"
-      },
-      "automation": {
-        "title": "Automatización & IA",
-        "subtitle": "White-Glove Service",
-        "description": "Elimina tareas repetitivas y eleva la experiencia post-venta.",
-        "cta": "Ver más",
-        "ctaSecondary": "Solicitar Demo"
-      },
-      "branding": {
-        "title": "Branding Digital",
-        "subtitle": "Coherencia visual",
-        "description": "Manual de marca y UI kit que diferencian tu presencia online.",
-        "cta": "Ver más"
-      },
-      "diagnosis": {
-        "title": "Diagnóstico Digital",
-        "subtitle": "¿No sabés por dónde empezar?",
-        "description": "Evaluamos tu presencia actual y detectamos oportunidades de mejora.",
-        "cta": "Solicita tu diagnóstico gratuito"
-      }
-    },
-    "transformation": {
-      "title": "Transformación Digital",
-      "forAnyone": "Esto es para vos si...",
-      "nowImagine": "Ahora imaginate si pudieras...",
+    "principles": {
+      "label": "Cómo pensamos",
+      "title": "Tres reglas del estudio",
       "items": {
-        "ready": "Estás listo para empezar a atraer clientes de alto valor con una web que impacta en menos de un segundo.",
-        "tired": "Estás cansado de tener un sitio lento, genérico y que no refleja la calidad de tu negocio.",
-        "investing": "Estás invirtiendo en marketing, pero no ves conversiones reales ni crecimiento tangible."
-      },
-      "results": {
-        "stop": "Dejar de luchar para explicar qué hacés cada vez que alguien entra a tu web.",
-        "confident": "Sentirte por fin confiado de mostrar tu sitio sabiendo que posiciona tu marca como premium.",
-        "clarity": "Tener claridad sobre cómo convertir tu presencia digital en tu mejor herramienta de ventas."
+        "real": {
+          "title": "Lo real, a la vista",
+          "text": "Mostramos los productos con su interfaz y con su estado real, sin adornarlo."
+        },
+        "play": {
+          "title": "Hecho para tocar",
+          "text": "Un programa de audio se juzga con las manos. Si no invita a tocar, no está terminado."
+        },
+        "focus": {
+          "title": "Un solo objetivo",
+          "text": "Hacemos software de audio. Decir que no a lo demás es lo que nos deja hacerlo bien."
+        }
       }
     },
-    "whatsIncluded": {
-      "title": "¿Qué incluye?",
-      "design": {
-        "title": "Diseño Web a Medida",
-        "description": "Diseño exclusivo para tu marca, pensado para verse increíble, cargar rápido y conectar con tu cliente ideal.",
-        "benefit": "Causá impacto desde el primer clic"
-      },
-      "consulting": {
-        "title": "Asesoría Estratégica",
-        "description": "Sesiones personalizadas donde definimos objetivos, oportunidades digitales y el camino a seguir.",
-        "benefit": "Tomá decisiones con respaldo experto"
-      },
-      "development": {
-        "title": "Desarrollo Premium",
-        "description": "Código limpio, moderno y escalable. Usamos Next.js, Tailwind y Payload CMS.",
-        "benefit": "Lanzá una web que rinde al máximo"
-      },
-      "brandAlignment": {
-        "title": "Alineación de Marca",
-        "description": "Creamos un sistema visual consistente: UI Kit, paleta, tipografías y lineamientos claros.",
-        "benefit": "Mostrá tu marca con presencia y estilo"
-      },
-      "performance": {
-        "title": "Optimización de Performance",
-        "description": "Carga en menos de un segundo, animaciones fluidas y base técnica preparada para SEO.",
-        "benefit": "Convertí velocidad en resultados"
-      },
-      "integrations": {
-        "title": "Automatizaciones e Integraciones",
-        "description": "Conectamos tu sitio con WhatsApp, CRM, analítica, bots, agendas y más.",
-        "benefit": "Ahorrá tiempo y ganá eficiencia"
-      },
-      "training": {
-        "title": "Capacitación y Entrega",
-        "description": "Te damos un recorrido en vivo y manuales para que gestiones tu web sin depender de nadie.",
-        "benefit": "Manejá tu sitio con seguridad"
+    "facts": {
+      "label": "Datos",
+      "items": {
+        "where": {
+          "title": "Dónde",
+          "text": "Montevideo, Uruguay"
+        },
+        "languages": {
+          "title": "Idiomas",
+          "text": "Español e inglés"
+        },
+        "focus": {
+          "title": "Enfoque",
+          "text": "Software de audio e IA aplicada a audio"
+        }
       }
-    },
-    "process": {
-      "title": "Confiá en el Proceso",
-      "step1": {
-        "title": "Llamada de descubrimiento",
-        "description": "Empezamos con una charla rápida para entender tus objetivos, desafíos y visión. Sin presión—solo claridad."
-      },
-      "step2": {
-        "title": "Estrategia y propuesta",
-        "description": "Diseñamos un plan personalizado con resultados claros, tiempos y presupuesto. Vas a saber exactamente qué esperar."
-      },
-      "step3": {
-        "title": "Diseño y desarrollo",
-        "description": "Damos vida a tu visión con un sitio web premium, rápido y alineado con tu marca y audiencia."
-      },
-      "step4": {
-        "title": "Revisión y ajustes",
-        "description": "Te mostramos una vista previa completa. Recibimos tu feedback y afinamos cada detalle hasta que todo esté perfecto."
-      },
-      "step5": {
-        "title": "Lanzamiento y autonomía",
-        "description": "Tu sitio sale en vivo—rápido, pulido y listo para convertir. Te entregamos todo con soporte para que tengas el control."
-      },
-      "cta": "Reservar llamada"
-    },
-    "finalCta": {
-      "title": "Tu próximo nivel empieza acá",
-      "description": "Imaginá una web que no solo impacta visualmente, sino que trabaja por vos 24/7 para hacer crecer tu negocio—con estrategia, rendimiento y elegancia. Estamos para hacerlo realidad.",
-      "cta": "Empecemos tu proyecto hoy"
     }
   },
-  "Footer": {
-    "description": "boutique digital de branding y tecnología de alto impacto",
-    "links": {
+  "Contact": {
+    "meta": {
+      "title": "Contacto",
+      "description": "Cuéntanos tu proyecto de audio por correo, por WhatsApp o en una llamada de 30 minutos."
+    },
+    "label": "Contacto",
+    "title": "Cuéntanos tu proyecto",
+    "lead": "Un correo, un mensaje o una llamada alcanzan para empezar.",
+    "channels": {
+      "email": {
+        "title": "Correo",
+        "text": "La forma más cómoda si quieres contar el proyecto con detalle.",
+        "action": "Escribir un correo",
+        "subject": "Proyecto de audio"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "text": "Para una consulta corta o para coordinar una llamada.",
+        "action": "Escribir por WhatsApp",
+        "message": "Hola, quiero contarles un proyecto de audio."
+      },
+      "call": {
+        "title": "Llamada",
+        "text": "30 minutos por videollamada, en español o en inglés.",
+        "action": "Agendar una llamada"
+      }
+    },
+    "brief": {
+      "label": "Para empezar bien",
+      "title": "Qué conviene contarnos",
+      "items": {
+        "1": "Qué quieres construir y para quién.",
+        "2": "En qué formato o plataforma: plugin, app o web.",
+        "3": "Para cuándo lo necesitas.",
+        "4": "Qué existe hoy: una idea, un prototipo o un producto en uso."
+      }
+    },
+    "booking": {
+      "label": "Agenda",
+      "title": "Elige un horario",
+      "loading": "Cargando la agenda…",
+      "fallback": "Si la agenda no aparece, puedes abrirla en cal.com.",
+      "open": "Abrir la agenda en cal.com"
+    },
+    "info": {
+      "label": "Datos de contacto",
+      "location": "Dónde estamos",
+      "phone": "Teléfono",
+      "email": "Correo"
+    }
+  },
+  "Insights": {
+    "meta": {
+      "title": "Notas",
+      "description": "Notas del estudio: lo que construimos y lo que aprendemos en el camino."
+    },
+    "label": "Notas",
+    "title": "Notas del estudio",
+    "lead": "Lo que construimos y lo que aprendemos en el camino.",
+    "readingTime": "{minutes} min de lectura",
+    "read": "Leer la nota",
+    "empty": {
+      "title": "Todavía no hay notas",
+      "text": "Cuando publiquemos la primera, aparecerá aquí.",
+      "action": "Ver los productos"
+    },
+    "back": "Volver a Notas",
+    "author": "Bit-A"
+  },
+  "NotFound": {
+    "label": "Error 404",
+    "title": "Esta página no existe",
+    "text": "Puede que el enlace sea viejo o que la dirección tenga un error.",
+    "home": "Volver al inicio",
+    "products": "Ver los productos"
+  },
+  "Legal": {
+    "label": "Legal",
+    "nav": {
       "privacy": "Política de privacidad",
       "terms": "Términos de servicio",
       "accessibility": "Declaración de accesibilidad"
     },
-    "social": {
-      "title": "Seguinos en redes",
-      "tiktok": "TikTok",
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "twitter": "Twitter",
-      "pinterest": "Pinterest",
-      "youtube": "YouTube",
-      "linkedin": "LinkedIn"
-    }
-  },
-  "RealEstateWeb": {
-    "hero": {
-      "title": "Es hora de tener una presencia digital tan premium como las propiedades que ofrecés",
-      "description": "En el real estate de lujo, todo entra por los ojos—y tu sitio web es muchas veces la primera visita. Si carga lento, se ve anticuado o no transmite exclusividad, estás perdiendo clientes antes del primer contacto. Creamos sitios web de alto impacto que reflejan tu valor, muestran tus propiedades con elegancia y convierten visitas en consultas reales.",
-      "cta": "Agendá tu llamada de descubrimiento"
-    },
-    "problems": {
-      "title": "¿Te suena familiar?",
-      "items": [
-        "Tenés propiedades premium, pero tu sitio web se ve anticuado o genérico—y no refleja lo que realmente ofrecés.",
-        "Los potenciales clientes visitan tu web, pero no te contactan, y no sabés por qué.",
-        "Dependés demasiado de las redes sociales, pero sabés que necesitás una presencia digital propia y profesional.",
-        "Ya trabajaste con diseñadores web antes, pero terminaste con un sitio lento, confuso o difícil de actualizar.",
-        "Querés posicionarte como una marca de real estate de alto nivel, pero tu web actual no acompaña esa visión."
-      ]
-    },
-    "imagine": {
-      "title": "Ahora imaginate que pudieras...",
-      "items": [
-        "Lanzar una web tan exclusiva y elegante como las propiedades que ofrecés.",
-        "Impactar a tus clientes ideales desde el primer clic y recibir consultas de calidad—sin hacer esfuerzo extra.",
-        "Sentirte orgulloso de compartir tu sitio, sabiendo que potencia tu marca y genera confianza al instante.",
-        "Mostrar tus propiedades con claridad, velocidad y estilo—en cualquier dispositivo y momento.",
-        "Dejar de preocuparte por tu presencia online y enfocarte en cerrar negocios premium."
-      ]
-    },
-    "offer": {
-      "title": "Una presencia digital que vende por vos",
-      "description": "En Bit-A somos una boutique de ingeniería y diseño digital. Creamos sitios web de alto rendimiento y estética premium que elevan tu marca, atraen compradores de alto nivel y convierten visitas en oportunidades reales. No es solo una web—es un activo digital diseñado para hacer crecer tu negocio con elegancia y estrategia.",
-      "cta": "Creamos tu sitio premium"
-    },
-    "whatsIncluded": {
-      "title": "¿Qué incluye?",
-      "items": {
-        "customDesign": {
-          "title": "Diseño web de lujo personalizado",
-          "description": "Adaptado a tu marca y propiedades, para que puedas impresionar desde el primer vistazo."
-        },
-        "performance": {
-          "title": "Velocidad extrema de carga",
-          "description": "Carga en menos de 1 segundo, para que puedas retener visitas y mejorar tu posicionamiento en Google."
-        },
-        "mobileFirst": {
-          "title": "Experiencia mobile-first",
-          "description": "Optimizada para cualquier dispositivo, para que puedas lucir premium donde sea que te encuentren."
-        },
-        "convertingPages": {
-          "title": "Páginas de propiedades que convierten",
-          "description": "Diseños estratégicos, para que puedas transformar visitas en consultas reales."
-        },
-        "seoAnalytics": {
-          "title": "Base SEO + analítica integrada",
-          "description": "Estructura optimizada y herramientas de seguimiento, para que puedas ser encontrado y medir resultados."
-        },
-        "training": {
-          "title": "Capacitación y entrega personalizada",
-          "description": "Onboarding a medida, para que puedas tener control total y hacer cambios cuando lo necesites."
-        }
-      },
-      "cta": "Creamos tu sitio premium"
-    },
-    "about": {
-      "title": "Sobre Bit-A",
-      "description": "En Bit-A nos especializamos en crear experiencias digitales que venden estilo de vida, no solo propiedades. Somos una boutique de ingeniería y diseño, obsesionados con el rendimiento, la estética y los resultados. Sabemos que en el real estate, la primera impresión lo es todo—y muchas veces, tu web es esa primera visita. Por eso creamos sitios rápidos, elegantes y estratégicos, pensados para profesionales del real estate de alto nivel que quieren destacarse, generar confianza y cerrar con seguridad. Si tu objetivo es posicionarte en lo más alto del mercado, somos el equipo detrás de la presencia digital que te va a llevar ahí."
-    },
-    "pricing": {
-      "title": "¿Estás listo?",
-      "description": "Empecemos a construir tu sitio premium de real estate hoy. Trabajamos con un modelo de pago claro y flexible, pensado para que tengas control total desde el inicio:",
-      "items": [
-        "50% de pago inicial para comenzar el proyecto.",
-        "Pago por entregables, a medida que se completan las etapas.",
-        "Recibís el detalle completo del coste antes de arrancar, incluyendo servicios mensuales (como hosting) y anuales (como el dominio).",
-        "Si el dominio que querés está disponible, incluso puede quedarte gratis el primer año desde el comienzo.",
-        "Te acompañamos paso a paso, con total transparencia en cada decisión y presupuesto."
-      ],
-      "cta": "Agendá una llamada"
-    },
-    "faqs": {
-      "title": "Preguntas frecuentes",
-      "items": [
-        {
-          "question": "¿Cuánto demora el proyecto?",
-          "answer": "La mayoría de los sitios web para real estate están listos en 3 a 5 semanas, dependiendo de la complejidad y la rapidez en los ciclos de feedback."
-        },
-        {
-          "question": "¿Puedo actualizar el sitio después del lanzamiento?",
-          "answer": "¡Sí! Entregamos tu web con capacitación y soporte, para que puedas gestionar propiedades, contenidos o cambios por tu cuenta, o pedirnos ayuda cuando lo necesites."
-        },
-        {
-          "question": "¿Cuál es la inversión total?",
-          "answer": "Depende de tus necesidades específicas, pero siempre te damos un presupuesto claro y cerrado desde el inicio. También detallamos costos mensuales (hosting) y anuales (dominio)."
-        },
-        {
-          "question": "¿Ustedes gestionan el dominio y el hosting?",
-          "answer": "Sí. Nos encargamos de todo. Y si el dominio que querés está disponible, podés tener el primer año gratis."
-        },
-        {
-          "question": "¿Qué pasa si quiero agregar más funciones más adelante?",
-          "answer": "Tu sitio está preparado para crecer. Podemos sumar páginas, herramientas o integraciones a medida que tu negocio lo requiera."
-        },
-        {
-          "question": "¿Ofrecen algún tipo de garantía?",
-          "answer": "Sí. Todos nuestros sitios web incluyen una garantía de 2 años que cubre problemas técnicos, errores de rendimiento y ajustes menores dentro del alcance original. Estamos para asegurarnos de que tu sitio siga funcionando al más alto nivel, incluso mucho después del lanzamiento."
-        }
-      ]
-    },
-    "finalCta": {
-      "title": "Tu próximo cliente está a un clic de distancia",
-      "description": "Dejá de perder oportunidades por una web que no está a tu altura. Construyamos una presencia digital que refleje el valor de las propiedades que ofrecés—y la reputación que querés construir.",
-      "cta": "Agendá tu llamada de descubrimiento"
-    }
-  },
-  "RestaurantWeb": {
-    "hero": {
-      "title": "Tu restaurante ya funciona. Tu carta no tendría que ser una foto.",
-      "description": "En verano, el que decide dónde comer está en la ruta mirando el celular y no te conoce. Te encuentra en Google, mira la carta y reserva. O sigue de largo.",
-      "cta": "Charlemos 20 minutos"
-    },
-    "problems": {
-      "title": "¿Te suena familiar?",
-      "items": [
-        {
-          "title": "La carta es una foto",
-          "description": "Cambia un precio y hay que rehacer la imagen. Hasta que alguien la rehaga, está mal."
-        },
-        {
-          "title": "El teléfono suena en pleno servicio",
-          "description": "Algunas reservas se anotan en la libreta. Otras se pierden."
-        },
-        {
-          "title": "Tu ficha de Google la armó otro",
-          "description": "Fotos que no elegiste, datos que no controlás."
-        },
-        {
-          "title": "Todo vive en Instagram",
-          "description": "El que no lo tiene no te ve. Y lo de hace un mes ya no lo encuentra nadie."
-        },
-        {
-          "title": "Los grupos se coordinan de a uno",
-          "description": "La misma información, repetida quince veces por WhatsApp."
-        }
-      ]
-    },
-    "imagine": {
-      "title": "Ahora imaginate que pudieras...",
-      "items": [
-        {
-          "title": "Cambiás un precio en dos minutos",
-          "description": "Desde el celular, sin llamar a nadie."
-        },
-        {
-          "title": "Las reservas te llegan ordenadas",
-          "description": "Nombre, día, hora y cuántos son. Directo a tu WhatsApp."
-        },
-        {
-          "title": "Google muestra lo que elegiste vos",
-          "description": "Tus fotos, tu carta, tu teléfono."
-        },
-        {
-          "title": "El menú del día se comparte con un link",
-          "description": "No se pierde abajo en el feed."
-        },
-        {
-          "title": "Los grupos se explican solos",
-          "description": "Una página con todo, y te escriben ya sabiendo."
-        }
-      ]
-    },
-    "offer": {
-      "title": "Un sitio hecho para tu restaurante, no una plantilla",
-      "description": "En Bit-A trabajamos con pocos clientes a la vez y cada sitio se arma sobre lo que ese negocio realmente necesita. Nos sentamos con vos, miramos cómo entran hoy las reservas y cómo se maneja la carta, y construimos alrededor de eso. Nada de módulos que no vas a usar.",
-      "cta": "Quiero ver cómo sería"
-    },
-    "whatsIncluded": {
-      "title": "¿Qué incluye?",
-      "items": {
-        "digitalMenu": {
-          "title": "Carta digital que actualizás vos",
-          "description": "Cambiás precios, agregás platos o marcás algo como agotado desde el celular. Sin depender de nadie y sin rehacer ninguna imagen."
-        },
-        "whatsappBookings": {
-          "title": "Reservas directas a tu WhatsApp",
-          "description": "El cliente completa día, hora y cantidad de personas, y te llega el mensaje armado. Menos llamadas en medio del servicio."
-        },
-        "mobileFirst": {
-          "title": "Pensado para el celular",
-          "description": "Casi todos te van a mirar desde el teléfono, muchas veces con señal mala en la ruta. Por eso se diseña para el celular primero."
-        },
-        "localSeo": {
-          "title": "Que Google te encuentre",
-          "description": "Sitio conectado con tu ficha de Google Maps, para que aparezcas cuando alguien busca dónde comer cerca tuyo."
-        },
-        "photos": {
-          "title": "Tus fotos, bien puestas",
-          "description": "Ordenamos y optimizamos el material que ya tenés. Si hace falta, coordinamos una sesión de fotos del lugar y los platos."
-        },
-        "training": {
-          "title": "Te enseñamos a usarlo",
-          "description": "Una sesión con vos o con quien maneje la carta, hasta que lo pueda hacer solo. Y quedás con nuestro WhatsApp por si trancás."
-        }
-      },
-      "cta": "Quiero ver cómo sería"
-    },
-    "about": {
-      "title": "Quiénes somos",
-      "description": "Bit-A es un estudio chico de desarrollo web en Uruguay. Trabajamos de a pocos proyectos por vez porque cada uno se hace a medida y de cerca: hablás siempre con la misma persona, la que después escribe el código. No somos una agencia con cuentas y ejecutivos de por medio."
-    },
-    "pricing": {
-      "title": "Cómo trabajamos",
-      "description": "Precio cerrado antes de empezar. Sabés desde el primer día cuánto sale y qué incluye, sin cosas que aparecen después.",
-      "items": [
-        "Precio fijo acordado por escrito antes de arrancar. Si el alcance no cambia, el precio no cambia.",
-        "Se paga en dos partes: la mitad al empezar y la mitad cuando el sitio está publicado y funcionando.",
-        "Rango de inversión para un restaurante: [COMPLETAR RANGO]. La propuesta con el número exacto te llega por escrito después de la primera charla.",
-        "El dominio y el hosting del primer año van incluidos.",
-        "Después del primer año, el mantenimiento es opcional. Si no lo querés, el sitio sigue siendo tuyo igual."
-      ],
-      "cta": "Pedime una propuesta"
-    },
-    "faqs": {
-      "title": "Preguntas frecuentes",
-      "items": [
-        {
-          "question": "¿Cuánto tarda?",
-          "answer": "Entre dos y cuatro semanas desde que tenemos las fotos y la carta. Si necesitás llegar con algo andando para el verano, conviene arrancar antes de octubre: en diciembre, en plena temporada, nadie tiene tiempo de mirar un sitio nuevo."
-        },
-        {
-          "question": "Ya tengo Instagram y me funciona bien. ¿Para qué quiero una web?",
-          "answer": "Instagram sirve para el que ya te conoce y te sigue. El sitio sirve para el que todavía no te conoce y te está buscando en Google. Son dos públicos distintos. No reemplaza al Instagram: lo complementa, y le da un lugar fijo a la carta y a las reservas."
-        },
-        {
-          "question": "No entiendo nada de computación. ¿Igual lo voy a poder manejar?",
-          "answer": "Sí. Cambiar un precio es entrar, tocar el número y guardar. Es más simple que subir una historia. Y te enseñamos en persona hasta que lo hagas solo."
-        },
-        {
-          "question": "¿Tengo que pagar todos los meses?",
-          "answer": "El primer año no: dominio y hosting van incluidos. Después es una cuota anual chica para mantener el sitio online, y el mantenimiento es opcional."
-        },
-        {
-          "question": "La carta me cambia seguido por la inflación. ¿Eso complica algo?",
-          "answer": "Al contrario, es justamente el motivo principal para hacerlo. Hoy cambiar un precio significa rehacer una imagen. Con el sitio son dos minutos desde el celular, las veces que haga falta, sin costo extra."
-        },
-        {
-          "question": "¿El sitio queda a mi nombre?",
-          "answer": "Sí. El dominio se registra a tu nombre y el sitio es tuyo. Si algún día querés llevártelo a otro lado, te lo entregamos sin vueltas."
-        }
-      ]
-    },
-    "finalCta": {
-      "title": "Charlemos sin compromiso",
-      "description": "Veinte minutos para mirar juntos cómo estás hoy en Google, cómo te entran las reservas y qué se puede mejorar. Si de ahí no sale un trabajo, te queda igual el diagnóstico.",
-      "cta": "Agendar una charla"
-    },
-    "menuDemo": {
-      "label": "Ejemplo",
-      "title": "Así se ve una carta que actualizás vos",
-      "description": "Esto no es una foto. Es texto de verdad: se lee en cualquier pantalla, Google lo encuentra y un precio se cambia en dos minutos.",
-      "hint": "Tocá la carta para pasar de hoja",
-      "updateButton": "Cambiá un precio",
-      "updatedNote": "Listo. Así de rápido, desde el celular.",
-      "restaurant": "Restaurante de ejemplo",
-      "pages": [
-        {
-          "kicker": "Hoja 1 de 2",
-          "sections": [
-            {
-              "title": "Para empezar",
-              "items": [
-                {
-                  "name": "Provoleta a la parrilla",
-                  "price": "480"
-                },
-                {
-                  "name": "Chorizo criollo",
-                  "price": "390"
-                },
-                {
-                  "name": "Empanadas de carne (3)",
-                  "price": "420"
-                },
-                {
-                  "name": "Tabla de fiambres",
-                  "price": "890"
-                }
-              ]
-            },
-            {
-              "title": "De la parrilla",
-              "items": [
-                {
-                  "name": "Asado de tira",
-                  "price": "980"
-                },
-                {
-                  "name": "Entrecot",
-                  "price": "1.150"
-                },
-                {
-                  "name": "Pollo al disco",
-                  "price": "760"
-                },
-                {
-                  "name": "Parrillada para dos",
-                  "price": "1.980"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "kicker": "Hoja 2 de 2",
-          "sections": [
-            {
-              "title": "Pastas y pizzas",
-              "items": [
-                {
-                  "name": "Ravioles de verdura",
-                  "price": "690"
-                },
-                {
-                  "name": "Ñoquis con estofado",
-                  "price": "710"
-                },
-                {
-                  "name": "Pizza muzzarella",
-                  "price": "620"
-                },
-                {
-                  "name": "Pizza fugazzeta",
-                  "price": "740"
-                }
-              ]
-            },
-            {
-              "title": "Postres",
-              "items": [
-                {
-                  "name": "Flan con dulce de leche",
-                  "price": "320"
-                },
-                {
-                  "name": "Chajá",
-                  "price": "380"
-                },
-                {
-                  "name": "Helado artesanal",
-                  "price": "290"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "updatedPrices": {
-        "0-0-3": "950",
-        "0-1-0": "1.090",
-        "1-0-2": "680",
-        "1-1-1": "420"
-      }
-    }
-  },
-  "LegalPages": {
     "privacyPolicy": {
-      "title": "Política de Privacidad",
+      "title": "Política de privacidad",
       "lastUpdated": "Última actualización: 09-06-2025",
       "sections": {
         "intro": {
@@ -732,8 +652,8 @@
       }
     },
     "termsOfService": {
-      "title": "Términos de Servicio",
-      "lastUpdated": "Última actualización: 09-06-2025",
+      "title": "Términos de servicio",
+      "lastUpdated": "Última actualización: 20-11-2026",
       "sections": {
         "intro": {
           "title": "Bienvenido a Bit-A",
@@ -741,7 +661,7 @@
         },
         "services": {
           "title": "Servicios",
-          "content": "Bit-A ofrece servicios de diseño web, desarrollo, branding digital y automatización. Todos los servicios están sujetos a disponibilidad y pueden modificarse sin previo aviso."
+          "content": "Bit-A desarrolla software de audio: productos propios y trabajo a pedido para empresas. Todos los servicios están sujetos a disponibilidad y pueden modificarse sin previo aviso."
         },
         "payments": {
           "title": "Pagos y facturación",
@@ -766,7 +686,7 @@
       }
     },
     "accessibility": {
-      "title": "Declaración de Accesibilidad",
+      "title": "Declaración de accesibilidad",
       "lastUpdated": "Última actualización: Junio 2025",
       "sections": {
         "general": {
@@ -787,98 +707,5 @@
         }
       }
     }
-  },
-  "ContactPage": {
-    "hero": {
-      "title": "Contacto",
-      "subtitle": "Empezamos con una conversación relajada para entender tus objetivos"
-    },
-    "whatToExpect": {
-      "title": "Qué podés esperar después de contactarnos",
-      "description": "Empezamos con una conversación relajada para entender tus objetivos, tu marca y los desafíos que enfrentás. Una vez que completes el formulario, revisamos tu mensaje y nos pondremos en contacto para agendar una llamada de descubrimiento. Sin compromiso—solo claridad sobre cómo podemos ayudarte."
-    },
-    "contactInfo": {
-      "title": "Información de contacto",
-      "emailTitle": "Email",
-      "phoneTitle": "Teléfono",
-      "addressTitle": "Dirección",
-      "email": "ignacio.gomez@bit-a.com",
-      "phone": "+598 2512 4860",
-      "address": "Montevideo, Uruguay"
-    },
-    "contactForm": {
-      "title": "Formulario de contacto",
-      "fields": {
-        "name": {
-          "label": "Nombre completo",
-          "placeholder": "Tu nombre completo"
-        },
-        "email": {
-          "label": "Email",
-          "placeholder": "tu@email.com"
-        },
-        "company": {
-          "label": "Empresa",
-          "placeholder": "Nombre de tu empresa"
-        },
-        "phone": {
-          "label": "Teléfono",
-          "placeholder": "+54 9 11 1234-5678"
-        },
-        "projectType": {
-          "label": "Tipo de proyecto",
-          "options": {
-            "express": "Landing de lujo express",
-            "ecommerce": "E-commerce premium",
-            "corporate": "Web corporativa",
-            "automation": "Automatización & IA",
-            "branding": "Branding digital",
-            "diagnosis": "Diagnóstico digital",
-            "other": "Otro"
-          }
-        },
-        "budget": {
-          "label": "Presupuesto estimado",
-          "options": {
-            "under5k": "Menos de $5,000 USD",
-            "5k-10k": "$5,000 - $10,000 USD",
-            "10k-20k": "$10,000 - $20,000 USD",
-            "20k-50k": "$20,000 - $50,000 USD",
-            "over50k": "Más de $50,000 USD"
-          }
-        },
-        "timeline": {
-          "label": "Cuándo querés empezar",
-          "options": {
-            "asap": "Lo antes posible",
-            "month": "En el próximo mes",
-            "quarter": "En los próximos 3 meses",
-            "flexible": "Flexible"
-          }
-        },
-        "message": {
-          "label": "Mensaje",
-          "placeholder": "Contanos sobre tu proyecto, objetivos y cualquier desafío específico que estés enfrentando..."
-        }
-      },
-      "submit": "Enviar mensaje",
-      "sending": "Enviando..."
-    },
-    "successMessage": {
-      "title": "¡Mensaje enviado!",
-      "description": "Gracias por contactarnos. Revisaremos tu mensaje y nos pondremos en contacto contigo dentro de las próximas 24 horas para agendar una llamada de descubrimiento."
-    },
-    "errorMessage": {
-      "title": "Error al enviar",
-      "description": "Hubo un problema al enviar tu mensaje. Por favor, intentá nuevamente o contactanos directamente por email."
-    }
-  },
-  "Insights": {
-    "title": "Perspectivas Estratégicas",
-    "intentFilter": "\"Contenido diseñado para líderes que buscan transformar la tecnología en una ventaja competitiva inalcanzable.\"",
-    "noImage": "Sin Imagen",
-    "readingTime": "Lectura",
-    "minutes": "min.",
-    "verifiedContent": "Contenido Verificado"
   }
 }

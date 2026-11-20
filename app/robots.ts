@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-// Misma base que usa metadataBase en app/[locale]/layout.tsx.
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bit-a.com').replace(/\/+$/, '')
+import { SITE_URL } from '@/content/site'
 
 export default function robots(): MetadataRoute.Robots {
     return {
