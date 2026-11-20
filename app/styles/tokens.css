@@ -1,0 +1,170 @@
+/*
+ * Design tokens.
+ *
+ * Two tiers. Primitives name a value and are never used by a component.
+ * Semantic tokens name a job and are the only tier components reference.
+ *
+ * Ink for the house, color for the sound. Bit-A itself is drawn in ink and
+ * Bit Blue on a blue-tinted ground. Pink is the Sound color and marks live
+ * signal. Every other vivid hue belongs to exactly one product.
+ * No surface is pure white: the lightest value is Paper, tinted to Bit Blue.
+ *
+ * three.js and inline SVG attributes cannot read custom properties, so the
+ * hexes are mirrored in content/palette.ts. Keep the two in sync.
+ */
+
+:root {
+  /* ---- Primitives ------------------------------------------------------ */
+  --ice-50: #FCFDFF; /* Paper */
+  --ice-100: #F4F6FD; /* Ice */
+  --ice-200: #E8ECFA; /* Mist */
+  --ice-300: #D9DFF0; /* Line */
+  --ink-400: #C2C3C9; /* Muted text on ink: 11.0:1 */
+  --ink-600: #5A5F7D;
+  --ink-700: #3B3F5C;
+  --ink-750: #2A2C52;
+  --ink-800: #1B1C36;
+  --ink-900: #0B0B1F;
+  --blue-300: #8FA5FF;
+  --blue-600: #0B40FF;
+  --pink-400: #FF5FAE;
+  --lime-400: #C6FF3D;
+  --lilac-400: #A98BFF;
+  --orange-500: #FF7A1A;
+  --sun-400: #FFD23F;
+
+  /* ---- Semantic: surfaces and text -------------------------------------- */
+  --bg: var(--ice-100);
+  --surface: var(--ice-50);
+  --sunken: var(--ice-200);
+  --line: var(--ice-300);
+  --text: var(--ink-900);
+  --text-muted: var(--ink-700);
+  --text-subtle: var(--ink-600);
+  /* A tint of the current text color, for pills and quiet controls. */
+  --wash: color-mix(in srgb, currentColor 6%, transparent);
+  --wash-strong: color-mix(in srgb, currentColor 12%, transparent);
+  --border-control: var(--ink-600);
+
+  /* Dark sections and instrument panels. */
+  --inverse-bg: var(--ink-900);
+  --inverse-surface: var(--ink-800);
+  --inverse-raised: var(--ink-750);
+  --inverse-line: color-mix(in srgb, var(--ice-50) 14%, transparent);
+  --inverse-text: var(--ice-50);
+  --inverse-text-muted: var(--ink-400);
+
+  /* Solid fill of the one primary action per view. */
+  --action-bg: var(--ink-900);
+  --action-bg-hover: var(--ink-800);
+  --action-text: var(--ice-50);
+
+  /* The house accent: links, the headline dot. 6.09:1 on Ice. */
+  --brand: var(--blue-600);
+  /* The Sound color. A fill and a live-signal mark, never text on Ice. */
+  --signal: var(--pink-400);
+  --highlight: var(--sun-400);
+  --focus-ring: var(--ink-900);
+
+  /* ---- Semantic: products ------------------------------------------------ */
+  --product-levita: var(--orange-500);
+  --product-acordes-finos: var(--lilac-400);
+  --product-tablatura: var(--lime-400);
+
+  /* ---- Type -------------------------------------------------------------- */
+  --font-family-display: var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-family-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /*
+   * Display sizes mix rem and vw, so page zoom still enlarges them. The rem
+   * part is what zoom scales; a bare vw value would stay the same size.
+   */
+  --text-hero: clamp(3rem, 1.2rem + 6.27vw, 7.5rem);
+  --text-display-xl: clamp(2.75rem, 1.1rem + 5.4vw, 6.5rem);
+  --text-display-lg: clamp(2.5rem, 1rem + 4.1vw, 4.75rem);
+  --text-display-md: clamp(2.25rem, 1rem + 3.4vw, 4rem);
+  --text-title-lg: 2rem;
+  --text-title-md: 1.625rem;
+  --text-title-sm: 1.375rem;
+  --text-lead: clamp(1.125rem, 1rem + 0.3vw, 1.25rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-fine: 0.8125rem;
+  --text-label: 0.75rem;
+
+  /* ---- Space and shape --------------------------------------------------- */
+  --gutter: clamp(16px, 4vw, 48px);
+  --measure: 1320px;
+  --measure-prose: 68ch;
+  --section-y: clamp(72px, 10vw, 140px);
+  --band-inset: clamp(8px, 1.5vw, 24px);
+  --band-y: clamp(64px, 8vw, 112px);
+  /* The floating nav is 60px tall and sits 14px from the top. */
+  --nav-clearance: 104px;
+
+  --radius-band: clamp(24px, 3vw, 44px);
+  --radius-card: 28px;
+  --radius-panel: 16px;
+  --radius-control: 10px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ------------------------------------------------------------ */
+  /* State changes on controls. */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Entrances. Measured on the reference sites: 750–900 ms on a long ease-out. */
+  --ease-reveal: cubic-bezier(0.2, 0.65, 0.25, 1);
+  /* Icon and label cross-fades. */
+  --ease-swap: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-reveal: 800ms;
+
+  --shadow-float: 0 10px 30px -14px color-mix(in srgb, var(--ink-900) 28%, transparent);
+  --shadow-raised:
+    0 1px 0 color-mix(in srgb, var(--ink-900) 4%, transparent),
+    0 12px 32px -18px color-mix(in srgb, var(--ink-900) 30%, transparent);
+  --shadow-lifted: 0 24px 40px -20px color-mix(in srgb, var(--ink-900) 55%, transparent);
+}
+
+/*
+ * A product scope. Anything inside reads two values:
+ *   --product     the product color, as a fill
+ *   --on-product  the text color that passes on top of that fill
+ * On the light ground a product color is never text: none of them passes.
+ */
+[data-product="levita"] {
+  --product: var(--product-levita);
+  --on-product: var(--ink-900);
+}
+
+[data-product="acordes-finos"] {
+  --product: var(--product-acordes-finos);
+  --on-product: var(--ink-900);
+}
+
+[data-product="tablatura"] {
+  --product: var(--product-tablatura);
+  --on-product: var(--ink-900);
+}
+
+/* Utilities, for the few places that use Tailwind classes. */
+@theme inline {
+  --color-ground: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-line: var(--line);
+  --color-ink: var(--text);
+  --color-ink-muted: var(--text-muted);
+  --color-ink-subtle: var(--text-subtle);
+  --color-inverse: var(--inverse-bg);
+  --color-on-inverse: var(--inverse-text);
+  --color-on-inverse-muted: var(--inverse-text-muted);
+  --color-brand: var(--brand);
+  --color-signal: var(--signal);
+  --color-highlight: var(--highlight);
+
+  --font-display: var(--font-family-display);
+  --font-sans: var(--font-family-body);
+  --font-mono: var(--font-family-mono);
+}

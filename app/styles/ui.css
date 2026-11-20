@@ -1,0 +1,659 @@
+/*
+ * Shared pieces. Every page is built from these: layout, type, actions,
+ * pills, cards, forms and the audio motifs. Page stylesheets only add what is
+ * specific to one page.
+ *
+ * Everything sits in the components layer, so a utility class can override it.
+ */
+
+@layer components {
+  /* ---- Layout ------------------------------------------------------------ */
+
+  .wrap {
+    width: 100%;
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section {
+    padding-block: var(--section-y);
+  }
+
+  /* A rounded band that floats inside the page: ink, pink or a product color. */
+  .band {
+    margin: 24px var(--band-inset) 0;
+    padding-block: var(--band-y);
+    border-radius: var(--radius-band);
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--stack-gap, 16px);
+  }
+
+  /* Columns that wrap by themselves. Set --col-min to the narrowest useful column. */
+  .grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min, 300px), 100%), 1fr));
+    gap: var(--grid-gap, clamp(28px, 4vw, 48px));
+  }
+
+  /* Two columns that collapse to one: text on one side, a figure on the other. */
+  .split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min, 440px), 100%), 1fr));
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: clamp(32px, 5vw, 56px);
+  }
+
+  /* The top of an inner page: clears the floating nav, then label, title, lead. */
+  .page-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding-top: calc(var(--nav-clearance) + clamp(40px, 7vw, 96px));
+    padding-bottom: clamp(40px, 6vw, 80px);
+  }
+
+  /* ---- Type --------------------------------------------------------------- */
+
+  .display {
+    font-family: var(--font-family-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  .display--hero {
+    font-size: var(--text-hero);
+    letter-spacing: -0.032em;
+    line-height: 0.92;
+  }
+
+  .display--xl {
+    font-size: var(--text-display-xl);
+    letter-spacing: -0.032em;
+    line-height: 0.92;
+  }
+
+  .display--lg {
+    font-size: var(--text-display-lg);
+  }
+
+  .display--md {
+    font-size: var(--text-display-md);
+  }
+
+  .title {
+    font-family: var(--font-family-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .title--lg {
+    font-size: var(--text-title-lg);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+
+  .title--md {
+    font-size: var(--text-title-md);
+  }
+
+  .title--sm {
+    font-size: var(--text-title-sm);
+    line-height: 1.15;
+  }
+
+  /* The final dot of a headline, in the house accent. */
+  .accent-dot {
+    color: var(--brand);
+  }
+
+  .lead {
+    max-width: 46ch;
+    font-size: var(--text-lead);
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  .muted {
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  .small {
+    font-size: var(--text-small);
+    line-height: 1.4;
+  }
+
+  .fine {
+    font-size: var(--text-fine);
+    line-height: 1.4;
+  }
+
+  /* Technical data: state, format, platform. */
+  .label {
+    font-family: var(--font-family-mono);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label--subtle {
+    color: var(--text-subtle);
+  }
+
+  /* ---- Actions ------------------------------------------------------------ */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    /* Room for a second line: a long label wraps on a narrow screen instead of overflowing. */
+    padding: 8px 24px;
+    /* Invisible until forced colors replace the fill, where it draws the pill. */
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-pill);
+    background-color: var(--action-bg);
+    color: var(--action-text);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-align: center;
+    text-wrap: balance;
+    cursor: pointer;
+    transition-property: scale, background-color, box-shadow;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  .btn:active {
+    scale: 0.96;
+  }
+
+  .btn--lg {
+    min-height: 56px;
+    padding-inline: 30px;
+  }
+
+  .btn--sm {
+    min-height: 44px;
+    padding-inline: 22px;
+    font-size: 0.9375rem;
+  }
+
+  /* Icons keep their size when the label wraps. */
+  .btn svg {
+    flex: none;
+  }
+
+  /* A second action beside the primary one: outline only. */
+  .btn--ghost {
+    background-color: transparent;
+    color: var(--text);
+    box-shadow: inset 0 0 0 1.5px var(--border-control);
+  }
+
+  .btn[aria-disabled="true"],
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  @media (hover: hover) {
+    .btn:hover {
+      background-color: var(--action-bg-hover);
+    }
+
+    .btn--ghost:hover {
+      background-color: var(--wash);
+    }
+  }
+
+  /* A link that leads somewhere, with its arrow. */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    max-width: 100%;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    /* A long label wraps on a narrow screen; the arrow stays beside it. */
+    text-wrap: balance;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .link-arrow svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    transition: translate var(--duration-base) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .link-arrow:hover {
+      color: var(--brand);
+    }
+
+    .link-arrow:hover svg {
+      translate: 3px 0;
+    }
+
+    .link-arrow--down:hover svg {
+      translate: 0 3px;
+    }
+  }
+
+  /* A link inside running text. */
+  .text-link {
+    color: var(--brand);
+    font-weight: 600;
+    text-decoration-line: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  @media (hover: hover) {
+    .text-link:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  /* ---- Pills and status --------------------------------------------------- */
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px 7px 10px;
+    border-radius: var(--radius-pill);
+    background-color: var(--wash);
+    white-space: nowrap;
+  }
+
+  /* Solid pill, for a status that sits on top of a color or an image. */
+  .pill--solid {
+    background-color: var(--ink-900);
+    color: var(--ice-50);
+  }
+
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* A pill with a sentence in it, not a mono label. */
+  .pill--text {
+    padding: 8px 14px 8px 11px;
+    font-size: 0.84375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .status-dot {
+    flex: none;
+    width: 12px;
+    height: 12px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 15px 8px 12px;
+    border-radius: var(--radius-pill);
+    background-color: var(--wash);
+    font-size: var(--text-fine);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+  }
+
+  /* The live-signal dot. The ink ring keeps it visible where pink alone would not pass. */
+  .eyebrow__dot {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background-color: var(--signal);
+    box-shadow: 0 0 0 1px var(--ink-900);
+  }
+
+  /* ---- Surfaces ----------------------------------------------------------- */
+
+  /* Outer radius 28 = inner radius 16 + padding 12. */
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 12px;
+    border-radius: var(--radius-card);
+    background-color: var(--surface);
+    color: var(--ink-900);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .card__media {
+    border-radius: var(--radius-panel);
+    overflow: hidden;
+  }
+
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 12px 14px;
+  }
+
+  /* A dark instrument panel. Outer radius 28 = inner radius 10 + padding 18. */
+  .panel {
+    padding: 18px;
+    border-radius: var(--radius-card);
+    background-color: var(--inverse-surface);
+    color: var(--inverse-text);
+    box-shadow: inset 0 0 0 1px var(--inverse-line);
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px;
+    border-radius: var(--radius-panel);
+    background-color: var(--sunken);
+  }
+
+  /* Screenshots and photos get a hairline so their edge reads on any ground. */
+  .shot {
+    outline: 1px solid oklch(0 0 0 / 0.1);
+    outline-offset: -1px;
+  }
+
+  .divider {
+    height: 1px;
+    border: 0;
+    background-color: var(--line);
+  }
+
+  /* ---- Forms -------------------------------------------------------------- */
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field__label {
+    font-size: var(--text-small);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  /* 16px text: iOS zooms the page on anything smaller. */
+  .input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1.5px solid var(--border-control);
+    border-radius: var(--radius-control);
+    background-color: var(--surface);
+    color: var(--ink-900);
+    font-size: 1rem;
+  }
+
+  textarea.input {
+    min-height: 148px;
+    padding-block: 12px;
+    resize: vertical;
+  }
+
+  .input::placeholder {
+    color: var(--ink-600);
+    opacity: 1;
+  }
+
+  .input[aria-invalid="true"] {
+    border-width: 2px;
+    border-color: var(--ink-900);
+  }
+
+  .field__hint {
+    font-size: var(--text-fine);
+    line-height: 1.4;
+    color: var(--text-subtle);
+  }
+
+  .field__error {
+    font-size: var(--text-fine);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  /* ---- Long-form text ----------------------------------------------------- */
+
+  .longform {
+    max-width: var(--measure-prose);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .longform > * + * {
+    margin-top: 1.1em;
+  }
+
+  .longform :is(h2, h3, h4) {
+    font-family: var(--font-family-display);
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  .longform h2 {
+    margin-top: 2em;
+    font-size: var(--text-title-lg);
+    font-weight: 800;
+  }
+
+  .longform h3 {
+    margin-top: 1.7em;
+    font-size: var(--text-title-md);
+    font-weight: 700;
+  }
+
+  .longform h4 {
+    margin-top: 1.5em;
+    font-size: var(--text-title-sm);
+    font-weight: 700;
+  }
+
+  .longform :is(ul, ol) {
+    padding-inline-start: 1.3em;
+  }
+
+  .longform ul {
+    list-style: disc;
+  }
+
+  .longform ol {
+    list-style: decimal;
+  }
+
+  .longform li + li {
+    margin-top: 0.4em;
+  }
+
+  .longform a {
+    color: var(--brand);
+    font-weight: 600;
+    text-decoration-line: underline;
+    text-underline-offset: 0.18em;
+    overflow-wrap: break-word;
+  }
+
+  .longform strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .longform blockquote {
+    padding-inline-start: 1.1em;
+    border-inline-start: 3px solid var(--signal);
+    color: var(--text);
+    font-size: 1.1875rem;
+  }
+
+  .longform :is(code, pre) {
+    font-family: var(--font-family-mono);
+    font-size: 0.9em;
+  }
+
+  .longform pre {
+    padding: 16px 18px;
+    border-radius: var(--radius-panel);
+    background-color: var(--ink-900);
+    color: var(--ice-50);
+    overflow-x: auto;
+  }
+
+  .longform img {
+    border-radius: var(--radius-panel);
+    outline: 1px solid oklch(0 0 0 / 0.1);
+    outline-offset: -1px;
+  }
+
+  /* ---- Audio motifs ------------------------------------------------------- */
+
+  /* Level meter: a pink bar behind a comb of gaps. Always pink: it is signal. */
+  .meter {
+    position: relative;
+    height: 12px;
+    border-radius: 3px;
+    background-color: var(--meter-track, var(--ice-300));
+    overflow: hidden;
+  }
+
+  .meter__level {
+    position: absolute;
+    inset: 0;
+    background-color: var(--signal);
+    transform-origin: 0 50%;
+    transform: scaleX(0.62);
+  }
+
+  .meter__comb {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0 8px,
+      var(--meter-gap, var(--ice-200)) 8px 11px
+    );
+  }
+
+  .knob-art__cap {
+    transform-box: fill-box;
+    transform-origin: center;
+    rotate: 40deg;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .meter__level {
+      animation: meter-level 2.4s ease-in-out infinite;
+    }
+
+    .knob-art--live .knob-art__cap {
+      animation: knob-turn 5s ease-in-out infinite;
+    }
+  }
+
+  @keyframes meter-level {
+    0%,
+    100% {
+      transform: scaleX(0.35);
+    }
+    20% {
+      transform: scaleX(0.82);
+    }
+    40% {
+      transform: scaleX(0.5);
+    }
+    60% {
+      transform: scaleX(0.93);
+    }
+    80% {
+      transform: scaleX(0.6);
+    }
+  }
+
+  @keyframes knob-turn {
+    0%,
+    100% {
+      rotate: -60deg;
+    }
+    50% {
+      rotate: 70deg;
+    }
+  }
+
+  /* ---- Entrances ---------------------------------------------------------- */
+
+  /*
+   * Content is visible by default. Only after the reveal script has started
+   * (it sets data-reveal on <html>) do elements wait below their place, so a
+   * failed script never hides anything.
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    html[data-reveal="on"] .reveal {
+      opacity: 0;
+      translate: 0 24px;
+      transition-property: opacity, translate;
+      transition-duration: var(--duration-reveal);
+      transition-timing-function: var(--ease-reveal);
+      transition-delay: calc(var(--reveal-i, 0) * 100ms);
+    }
+
+    html[data-reveal="on"] .reveal[data-revealed] {
+      opacity: 1;
+      translate: none;
+    }
+  }
+}
+
+/*
+ * The primary action wears the plasma beam. BorderBeam ships unlayered CSS,
+ * so this override has to be unlayered too, or the beam's own `display: block`
+ * would win over any layered rule.
+ */
+.hn-beam.beam-cta {
+  display: inline-flex;
+  border-radius: var(--radius-pill);
+}
