@@ -193,8 +193,8 @@
       "board": "Ver la pedalera"
     },
     "board": {
-      "alt": "La pedalera de Bass Rig: seis pedales en fila, Compressor, Octave, Drive, Chorus, Echo y Hammer, cada uno con sus perillas y su interruptor de pie. Arriba están el preset Gospel, los botones Save, Save as y Stage, el afinador y la perilla de salida.",
-      "caption": "Captura real de la pedalera de Bass Rig con el preset Gospel. La interfaz todavía está en desarrollo.",
+      "alt": "La pedalera de Bass Rig: seis pedales en fila, cada uno con su propio gabinete, sus perillas y su interruptor de pie. El compresor es azul y dibuja su curva en una pantalla, la octava es violeta con una perilla grande, la saturación es dorada, el chorus es azul con tres perillas blancas, el eco es verde y el previo tiene una llama. Arriba están el preset Gospel, los botones Save, Save as, Stage y Pedals, el afinador y la perilla de salida.",
+      "caption": "Captura real de la pedalera de Bass Rig, con los seis pedales encendidos. La interfaz todavía está en desarrollo.",
       "region": "Captura de la pedalera de Bass Rig",
       "hint": "Desliza para ver los seis pedales"
     },
@@ -287,6 +287,15 @@
       "body": "El modo escenario muestra los presets como botones grandes, con páginas y atajos de teclado, para cambiar de sonido sin menús en pleno servicio.",
       "alt": "El modo escenario de Bass Rig: cinco botones grandes, uno por preset, con Gospel seleccionado.",
       "caption": "Captura real del modo escenario, con dos presets de fábrica y tres de ejemplo."
+    },
+    "daw": {
+      "label": "El DAW",
+      "title": "Graba el ensayo sin salir del rig",
+      "body": "Levita viene con un DAW pequeño: varias pistas, metrónomo, tap tempo y cuenta regresiva antes de grabar. Una pista puede reproducir un archivo de audio y muestra su forma de onda, y la pedalera se abre dentro de la misma ventana.",
+      "alt": "El DAW de Levita con tres pistas: Bass, que graba la entrada 1, y Bass guide y Pad, que reproducen archivos y muestran su forma de onda. Abajo, el tiempo, el tempo en 72 BPM y los botones de grabar, reproducir y detener.",
+      "caption": "Captura real del DAW con tres pistas. La interfaz todavía está en desarrollo.",
+      "rigAlt": "La pedalera de Bass Rig abierta dentro del DAW, sobre la pista Bass, con la barra de transporte debajo.",
+      "rigCaption": "La pedalera abierta dentro del DAW, sobre la pista del bajo."
     },
     "platforms": {
       "label": "Plataformas",

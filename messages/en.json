@@ -193,8 +193,8 @@
       "board": "See the pedalboard"
     },
     "board": {
-      "alt": "The Bass Rig pedalboard: six pedals in a row, Compressor, Octave, Drive, Chorus, Echo and Hammer, each with its knobs and footswitch. Above them are the Gospel preset, the Save, Save as and Stage buttons, the tuner and the output knob.",
-      "caption": "A real capture of the Bass Rig pedalboard with the Gospel preset loaded. The interface is still in progress.",
+      "alt": "The Bass Rig pedalboard: six pedals in a row, each with its own enclosure, knobs and footswitch. The compressor is blue and draws its curve on a screen, the octave is purple with one large knob, the drive is gold, the chorus is blue with three white knobs, the echo is green and the preamp has a flame. Above them are the Gospel preset, the Save, Save as, Stage and Pedals buttons, the tuner and the output knob.",
+      "caption": "A real capture of the Bass Rig pedalboard, with all six pedals on. The interface is still in progress.",
       "region": "Capture of the Bass Rig pedalboard",
       "hint": "Swipe to see all six pedals"
     },
@@ -287,6 +287,15 @@
       "body": "Stage mode shows the presets as big buttons, with pages and keyboard shortcuts, for changing sounds without menus in the middle of a service.",
       "alt": "Bass Rig's stage mode: five big buttons, one per preset, with Gospel selected.",
       "caption": "A real capture of stage mode, with two factory presets and three sample ones."
+    },
+    "daw": {
+      "label": "The DAW",
+      "title": "Record the rehearsal without leaving the rig",
+      "body": "Levita comes with a small DAW: several tracks, a metronome, tap tempo and a count-in before recording. A track can play an audio file and shows its waveform, and the pedalboard opens inside the same window.",
+      "alt": "Levita's DAW with three tracks: Bass, which records input 1, and Bass guide and Pad, which play files and show their waveforms. Below them, the time, the tempo at 72 BPM and the record, play and stop buttons.",
+      "caption": "A real capture of the DAW with three tracks. The interface is still in progress.",
+      "rigAlt": "The Bass Rig pedalboard open inside the DAW, on the Bass track, with the transport bar below it.",
+      "rigCaption": "The pedalboard open inside the DAW, on the bass track."
     },
     "platforms": {
       "label": "Platforms",

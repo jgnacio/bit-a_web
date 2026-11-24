@@ -107,8 +107,14 @@ export const LEVITA_ROADMAP = [
   { id: "windows", stage: "planned" },
 ] as const;
 
-/** Real renders of the plugin, written by the product's own preview tool. */
+/**
+ * Real pictures of the product. `board` and `stage` are renders of the plugin,
+ * written by its own preview tool; `daw` and `dawRig` are captures of the DAW
+ * window, cut to its main panel.
+ */
 export const LEVITA_SHOTS = {
-  board: { src: "/images/products/levita/board.png", width: 1388, height: 520 },
-  stage: { src: "/images/products/levita/stage.png", width: 1388, height: 520 },
+  board: { src: "/images/products/levita/board.png", width: 1366, height: 542 },
+  stage: { src: "/images/products/levita/stage.png", width: 1366, height: 542 },
+  daw: { src: "/images/products/levita/daw.png", width: 1478, height: 1038 },
+  dawRig: { src: "/images/products/levita/daw-rig.png", width: 1478, height: 1038 },
 } as const;

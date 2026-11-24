@@ -193,6 +193,22 @@ export default async function LevitaPage({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="daw-title">
+        <div className="wrap split">
+          <div className="stack reveal" style={{ "--stack-gap": "14px" } as React.CSSProperties}>
+            <span className="label label--subtle">{t("daw.label")}</span>
+            <h2 id="daw-title" className="display display--md" style={{ maxWidth: "14ch" }}>
+              <Dotted>{t("daw.title")}</Dotted>
+            </h2>
+            <p className="lead">{t("daw.body")}</p>
+          </div>
+          <div className="stack reveal" style={{ "--reveal-i": 1, "--stack-gap": "20px" } as React.CSSProperties}>
+            <BoardFigure shot={LEVITA_SHOTS.daw} alt={t("daw.alt")} caption={t("daw.caption")} mode="fit" />
+            <BoardFigure shot={LEVITA_SHOTS.dawRig} alt={t("daw.rigAlt")} caption={t("daw.rigCaption")} mode="fit" />
+          </div>
+        </div>
+      </section>
+
       <section className="band levita-plan" data-surface="inverse" aria-labelledby="roadmap-title">
         <div className="wrap levita-plan__grid">
           <div className="reveal">
